@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+			margin: 100px auto;
+			background-color: red;
+			animation: op 1s linear;
+			/*animation-fill-mode: none;*/
+			animation-fill-mode: backwards;
+		}
+		@keyframes op{
+			10%{
+				transform: rotate(20deg);
+			}
+			25%{
+				transform: rotate(40deg);
+			}
+			75%{
+				transform: rotate(70deg);
+			}
+
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+
+</body>
+</html>

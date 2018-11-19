@@ -1,0 +1,33 @@
+<!DOCTYPE  html>
+<html  lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>标签名字</title>
+	<style type="text/css">
+		/*[title^=baidu]{
+			color: red;
+		}*/
+	    /*[title$=cn]{
+		color: red;
+	}*/
+	    [title~= com]{
+	    	color: red;
+	    }
+
+
+
+
+	</style>
+
+
+
+</head>
+<body>
+	<a href="#" title="baidu">baidu1</a>
+	<a href="#" title="baidu.com">baidu2</a><br>
+	<a href="#" title="baidu.com">baidu3</a><br>
+	<a href="#" title="baidu com">baidu4</a><br>
+
+	<a href="#" title="baidu cn">baidu5</a><br>
+</body>
+</html>
