@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>064-作用域.html</title>
+	<script>
+		var a = 1;
+		var d = 6;
+		function su(){
+			console.log(a);
+			console.log(a + 1);
+			function bb(){
+				var a = 5;
+				var d = a;
+				console.log(a)
+				console.log(d)
+			}
+				bb();
+		}
+	
+		su();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

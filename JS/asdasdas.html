@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="点击消失" id="btn">
+	<div id="box">
+		我是内容。。。。
+	</div>
+	<input type="button" value="点击消失" id="ob">
+	<div id="cc">
+		我是内容。。。。
+	</div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oBox = document.getElementById('box');
+	oBtn.onclick = function(){
+		if(oBox.style.display == 'none') {
+			oBox.style.display = 'block'
+		}else{
+			oBox.style.display = 'none'
+		}
+	}
+	var oBtx = document.getElementById('ob')
+	var oBot = document.getElementById('cc')
+	oBtx.onclick = function(){
+		if (oBot.style.display == 'none') {
+			oBot.style.display = 'block'
+		}else{
+			oBot.style.display = 'none'
+		}
+	}
+</script>
+</html>

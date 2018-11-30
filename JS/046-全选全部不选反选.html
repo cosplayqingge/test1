@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-全选全部不选反选.html</title>
+</head>
+<body>
+	<input type="button" value="全选" id="btn">
+	<input type="button" value="全部不选" id="box">
+	<input type="button" value="反选" id="tp">
+	<div id="Container">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+		<input type="checkbox">
+	</div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oBox = document.getElementById('box');
+	var oTp = document.getElementById('tp');
+	var aContainer = document.getElementById('Container');
+	var oBo = aContainer.getElementsByTagName('input');
+	console.log(oBo);
+	oBtn.onclick = function(){
+		for(i = 0;i<oBo.length;i++){
+			oBo[i].checked = true;
+		}
+	}
+	oBox.onclick = function(){
+		for(i = 0;i<oBo.length;i++){
+			oBo[i].checked = false;
+		}
+	}
+	oTp.onclick = function(){
+		for(i = 0;i<oBo.length;i++){
+			if(oBo[i].checked == true) {
+				oBo[i].checked = false;
+			}else{
+				oBo[i].checked = true;
+			}
+		}
+	}
+
+
+	// var aCheckBox = document.getElementByTagName('input');
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>062-闭包.html</title>
+	<script>
+		var a = 1;
+		function bb(){
+			console.log("c",a);
+			function cc(){
+				var a = 2;
+				console.log("dd",a)
+			}
+			cc();
+		}
+		bb();
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

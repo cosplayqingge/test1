@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>060-全局变量1.html</title>
+	<script>
+		var a = 2;
+		function bu(){
+			console.log("ss",a);//2
+			a = 3;
+			function bu1(){
+				console.log("c",a);//8
+			}
+			var a = 8;
+			bu1();
+		    console.log("oo",a);//8
+			a = 6;
+			function bu2(){
+				console.log("p",a)//6
+			}
+			bu2();
+
+
+		}
+		bu();//2
+		console.log("b",a);//8
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

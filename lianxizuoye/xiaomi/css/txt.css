@@ -1,0 +1,59 @@
+.top{
+	background: #333333;
+	height: 40px;
+}
+.top .top-nav{
+	float: left;
+	margin-left: 162px;
+    width: 344px;
+    height: 40px;
+}
+.top .top-nav-li{
+	float: left;
+	line-height: 40px;
+	text-align: center;
+}
+.top .top-nav .top-nav-li a{
+	color: #fff;
+	font-size: 13px;
+	margin-right: 4px;
+}
+.top .top-nav .sep{
+	color: #42423b;
+	margin: 0.3em;
+}
+
+
+
+.aa{
+	height: 88px;
+	background: pink;
+}
+.bb{
+	height: 500px;
+	background: blue;
+}
+.cc{
+	height: 623px;
+	background: black;
+}
+.dd{
+	height: 572px;
+	background: yellow;
+}
+.ee{
+	height: 573px;
+	background: red;
+}
+.ff{
+	height: 580px;
+	background: gray;
+}
+.gg{
+	height: 221px;
+	background: blue;
+}
+.hh{
+	height: 452px;
+	background: gray;
+}
