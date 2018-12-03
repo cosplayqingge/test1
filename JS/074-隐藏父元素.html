@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>074-隐藏父元素.html</title>
+</head>
+<body>
+	<ul id="box">
+		<li><a href="javascript:;">隐藏</a></li>
+		<li><a href="javascript:;">隐藏</a></li>
+		<li><a href="javascript:;">隐藏</a></li>
+		<li><a href="javascript:;">隐藏</a></li>
+		<li><a href="javascript:;">隐藏</a></li>
+		<li><a href="javascript:;">隐藏</a></li>
+		<li><a href="javascript:;">隐藏</a></li>
+	</ul>
+</body>
+<script>
+	var aA = document.getElementsByTagName('a');
+	for (var i = 0; i < aA.length; i++) {
+		console.log(aA)
+		aA[i].onclick = function(){
+			this.parentNode.style.display = 'none';
+		}
+	}
+</script>
+</html>

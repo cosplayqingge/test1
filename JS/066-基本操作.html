@@ -14,17 +14,46 @@
 		// console.log(":::2",arr1);
 		// console.log(":::3",result);
 
-		// var result = arr1.shift();01
+		// var result = arr1.shift();
 		// console.log(":::2",arr1);//22 33 44 55
 		// console.log(":::3",result);//11
 
-		var result = arr1.unshift(99);
-		console.log(":::2",arr1);//99 11 22 33 44 55		
-		console.log(":::3",result);//99
+		// var result = arr1.unshift(99);
+		// console.log(":::2",arr1);//99 11 22 33 44 55		
+		// console.log(":::3",result);//6
 
-		var result = arr1.splice();
-		console.log(":::2",arr1);
-		console.log(":::3",result);
+		// var result = arr1.splice(0,2);
+		// console.log(":::2",arr1);//33 44 55
+		// console.log(":::3",result);//11 22
+
+		// var result = arr1.splice(2,0,8);
+		// console.log(":::2",arr1);//11 22 8 33 44 55
+		// console.log(":::3",result);
+
+		// var result = arr1.splice(3,1,6);
+		// console.log(":::2",arr1);//11 22 33 6 55
+		// console.log(":::3",result);//
+
+		// var result = arr1.join('*');
+		// console.log(":::2",arr1);//返回值改变
+		// console.log(":::3",result);//11*22*33*44*55
+
+		// var result = arr1.concat([65,58,44]);
+		// console.log(":::2",arr1);//11,22,33,44,55
+		// console.log(":::3",result);//11,22,33,44,55,65,58,44
+
+		// var result = arr1.slice(2,4);
+		// console.log(":::2",arr1);//11,22,33,44,55,
+		// console.log(":::3",result);//33,44
+
+		var result = arr1.indexOf(11,1);//后面为下标数从那个开始查找
+		console.log(":::2",arr1);//11,22,33,44,55
+		console.log(":::3",result);//3 查不到为负数
+
+		var result = arr1.lastIndexOf(11,1);//从后面开始下标数
+		console.log(":::2",arr1);//11,22,33,44,55
+		console.log(":::3",result);//0
+
 
 	</script>
 </head>
