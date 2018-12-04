@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>076-获取属性操作.html</title>
+</head>
+<body>
+	<input type="text" id="dd"  value="99">
+	<input type="button" id="btn" value="点击">
+	<textarea name="" id="contet" cols="30" rows="10"></textarea>
+</body>
+<script>
+	var oDd = document.getElementById('dd');
+	var oBtn = document.getElementById('btn');
+	var oCd = document.getElementById('contet');
+
+	oBtn.onclick = function(){
+		// var val = oDd.value;
+		// oCd.value = val;
+
+		// var val = oDd["value"];
+		// oCd["value"] = val;
+
+		var val = oDd.getAttribute('value');//有属性获取值，没有返回属性 null
+		// console.log(val);
+		// oCd.value = val;
+		oCd.setAttribute('value',val);//有值但是不显示
+		console.log(val)
+	}
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>0100-练习.html</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+<script>
+	var oUl = document.getElementById('ul1');
+	var aLi = oUl.children;
+	// console.log(oUl);
+	var aLi1 = document.createElement('li');
+	var aLi2 = document.createElement('li');
+
+	aLi1.innerHTML = 0;
+	aLi2.innerHTML = 4;
+	oUl.insertBefore(aLi1,aLi[0]);
+	oUl.appendChild(aLi2);
+	oUl.removeChild(aLi[1]);
+ 	
+
+
+
+</script>
+</html>
