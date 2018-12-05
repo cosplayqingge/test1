@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>101-js运行机制.html</title>
+</head>
+<body>
+	<button id="btn">运行</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var i = 0;
+	console.log('1:::',i);
+	oBtn.onclick = function(){
+		i++;
+		console.log('2:::',i);
+	}
+	setTimeout(function(){
+		console.log(i);
+	},2000)
+</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>096-histoty.html</title>
+</head>
+<body>
+	<p><a href="https://www.kuazhu.com">123</a></p>
+	<button id="btn1">前进</button>
+	<button id="btn2">后退</button>
+	<a href="097-后退页面.html">666</a>
+</body>
+<script>
+	var oBtn1 = document.getElementById('btn1');
+	var oBtn2 = document.getElementById('btn2');
+
+	oBtn1.onclick = function(){
+		window.history.go(1)
+	}
+	oBtn2.onclick = function(){
+		window.history.back(-1)
+	}
+</script>
+</html>

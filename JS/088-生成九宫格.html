@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>088-生成九宫格.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: relative;
+			margin-top:50px; 
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">生成</button>
+	<div id="box">
+		<div id="box">
+			<div class="son"></div>
+			<div class="son"></div>
+			<div class="son"></div>
+			<div class="son"></div>
+			<div class="son"></div>
+			<div class="son"></div>
+			<div class="son"></div>
+			<div class="son"></div>
+			<div class="son"></div>
+		</div>
+	</div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oBox = document.getElementById('box');
+	var aSon = oBox.children;
+  	var bp = 3;
+  	var width = 100'px';
+  	var height = 100'px';
+  	var margin = 15'px';
+	for (var i = 0; i < aSon.length; i++) {
+	    var pp = i % bp;
+	    var oo = parseInt(i / bp);
+	    aSon[i].style.left = bp * (width + margin);
+	    aSon[i].style.top = oo * (height + margin);
+	}
+</script>
+</html>
