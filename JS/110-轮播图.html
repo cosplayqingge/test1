@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>110-轮播图.html</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+
+	.carousel{
+		width: 1226px;
+		height: 234px;
+		margin: 95px auto;
+	    position: relative;
+	}
+	.carousel .carousel-op{
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+	}
+	 .carousel .arrow{
+		position: absolute;
+		top: 50%;
+		z-index: 888;
+	    width: 40px;
+	    height: 80px;
+	    margin-top: -40px;
+	    font-size: 35px;
+	    line-height: 80px;
+	    color: #eee;
+	    text-align: center;
+	    cursor: pointer;
+	}
+	.carousel .left-arrow{
+		left: 234px;
+	}
+	 .carousel .right-arrow{
+		right: 0;
+	}
+	.carousel .arrow:hover{
+		background: rgba(0,0,0,0.5);
+		color: #fff;
+	}
+	.carousel .carousel-op img{
+		width: 100%;
+		height: 460px;
+	}
+	.carousel .carousel-btn{
+		position: absolute;
+		right: 30px;
+		bottom: -200px;
+		cursor: pointer;
+	}
+	.carousel .carousel-btn li{
+		float: left;
+		width: 6px;
+		height: 6px;
+		margin-left: 10px;
+		border: 3px solid #b5b3ad;
+		background: #96938a;
+		border-radius: 50%;
+	}
+	.carousel .carousel-btn li:hover{
+		border-color: #979590;
+		background: #fcf9f0;
+	}
+	</style>
+</head>
+<body>
+	<div class="carousel">
+		<ul class="carousel-img">
+		    <li class="carousel-op"><img src="tp/b1.jpg"></li>
+		    <li class="carousel-op"><img src="tp/b2.jpg"></li>
+		    <li class="carousel-op"><img src="tp/b3.jpg"></li>
+	</ul>
+	<span class="arrow left-arrow iconfont">&#xe627;</span>
+	<span class="arrow right-arrow iconfont">&#xe622;</span>
+	<ul class="carousel-btn">
+		<li></li>
+        <li></li>
+        <li></li>
+	</ul>
+	</div>
+</body>
+<script>
+	// var today = new Date();
+
+</script>
+</html>
