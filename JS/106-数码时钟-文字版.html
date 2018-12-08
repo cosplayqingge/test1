@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>106-数码时钟-文字版.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: black;
+		}
+		#pp{
+			width: 400px;
+			margin: 100px auto;
+			text-align: center;
+			font-size: 70px;
+			color: #fff;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="pp">
+	</div>
+</body>
+<script>
+	var oPp = document.getElementById('pp');
+	// var today = new Date();
+	function ss(num){
+		if(num < 10){
+			return '0' + num;
+		}else{
+			return '' + num;
+		}
+		// return num <10 ? '0' + num : '' + num;
+	}
+	 
+	 // var iShi = today.getHours();
+	 // var iFen = today.getMinutes();
+	 // var iMiao = today.getSeconds();
+	 // var iShijian = ss(iShi) + ":" + ss(iFen) +":" + ss(iMiao);
+	 function ii(){
+	 		var today = new Date();
+			 var iShi = today.getHours();
+			 var iFen = today.getMinutes();
+			 var iMiao = today.getSeconds();
+			 var iShijian = ss(iShi) + ":" + ss(iFen) +":" + ss(iMiao);
+			 oPp.innerHTML = iShijian;
+	 }
+
+
+
+
+	 setInterval(ii,1000);
+	 ii();
+
+
+	 // oPp.innerHTML = iShijian;
+
+</script>
+</html>
