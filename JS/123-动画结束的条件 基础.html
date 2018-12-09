@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>123-动画结束的条件 基础</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			top: 50px;
+			left: 0px;
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+		.bb{
+			position: absolute;
+			top: 50px;
+			left: 400px;
+			width: 1px;
+			height: 600px;
+			border: 1px solid blue;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">开始动画</button>
+	<div id="box"></div>
+	<div class="bb"></div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oBox = document.getElementById('box');
+	var a = 0;
+	oBtn.onclick = function(){
+		clearInterval(a);
+		var op = 0;
+		a = setInterval(function(){
+			if(oBox.offsetLeft < 400){
+				op =  30;
+			}else{
+				op = -30;
+			}
+			if((400 - oBox.offsetLeft) < op){
+				oBox.style.left = '400px';
+				clearInterval(a);
+		}else{
+			 oBox.style.left = oBox.offsetLeft + op + 'px';
+			}
+		},30);
+	}
+</script>
+</html>
