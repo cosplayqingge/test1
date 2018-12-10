@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>131-动画顶部固定拖动.html</title>
+	<style>
+	 	*{
+	 		margin: 0;
+	 		padding: 0;
+	 	}
+		#bb{
+			height: 100px;
+			background: red;
+		}
+		#nav{
+			position: fixed;
+			left: 0;
+			top: 0;
+			height: 200px;
+			background-color: #f67;
+		}
+		.vv{
+			height: 1500px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="bb"></div>
+	<div id="nav"></div>
+	<div class="vv">
+		kaka
+	</div>
+</body>
+<script src=""></script>
+<script>
+	var oNav = document.getElementById('nav');
+	window.onscroll = function(){
+		if(getScollTop() >= 100){
+
+		}else{
+			
+		}
+	}
+</script>
+</html>

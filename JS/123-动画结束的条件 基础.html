@@ -40,9 +40,9 @@
 		var op = 0;
 		a = setInterval(function(){
 			if(oBox.offsetLeft < 400){
-				op =  30;
+				op =  7;
 			}else{
-				op = -30;
+				op = -7;
 			}
 			if((400 - oBox.offsetLeft) < op){
 				oBox.style.left = '400px';
@@ -50,6 +50,7 @@
 		}else{
 			 oBox.style.left = oBox.offsetLeft + op + 'px';
 			}
+			// console.log(oBox.offsetLeft,op);
 		},30);
 	}
 </script>

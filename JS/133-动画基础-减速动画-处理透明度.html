@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<<head>
 	<meta charset="UTF-8">
-	<title>120-均速动画</title>
+	<title>122-动画</title>
 	<style>
 		*{
 			margin: 0;
@@ -11,39 +11,35 @@
 		#box{
 			position: absolute;
 			top: 50px;
-			left: 0px;
+			left: 800px;
 			width: 100px;
 			height: 100px;
 			background: red;
-		}
-		.bb{
-			position: absolute;
-			top: 50px;
-			left: 400px;
-			width: 1px;
-			height: 600px;
-			background: blue;
+			opacity: 0.5;
 		}
 	</style>
 </head>
 <body>
 	<button id="btn">开始动画</button>
 	<div id="box"></div>
-	<div class="bb"></div>
 </body>
 <script>
 	var oBtn = document.getElementById('btn');
 	var oBox = document.getElementById('box');
 	var a = 0;
 	oBtn.onclick = function(){
+		clearInterval(a);
+		var op = 0;
 		a = setInterval(function(){
-			if(oBox.offsetLeft == 400){
+			var current = getComputedStyle(oBox,false)['opacity'];
+			current = Math.round(current*100);
+			op = (100 - current)/10;
+			op = op > 0 ? Math.ceil(op): Math.floor(op);
+
+			if(!op){
 				clearInterval(a);
 		}else{
-			 oBox.style.left = oBox.offsetLeft + 10 + 'px';
+			 oBox.style.opacity = (current + op)/100;
 			}
-		},10);
-		console.log(oBox.offsetLeft);
+		},30);
 	}
-</script>
-</html>

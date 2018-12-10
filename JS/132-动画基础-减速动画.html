@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>120-均速动画</title>
+	<title>122-动画</title>
 	<style>
 		*{
 			margin: 0;
@@ -11,7 +11,7 @@
 		#box{
 			position: absolute;
 			top: 50px;
-			left: 0px;
+			left: 800px;
 			width: 100px;
 			height: 100px;
 			background: red;
@@ -22,7 +22,7 @@
 			left: 400px;
 			width: 1px;
 			height: 600px;
-			background: blue;
+			background-color: blue;
 		}
 	</style>
 </head>
@@ -36,14 +36,19 @@
 	var oBox = document.getElementById('box');
 	var a = 0;
 	oBtn.onclick = function(){
+		clearInterval(a);
+		var op = 0;
 		a = setInterval(function(){
+			op = (400 - oBox.offsetLeft)/10;
+			// op = Math.ceil(op);向上取值
+			// op = Math.floor(op);向下取值
+			op = op > 0 ? Math.ceil(op): Math.floor(op);
 			if(oBox.offsetLeft == 400){
 				clearInterval(a);
 		}else{
-			 oBox.style.left = oBox.offsetLeft + 10 + 'px';
+			 oBox.style.left = oBox.offsetLeft + op + 'px';
 			}
-		},10);
-		console.log(oBox.offsetLeft);
+		},30);
 	}
 </script>
 </html>
