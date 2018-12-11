@@ -33,7 +33,8 @@
 		// console.log(parseFloat(getComputedStyle(oBox,false)['opacity']));
 		a = setInterval(function(){
 			var current = parseFloat(getComputedStyle(oBox,false)['opacity']);
-			current = current * 100;
+			current = Math.round(current * 100);
+			console.log(current);
 			if(current < 100){
 				op =  2;
 			}else{

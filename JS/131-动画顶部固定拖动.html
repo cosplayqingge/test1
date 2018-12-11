@@ -8,7 +8,7 @@
 	 		margin: 0;
 	 		padding: 0;
 	 	}
-		#bb{
+		#top{
 			height: 100px;
 			background: red;
 		}
@@ -16,8 +16,9 @@
 			position: fixed;
 			left: 0;
 			top: 0;
-			height: 200px;
-			background-color: #f67;
+			width: 100%;
+			height: 0;
+			background-color: yellow;
 		}
 		.vv{
 			height: 1500px;
@@ -26,20 +27,28 @@
 	</style>
 </head>
 <body>
-	<div id="bb"></div>
+	<div id="top"></div>
 	<div id="nav"></div>
 	<div class="vv">
 		kaka
 	</div>
 </body>
-<script src=""></script>
+<script src="js/002.js"></script>
 <script>
 	var oNav = document.getElementById('nav');
+	var isShow = false;
 	window.onscroll = function(){
-		if(getScollTop() >= 100){
-
+		console.log(getScrollTop());
+		if(getScrollTop() >= 100){
+			if(!isShow){
+				animate(oNav,'height',100);
+				isShow = true;
+			}
 		}else{
-			
+			if(isShow){
+				animate(oNav,'height',0);
+				isShow = false;
+			}
 		}
 	}
 </script>

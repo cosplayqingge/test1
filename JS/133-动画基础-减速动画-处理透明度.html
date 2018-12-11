@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<<head>
+<head>
 	<meta charset="UTF-8">
-	<title>122-动画</title>
+	<title>133-动画</title>
 	<style>
 		*{
 			margin: 0;
@@ -31,15 +31,16 @@
 		clearInterval(a);
 		var op = 0;
 		a = setInterval(function(){
-			var current = getComputedStyle(oBox,false)['opacity'];
+			var current = parseFloat(getComputedStyle(oBox,false)['opacity']);
 			current = Math.round(current*100);
-			op = (100 - current)/10;
-			op = op > 0 ? Math.ceil(op): Math.floor(op);
-
+			op = (100 - current) / 10;
+			op = op > 0 ? Math.ceil(op) : Math.floor(op);
 			if(!op){
 				clearInterval(a);
-		}else{
-			 oBox.style.opacity = (current + op)/100;
+			}else{
+			 	oBox.style.opacity = (current + op) / 100;
 			}
 		},30);
 	}
+</script>
+</html>

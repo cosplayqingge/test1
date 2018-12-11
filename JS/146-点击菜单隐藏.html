@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>146-点击菜单隐藏</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#pp{
+			width: 600px;
+			height: 1000px;
+			margin: 100px auto;
+		}
+		#meu{
+			width: 100px;
+			height: 600px;
+			background-color: gray;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="pp">
+	<button id="btn">点击</button>
+	<div id="meu"></div>
+	</div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oMeu = document.getElementById('meu');
+
+	oBtn.addEventListener('click',function(){
+		oMeu.style.display = 'block';
+
+	},false);
+
+	document.addEventListener('click',function(){
+		oMeu.style.display = 'none';
+	});
+
+</script>
+</html>
