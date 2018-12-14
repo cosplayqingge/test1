@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>158-ctrl+回车.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.wrip{
+			width: 400px;
+			margin: 100px auto;
+		}
+		li{
+			list-style: none;
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			border-bottom: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrip">
+		<input type="text" id="txt">
+		<input type="button" value="提交" id="btn">
+		<ul id="last">
+		</ul>
+	</div>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oLast= document.getElementById('last');
+
+	oTxt.onkeydown = function(ev){
+		console.log(ev.keyCode);
+		if(ev.keyCode == 17){
+			oBtn.onclick();
+		}
+	}
+
+
+
+
+	oBtn.onclick = function(){
+		var oLi = document.createElement('li');
+		oLi.innerHTML = oTxt.value;
+		oTxt.value = '';
+		oLast.insertBefore(oLi,oLast.firstChild);
+	}
+</script>
+</html>

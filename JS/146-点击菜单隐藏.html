@@ -8,12 +8,7 @@
 			margin: 0;
 			padding: 0;
 		}
-		#pp{
-			width: 600px;
-			height: 1000px;
-			margin: 100px auto;
-		}
-		#meu{
+		#menu{
 			width: 100px;
 			height: 600px;
 			background-color: gray;
@@ -22,23 +17,22 @@
 	</style>
 </head>
 <body>
-	<div id="pp">
 	<button id="btn">点击</button>
-	<div id="meu"></div>
-	</div>
+	<div id="menu"></div>
 </body>
 <script>
 	var oBtn = document.getElementById('btn');
-	var oMeu = document.getElementById('meu');
+	var oMenu = document.getElementById('menu');
 
-	oBtn.addEventListener('click',function(){
-		oMeu.style.display = 'block';
+	oBtn.addEventListener('click',function(ev){
+		// console.log(ev);
+		oMenu.style.display = 'block'
 
 	},false);
 
 	document.addEventListener('click',function(){
-		oMeu.style.display = 'none';
-	});
+		oMenu.style.display = 'none';
+	},false);
 
 </script>
 </html>
