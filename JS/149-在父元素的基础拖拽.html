@@ -2,11 +2,18 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>147-基础拖拽.html</title>
+	<title>149-基础拖拽.html</title>
 	<style>
 		*{
 			margin: 0;
 			padding: 0;
+		}
+		#father{
+			width: 500px;
+			height: 500px;
+			background-color: #ccc;
+			position: relative;
+			margin: 100px auto;
 		}
 		#son{
 			position: absolute;
@@ -19,20 +26,36 @@
 	</style>
 </head>
 <body>
+	<div id="father">
 	<div id="son"></div>
+	</div>
 </body>
 <script>
 	var oSon = document.getElementById('son');
+	var oFather = document.getElementById('father');
+
 	var disX = 0;
 	var disY = 0;
 	oSon.onmousedown = function(ev){
 		disX = ev.clientX - oSon.offsetLeft;
 		disY = ev.clientY - oSon.offsetTop;
-		// console.log(disX,disY);
 
 		document.onmousemove = function(ev){
-			oSon.style.left = ev.clientX - disX + 'px';
-			oSon.style.top = ev.clientY - disY + 'px';	
+			var l = ev.clientX - disX;
+			var t = ev.clientY - disY;
+			
+			if(l < 0 ){
+				l = 0;
+			}else if(l >oFather.offsetWidth - oSon.offsetWidth){
+				l = oFather.offsetWidth - oSon.offsetWidth
+			}
+			if(t < 0 ){
+				t = 0;
+			}else if(t> oFather.offsetHeight - oSon.offsetHeight){
+				t = oFather.offsetHeight - oSon.offsetHeight
+			}
+			oSon.style.left = l + 'px';
+			oSon.style.top = t + 'px';	
 		}
 		document.onmouseup = function(){
 			document.onmousemove = null;

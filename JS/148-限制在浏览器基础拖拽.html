@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>147-基础拖拽.html</title>
+	<title>148-基础拖拽.html</title>
 	<style>
 		*{
 			margin: 0;
@@ -28,11 +28,23 @@
 	oSon.onmousedown = function(ev){
 		disX = ev.clientX - oSon.offsetLeft;
 		disY = ev.clientY - oSon.offsetTop;
-		// console.log(disX,disY);
 
 		document.onmousemove = function(ev){
-			oSon.style.left = ev.clientX - disX + 'px';
-			oSon.style.top = ev.clientY - disY + 'px';	
+			var l = ev.clientX - disX;
+			var t = ev.clientY - disY
+			
+			if(l < 0 ){
+				l = 0;
+			}else if(l>window.innerWidth - oSon.offsetWidth){
+				l = window.innerWidth - oSon.offsetWidth
+			}
+			if(t < 0 ){
+				t = 0;
+			}else if(t > window.innerHeight - oSon.offsetHeight){
+				t = window.innerHeight - oSon.offsetHeight
+			}
+			oSon.style.left = l + 'px';
+			oSon.style.top = t + 'px';	
 		}
 		document.onmouseup = function(){
 			document.onmousemove = null;

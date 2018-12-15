@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>152-基础拖拽.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#wrap{
+			width: 500px;
+			height: 30px;
+			background-color: #ccc;
+			position: relative;
+			margin: 100px auto;
+		}
+		#son{
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			width: 30px;
+			height: 30px;
+			background-color: red;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+			opacity: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+	<div id="son"></div>
+	</div>
+	<div id="box"></div>
+</body>
+<script>
+	var oSon = document.getElementById('son');
+	var oBox = document.getElementById('box');
+	var oWrap = document.getElementById('wrap');
+
+	var disX = 0;
+	var disY = 0;
+	oSon.onmousedown = function(ev){
+		disX = ev.clientX - oSon.offsetLeft;
+		disY = ev.clientY - oSon.offsetTop;
+
+		document.onmousemove = function(ev){
+			var l = ev.clientX - disX;
+			var t = ev.clientY - disY;
+			
+			if(l < 0 ){
+				l = 0;
+			}else if(l >oWrap.offsetWidth - oSon.offsetWidth){
+				l = oWrap.offsetWidth - oSon.offsetWidth
+			}
+
+			var scale = l /(oWrap.offsetWidth - oSon.offsetWidth);
+			// console.log(scale)
+
+
+			oSon.style.left = l + 'px';
+
+			oBox.style.width = 100 + 500*scale + 'px';
+			oBox.style.height = 100 + 500*scale + 'px';
+			oBox.style.opacity = scale;
+
+
+
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+</script>
+</html>

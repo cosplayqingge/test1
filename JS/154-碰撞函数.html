@@ -10,29 +10,62 @@
 		}
 		#son{
 			position: absolute;
-			left: 100px;
-			top: 100px;
+			left: 0px;
+			top: 0px;
 			width: 100px;
 			height: 100px;
 			background-color: red;
+		}
+		#box{
+			position: absolute;
+			top: 200px;
+			left: 200px;
+			width: 400px;
+			height: 400px;
+			background-color: gray;
 		}
 	</style>
 </head>
 <body>
 	<div id="son"></div>
+	<div id="box"></div>
 </body>
 <script>
+	function checkBump(obj1,obj2){
+				if(obj1.offsetLeft + obj1.offsetWidth > obj2.offsetLeft
+					&& obj1.offsetTop + obj1.offsetHeight > obj2.offsetTop
+					&& obj2.offsetLeft + obj2.offsetWidth > obj1.offsetLeft
+					&& obj2.offsetTop + obj2.offsetHeight > obj1.offsetTop
+					){
+					return true;
+				}else{
+					return false;
+				}
+
+	}
+
+
+
+
+
 	var oSon = document.getElementById('son');
+	var oBox = document.getElementById('box');
 	var disX = 0;
 	var disY = 0;
 	oSon.onmousedown = function(ev){
 		disX = ev.clientX - oSon.offsetLeft;
 		disY = ev.clientY - oSon.offsetTop;
-		// console.log(disX,disY);
 
 		document.onmousemove = function(ev){
 			oSon.style.left = ev.clientX - disX + 'px';
 			oSon.style.top = ev.clientY - disY + 'px';	
+
+		if(checkBump(oSon,oBox)){
+			oBox.style.backgroundColor = 'yellow';
+		}else{
+			oBox.style.backgroundColor = 'gray'
+		}
+
 		}
 		document.onmouseup = function(){
 			document.onmousemove = null;
