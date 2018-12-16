@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>170-事件type.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin: 150px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+
+	function aa(ev){
+		if(ev.type == 'mouseover'){
+			oBox.style.background = 'red';
+		}else if(ev.type == 'click'){
+			oBox.style.background = 'yellow';
+		}
+	}
+
+	oBox.addEventListener('mouseover',aa,false);
+	oBox.addEventListener('click',aa,false);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
