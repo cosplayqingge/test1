@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>178-创建对象之去除重复数组.html</title>
+	<script>
+		var arr = [11,22,33,44,22,33,99]
+		function say(arr){
+			var result = [];
+			var obj = {};
+			for (var i = 0; i <arr.length; i++) {
+				obj[arr[i]] = '';
+			}
+			// console.log(obj);
+			for( attr in obj){
+				result.push(attr);
+			}
+			return result;
+		}
+		console.log(say(arr));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

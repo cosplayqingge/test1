@@ -3,14 +3,27 @@
 <head>
 	<meta charset="UTF-8">
 	<title>164-表单事件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#bb{
+			width: 500px;
+			margin: 100px auto;
+
+		}
+	</style>
 </head>
 <body>
 	<div id="bb">
-		<form action=""></form>
-		<input type="txt" id="txt">
-		<input type="sublit" id="sub">
-		<input type="reset" id="res">
-		<p id="msg"></p>
+		<form action="http://www.baidu.com" id="from1">
+			<input type="txt" id="txt">
+			<input type="submit" id="sub">
+			<input type="reset" id="res">
+			<p id="msg"></p>
+		</form>
+		
 
 
 
@@ -19,13 +32,29 @@
 	</div>
 </body>
 <script>
-	var oForm = document.getElementById('form');
+	var oForm = document.getElementById('form1');
 	var oTxt = document.getElementById('txt');
 	var oSub = document.getElementById('sub');
 	var oRes = document.getElementById('res');
 	var oMsg = document.getElementById('msg');
 
-
+	oTxt.onfocus = function(){
+		oMsg.style.color = 'green';
+		oMsg.innerHTML = '请输入3-6位用户名'
+	}
+	oTxt.onblur = function(){
+		var len = oTxt.value.length;
+		if(len < 3 || len > 6 ){
+			oMsg.style.color = 'red';
+			oMsg.innerHTML = '用户名不合法'
+		}else{
+			oMsg.style.color = 'green';
+			oMsg.innerHTML = '用户名合法'
+		}
+	}
+	oTxt.onchange = function(){
+		alert('asd')
+	}
 
 
 
