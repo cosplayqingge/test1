@@ -2,18 +2,22 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>183 -new + 工厂函数.html</title>
+	<title>185 -new +工厂函数 +全局函数.html</title>
 	<script>
-		function Person(name,age){
+			function Person(name,age){
 			this.name = name;
 			this.age = age;
-			this.showName = function(){
-				console.log("I am "+this.name);
-			}
-			this.showAge = function(){
-				console.log("I am "+this.age + ' years old');	
-			}
+			this.showName = showName;
+			this.showAge = showAge;
 		}
+		function showName(){
+			console.log("I am "+this.name);
+		}
+		function showAge(){
+			console.log("I am "+this.age + " years old");	
+		}
+
+
 		var Person1 = new Person('tom',18);
 		console.log(Person1);
 		Person1.showName();
