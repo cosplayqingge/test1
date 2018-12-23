@@ -28,7 +28,8 @@
 	// }
 	oSon.addEventListener('click',function(ev){
 		console.log(ev.target);
-		oSon.removeChild(ev.target.parentNode)
+		var target = ev.target;
+		oSon.removeChild(target.parentNode)
 	},false)
 
 </script>
