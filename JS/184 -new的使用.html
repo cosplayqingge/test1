@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>183 -new + 工厂函数.html</title>
+	<title>184 -new的使用.html</title>
 	<script>
 		function Person(name,age){
+			
 			this.name = name;
 			this.age = age;
 			this.showName = function(){
@@ -15,16 +16,16 @@
 			}
 		}
 		var Person1 = new Person('tom',18);
-		console.log(Person1);
-		Person1.showName();
-		Person1.showAge();
+		console.log(Person1);//{name: "tom", age: 18, showName: ƒ, showAge: ƒ}
+		Person1.showName();//I am tom
+		Person1.showAge();//I am 18 years old
 
 		var Person2 = new Person('leo',19);
-		console.log(Person2);
-		Person2.showName();
-		Person2.showAge();
+		console.log(Person2);//{name: "leo", age: 19, showName: ƒ, showAge: ƒ}
+		Person2.showName();//I am leo
+		Person2.showAge();//I am 19 years old
 
-		console.log(Person1.showName == Person2.showName)
+		console.log(Person1.showName == Person2.showName);//false
 	</script>
 </head>
 <body>

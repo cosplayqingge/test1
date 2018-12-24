@@ -2,27 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>187 -构造原型模式创造.html</title>
-	<script>
+	<title>185 - new +全局函数.html</title>
+<script>
+		function showName(){
+				console.log("I am "+this.name);
+		}
+		function showAge(){
+				console.log("I am "+this.age + ' years old');	
+		}
 		function Person(name,age){
 			this.name = name;
 			this.age = age;
+			this.showName = showName;
+			this.showAge = showAge;
+				
 		}
-		Person.prototype.showName = function(){
-			console.log("I am "+this.name);
-		}
-		Person.prototype.showAge = function(){
-			console.log("I am "+this.age + " years old");	
-		}
-		Person.prototype.LEGC = 2;
-
 		var Person1 = new Person('tom',18);
-		console.log(Person1.LEGC);
+		console.log(Person1);
 		Person1.showName();
 		Person1.showAge();
 
 		var Person2 = new Person('leo',19);
-		console.log(Person2.LEGC)
+		console.log(Person2);
 		Person2.showName();
 		Person2.showAge();
 
