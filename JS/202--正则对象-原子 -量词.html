@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>202--正则对象-原子 -量词.html</title>
+	<script>
+		var str = 'asd 123 efg 365 23 f'
+
+		var reg1 = /\d/g;
+		var reg2 = /\d{3}/g;
+		var reg3 = /\d{2,}/g;
+		var reg4 = /\d{1,2}/g;
+		var reg5 = /\d+/g;// = {1,}
+		var reg6= /\d?/g;
+		var reg7= /\d*/g;
+
+		console.log(str.replace(reg1,'*'));//asd *** efg *** ** f
+		console.log(str.replace(reg2,'*'));//asd * efg * 23 f
+		console.log(str.replace(reg3,'*'));//asd * efg * * f
+		console.log(str.replace(reg4,'*'));//asd ** efg ** * f
+		console.log(str.replace(reg5,'*'));//asd * efg * * f
+		console.log(str.replace(reg6,'*'));//*a*s*d* **** *e*f*g* **** *** *f*
+		console.log(str.replace(reg7,'*'));//*a*s*d* ** *e*f*g* ** ** *f*
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
