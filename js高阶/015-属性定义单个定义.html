@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015-属性定义单个定义.html</title>
+	<script>
+		function person(name,age){
+			this.name = name;
+			this.age = age ;
+		}
+		person.prototype.shagename = function(){
+			console.log('I am ' + this.name)
+		}
+		person.prototype.shageage = function(){
+			console.log('I am ' + this.age + ' years old')
+		}
+		person.prototype.EYES = 4;
+		var p1 = new person('tom','18');
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
