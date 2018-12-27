@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>015-属性定义单个定义.html</title>
+	<title>018.继承.html</title>
 	<script>
 		function person(name,age){
 			this.name = name;
@@ -15,13 +15,6 @@
 			console.log('I am ' + this.age + ' years old')
 		}
 		var p1 = new person('tom','18');
-		Object.defineProperty(p1,'EYES',{
-			value : 2
-		});
-		console.log(p1);
-		for(var attr in p1){
-			console.log(attr,p1[attr]);
-		}
 	</script>
 </head>
 <body>

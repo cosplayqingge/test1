@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习.html</title>
+</head>
+<body>
+	用户名<input type="text" id="son"><div id="box"></div>
+	密码<input type="password" id="asd"><div id="box2"></div>
+</body>
+<script>
+	var oSon = document.getElementById('son');
+	var oAsd = document.getElementById('asd');
+	var oBox = document.getElementById('box');
+	var oBox2 = document.getElementById('box');
+	oTxt.oninput = function(){
+		var oTxtvalue = oTxt.value;
+		var reg1 = /^\w{3,8}$/ig;
+		if (reg1,test(oTxtvalue)) {
+			oBox.innerHTML = '正确'
+		}else{
+			oBox.innerHTML = '错误'
+		}
+	}
+	oAsd.oninput = function(){
+		var oAsdvalue = oAsd.value;
+		var reg2 = /^\w{1}[0-9a-z]{7,11}$/ig;
+		if (reg2,test(oAsdvalue)) {
+			oBox2.innerHTML = '正确'
+		}else{
+			oBox2.innerHTML = '错误'
+		}
+	}
+
+
+
+</script>
+</html>
