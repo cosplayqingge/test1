@@ -14,10 +14,15 @@
 		person.prototype.shageage = function(){
 			console.log('I am ' + this.age + ' years old')
 		}
+		person.prototype.LEGS = 6;
 		var p1 = new person('tom','18');
-		console.log(p1.name);
-		console.log(p1.shagename);
-		console.log(p1.toString);
+		console.log('p1.name::',p1.name);//p1.name:: tom
+		console.log('p1.age:::',p1.age);//p1.age::: 18
+		console.log('p1.LEGS',p1.LEGS);//p1.LEGS 6
+		console.log('p1.shagename',p1.shagename);//访问这个函数
+		console.log('p1.toString',p1.toString);//Objiet上的toString方法
+		console.log('p1.test',p1.test);//undefined未定义
+		// p1.test();//报错  类型错误
 
 
 

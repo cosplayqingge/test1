@@ -15,24 +15,45 @@
 			console.log('I am ' + this.age + ' years old')
 		}
 		person.prototype.EYES = 4;
-		var p1 = new person('tom','18');
+		var p1 = new person('tom','18');;
 
-
+		// console.log(p1.hasOwnProperty('name'));//true
 		if(p1.hasOwnProperty("name")){
 			console.log(p1.name)
 		}else{
-			console.log(nosting)
-		}//实例上
-		if("EYES" in p1){
-			console.log(p1.EYES)
-		}else{
-			console.log(nosting)
-		}//原型链上
-
-		function sd(obj,arr){
-			return !obj.hasOwnProperty(name) && (arr in obj);
+			console.log('nothing...')
 		}
-		// console.log(hasOwnProperty());
+		//实例上用。hasOwnProperty('属性')
+		// if(p1.hasOwnProperty('EYES')){
+		// 	console.log(p1.EYES)
+		// }else{
+		// 	console.log('nothing...')
+		// }//nothing...
+
+
+		//找原型上用in
+		// if("EYES" in p1){
+		// 	console.log(p1.EYES)
+		// }else{
+		// 	console.log('nothing...')
+		// }
+		// if("name" in p1){
+		// 	console.log(p1.name)
+		// }else{
+		// 	console.log("nothing...")
+		// }
+
+
+		if(say(p1,"EYES")){
+			console.log(p1.EYES)
+		}
+		if (say(p1,"name")){
+			console.log(p1.name)
+		}
+		//原型链上用的方法
+		function say(obj,attr){
+			return !obj.hasOwnProperty(attr) && (attr in obj)
+		}
 	</script>
 </head>
 <body>

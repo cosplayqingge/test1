@@ -16,13 +16,21 @@
 		}
 		person.prototype.EYEs = 2;
 		var p1 = new person('tom','18');
-		console.log(p1.name)
+
+		console.log(delete p1.EYEs);//只是删除属性上的  原型不会被影响
+		console.log(p1.name);//tom
+		delete p1.name;//删除
+		console.log(p1.name);//undefined
 		console.log(delete p1.name);//true
-		console.log(delete p1.toString);//true
-		console.log(p1.name);
-		console.log(p1.EYEs);
-		console.log(delete person.prototype.EYEs);
-		console.log(p1.EYEs);
+		console.log(p1.EYEs);//2
+		delete person.prototype.EYEs;
+		console.log(p1.EYEs);//undefined
+
+
+
+		var p2 = new person('leo','99');
+		console.log(p2.EYEs);//undefined  前面把原型这个属性删除
+	
 	</script>
 </head>
 <body>

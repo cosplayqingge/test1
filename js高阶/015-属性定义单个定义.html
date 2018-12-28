@@ -14,14 +14,36 @@
 		person.prototype.shageage = function(){
 			console.log('I am ' + this.age + ' years old')
 		}
+		person.prototype.LEGS = 4;
 		var p1 = new person('tom','18');
+		// p1.EYES = 2;
+		// console.log('p1:::',p1);
+		// for(var attr in p1){
+		// 	console.log(attr,p1[attr])  
+		// } 
+
+
+		// Object.defineProperty(p1,'EYES',{
+		// 	value: 2
+		// });//默认为无法更改,无法遍历,无法删除
+		// p1.EYES = 4;
+		// for(var attr in p1){
+		// 	console.log(attr,p1[attr])  
+		// }    
+		// console.log(p1);
+		
 		Object.defineProperty(p1,'EYES',{
-			value : 2
+			value: 2,
+			enumerable:true, //可以遍历
+			writable:true, //可以赋值
+			configurable:true //可以删除 获取权限
 		});
-		console.log(p1);
+		p1.EYES = 4;
+		console.log(delete p1.EYES);
 		for(var attr in p1){
-			console.log(attr,p1[attr]);
-		}
+			console.log(attr,p1[attr])  
+		} 
+		console.log(p1.EYES)  
 	</script>
 </head>
 <body>

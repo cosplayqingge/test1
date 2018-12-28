@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>012-原型链.html</title>
+	<title>014-属性的添加.html</title>
 	<script>
 		function person(name,age){
 			this.name = name;
@@ -14,19 +14,15 @@
 		person.prototype.shageage = function(){
 			console.log('I am ' + this.age + ' years old')
 		}
-		
-
+		person.prototype.EYES = 4;
 		var p1 = new person('tom','18');
-		var p2 = new person('leo','99');
-		p1.shagename = function(){
-			console.log('I am ' + this.name +'!!!!')
-		}
-		// console.log(p1.__proto__ == person.prototype);//true
-		// console.log(p1.__proto__ === p2.__proto__);//true
-		p1.shagename();//I am tom!!!!
-		p1.shageage();//I am 18 years old
-		// p1.test();//报错
-		p1.toString();
+		// console.log(p1);
+		console.log(p1.EYES);//4
+		p1.LEGH = 4;
+		p1.EYES = 8;
+		console.log(p1.EYES);//8
+		console.log(p1);
+
 
 
 

@@ -14,7 +14,23 @@
 		person.prototype.shageage = function(){
 			console.log('I am ' + this.age + ' years old')
 		}
-		var p1 = new person('tom','18');
+		person.prototype.LEGS = 2;
+		
+		function student(name,age,majio){
+			this.name = name;
+			this.age = age;
+			this.majio = majio;
+		}
+		student.prototype.shagename = function(){
+			console.log('I am ' + this.name)
+		}
+		student.prototype.shageage = function(){
+			console.log('I am ' + this.age + ' years old')
+		}
+		student.prototype.shagemio = function(){
+			console.log("I am from" + this.majio)
+		}
+		student.prototype.LEGS = 2;
 	</script>
 </head>
 <body>
