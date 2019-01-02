@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>041-数组高级使用方法.html</title>
+	<script>
+		arr = [1,2,5,7,10,30,50];
+
+		// var attr1 = arr.forEach(function(value,index){
+		// 	console.log('value,index',value,index)
+		// });
+		// console.log(attr1);//没有返回值
+
+		// var attr1 = arr.map(function(value,index){
+		// 	console.log('value,index',value,index)
+		// 	return value*10
+		// });
+		// console.log(attr1);
+		var attr1 = arr.filter(function(value,index){
+			console.log('value,index',value,index)
+			return value>10
+		});
+		console.log(attr1);
+
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

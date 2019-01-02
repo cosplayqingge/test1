@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040-单例模式-惰性登录框.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.son{
+			display: none;
+			position: absolute;
+			top: 100px;
+			left: 500px;
+			width: 100px;
+			height: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" id="btn" value="登录">
+	<div class="son"></div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oSon = document.querySelector('.son');
+
+	oBtn.onclick = function(){
+		// oSon.style.display = 'block';
+		var oDiv = document.crearteElement('div');
+		oDiv.className = 'son';
+		document.body.appendChild(oDiv);
+
+	}
+
+
+
+
+
+</script>
+</html>
