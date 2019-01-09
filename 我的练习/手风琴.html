@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手风琴.html</title>
+	<style>
+		*{
+		margin: 0;
+		padding: 0;
+		}
+		.c{
+			width:  1246px;
+			height: 310px;
+			border: 1px solid #fff;
+			overflow: hidden;
+		}
+		.red{
+		    float: left;
+ 			width: 249.2px;
+ 			height: 310px;
+		}
+		.blue{
+		    float: left;
+ 			width: 249.2px;
+ 			height: 310px;
+		}
+		.green{
+		    float: left;
+ 			width: 249.2px;
+ 			height: 310px;
+		}
+		.yellow{
+		    float: left;
+ 			width: 249.2px;
+ 			height: 310px;
+		}
+		.green{
+			float: left;
+			width: 249.2px;
+ 			height: 310px;
+		}
+	</style>
+</head>
+<body>
+	<div class="c">
+    <p class="red"><img src="qingge8.png" alt=""></p>
+    <p class="blue"><img src="qingge9.png" alt=""></p>
+    <p class="green"><img src="qingge10.png" alt=""></p>
+    <p class="yellow"><img src="qingge11.png" alt=""></p>
+    <p class="green"><img src="qingge12.png" alt=""></p>
+</div>
+</body>
+<script>
+	(function () {
+    //查找元素
+    var c = document.querySelector('.c');
+    var ps = document.querySelectorAll('.c p');
+ 
+    //绑定事件：事件的对象是其中一个p元素，给每个p元素绑定事件
+    for (var i = 0; i < ps.length; i++) {
+ 
+        //需求的第一个元素：被点击的元素
+        var p = ps[i];
+ 
+ 
+        p.onmouseenter = function () {
+            //需求的第二个元素：兄弟中最大的元素
+            for (var j = 0; j < ps.length; j++) {
+                if(getComputedStyle(ps[j]).width=='414px'){
+                    var obj = ps[j];
+                    break;
+                }
+            }
+            
+            //点击的当前元素宽度变大
+            if(getComputedStyle(this).width=='249.2px'){
+                this.style.width = 414 + 'px';
+                obj.style.width = 249.2 + 'px';
+            }
+ 
+        }
+    }
+})();
+</script>
+</html>

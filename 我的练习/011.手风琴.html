@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011.手风琴.html</title>
+	<style>
+		.brand .brandLi{
+				width: 1200px;
+				height: 250px;
+				overflow: hidden;
+		}
+		.brand .brandLi li{
+				width: 150px;
+				float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="brand">
+		<ul class="brandLi">
+			<li><img src="qingge8.png" alt="" /></li>
+			<li><img src="qingge9.png" alt="" /></li>
+			<li><img src="qingge10.png" alt="" /></li>
+			<li><img src="qingge11.png" alt="" /></li>
+			<li><img src="qingge12.png" alt="" /></li>
+		</ul>
+</div>
+</body>
+<script>
+	var brandLi = document.querySelector(".brandLi");
+	var brandList = brandLi.getElementsByTagName("li");
+	var timer = null;
+	function list(){
+			for(var m=0;m<brandList.length;m++){
+					brandList[m].index = m;
+					brandList[m].onmouseover = function(){
+							var index = this.index;
+							if(timer){
+							clearInterval(timer);
+							}
+					timer = setInterval(function(){
+						var iWidth = brand.offsetWidth;
+						//console.log(iWidth); 1200
+						for(var m=0;m<brandList.length;m++){
+							if(index != brandList[m].index){
+							var speed = (150 - brandList[m].offsetWidth) / 5;
+							speed = speed > 0 ? Math.ceil(speed):Math.floor(speed);
+							brandList[m].style.width = brandList[m].offsetWidth + speed + "px";
+							iWidth -= brandList[m].offsetWidth; 
+					}
+				}
+							brandList[index].style.width = iWidth + "px";
+			},30);
+		}
+		}
+							}
+list();
+</script>
+</html>
