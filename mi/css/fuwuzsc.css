@@ -129,22 +129,34 @@
 	height: 100px;
 }
 .header .logo{
+	position: relative;
 	float: left;
 	width: 55px;
 	height: 55px;
-	margin-top: 22px;
-	background: #ff6700;
+	background: #ff6700; 
+	box-sizing: border-box;
 }
-.header .logo a{
-	display: block;
-	width: 100%;
-	height: 100%;
-	background-image: url(../imgzsc/logo.png);
-	background-repeat: no-repeat;
-	background-position: center center;
-	text-indent: -9999em;
+.header .logo{
+	margin-top: 20px;
 }
-.header .header-nav{
+.header .logo img{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 55px;
+	height: 55px;
+	transition: all .5s;
+}
+.header .logo .logo-home{
+	transform: translateX(-60px);		
+	/*transform: translateX(-60px);*/
+}
+.logo:hover .logo-logo{		
+	transform: translateX(60px);
+}
+.logo:hover .logo-home{
+	transform: translateX(0px);
+}.header .header-nav{
 	float: left;
 	margin-left: 190px;
 }
@@ -690,7 +702,7 @@
 	font-size: 15px;
 	color: #222222;
 	margin-left: 30px;
-	width: 200px;
+	width: 300px;
 	height: 50px;
 }
 .service .box2 .header-nav #tab-container .a1:nth-child(1){
@@ -700,7 +712,7 @@
 }
 .service .box2 .header-nav #tab-container .a1:nth-child(2){
 	position: absolute;
-	left: 600px;
+	left: 700px;
 	top: 0;
 }
 .service .box2 .header-nav #tab-container .a1:nth-child(3){
@@ -710,7 +722,7 @@
 }
 .service .box2 .header-nav #tab-container .a1:nth-child(4){
 	position: absolute;
-	left: 600px;
+	left: 700px;
 	top: 50px;
 }
 .service .box2 .header-nav #tab-container .a1:nth-child(5){
@@ -720,7 +732,7 @@
 }
 .service .box2 .header-nav #tab-container .a1:nth-child(6){
 	position: absolute;
-	left: 600px;
+	left: 700px;
 	top: 100px;
 }
 .service .box2 .header-nav #tab-container{
