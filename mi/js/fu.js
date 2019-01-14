@@ -140,7 +140,7 @@ function handleCate(){
 			},500)
 		}
 }	
-	
+//切换二维码	
 //处理动图切换
 function tabImg(){
 	var oImg = document.querySelector('.contact .box .q-img');

@@ -39,10 +39,9 @@ var aNavItemData = [
 		},
 		{
 			url:'https://www.baidu.com',
-			img:'imgzsc/s7.jpg',
+			img:'imgzsc/p1.jpg',
 			name:'红米6 Pro 3GB+32GB',
 			price:'869',
-			tag:'八折'
 		}
 	],
 	[
