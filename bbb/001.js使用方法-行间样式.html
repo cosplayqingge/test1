@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001.js使用方法-行间样式.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		section{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin: 100px auto;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background: gray;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<section onclick="this.style.background = 'blue'"></section>
+	<!-- <input type="checkbox" 
+		onmouseover="box.style.display = 'block'" 
+		onmouseleave="box.style.display = 'none'" 
+	>7天免登陆 -->
+	<input type="checkbox" 
+		onmouseover="document.getElementById('box').style.display = 'block'" 
+		onmouseleave="document.getElementById('box').style.display = 'none'" 
+	>7天免登陆
+	<div id="box">为了你的安全请注意</div>
+</body>
+</html>
