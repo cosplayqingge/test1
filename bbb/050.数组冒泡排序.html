@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>050.数组冒泡排序.html</title>
+</head>
+<body>
+</body>
+<script>
+	var arr = [11,56,3,78,4,2,89,6,5];
+	// console.log(arr);
+	// var tmp;
+	// for(var i = 0;i<arr.length;i++){
+	// 	// console.log(arr);
+	// 	for(var j = i + 1;j<arr.length;j++){
+	// 		if(arr[i]>arr[j]){
+	// 			tmp = arr[i];
+	// 			arr[i] = arr[j];
+	// 			arr[j] = tmp;
+	// 		}
+	// 	}
+	// }
+	// console.log(arr);
+	// 
+	arr.sort(function(n1,n2){
+		// if(n1<n2){
+		// 	return -1
+		// }else if(n1>n2){
+		// 	return 1
+		// }else{
+		// 	return 0
+		// }
+		return n1 - n2
+	})
+	console.log(arr);
+</script>
+</html>
