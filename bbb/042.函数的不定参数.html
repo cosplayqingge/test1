@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>042.函数的不定参数.html</title>
+	<script>
+		function  say(){
+			
+			// alert(n1+n2+n3)
+			console.log(arguments);
+			var a = 0;
+			for(var i = 0;i<arguments.length;i++){
+				a = a + arguments[i]
+			}
+			alert(a);
+		}
+		say(3,4,5)
+	</script>
+</head>
+<body>
+</body>
+</html>

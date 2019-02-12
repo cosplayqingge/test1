@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>035.选项卡案例2.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		#btn{
+			overflow:hidden;
+			margin-bottom: 20px;
+		}
+		#btn li{
+			float: left;
+			margin-right: 20px;
+			cursor: pointer;
+		}
+		.active{
+			color: #ff6700;
+			border-bottom: 2px solid #ff6700;
+		}
+		#son li{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			line-height: 200px;
+			text-align: center;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<ul id="btn">
+		<li class="active">电脑</li>
+		<li>电视</li>
+		<li>手机</li>
+		<li>清歌</li>
+	</ul>
+	<ul id="son">
+		<li style="display: block;">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+<script>
+	var aBtn = document.querySelectorAll('#btn li');
+	var oSon = document.querySelectorAll('#son li');
+	// console.log(aBtn);
+	for(var i = 0;i<aBtn.length;i++){
+		aBtn[i].index = i;
+		aBtn[i].onclick = function(){
+			for(var j = 0;j<aBtn.length;j++){
+				aBtn[j].className = '';
+				oSon[j].style.display = 'none';
+
+			}
+
+
+			this.className = 'active';//谁运行this就指向谁
+			oSon[this.index].style.display = 'block';
+		}
+
+	}
+
+
+
+
+</script>
+</html>

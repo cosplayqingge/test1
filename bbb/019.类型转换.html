@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>019-类型转换.html</title>
+	<!-- <script type="text/javascript">
+		alert(5+"5")//55
+	</script> -->
+</head>
+<body>
+	<input type="text" id="son">
+	<input type="text" id="box">
+	<input type="button" id="lol" value="点击">
+</body>
+<script type="text/javascript">
+	var oSon = document.getElementById('son');
+	var oBox = document.getElementById('box');
+	var oLol = document.getElementById('lol');
+
+	oLol.onclick = function(){
+		var value1 = parseInt(oSon.value);
+		var value2 = parseInt(oBox.value);
+
+		// alert(value1 + value2);
+		if (isNaN(value1)) {
+			alert('输入错误')
+
+			console.log(typeof isNaN(value1))
+		}else if(isNaN(value2)){
+			alert('输入失败')
+		}else{
+			alert(value1 + value2);
+		}
+
+
+	}
+
+
+
+
+</script>
+</html>

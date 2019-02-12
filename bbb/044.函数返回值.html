@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>044.函数返回值.html</title>
+	<script>
+		function sum(){
+			if(arguments[0] == 0){
+				return;
+			}
+			var result = 0;
+			for(var i = 0;i<arguments.length;i++){
+				result = result + arguments[i]
+			}
+			return result
+		}
+		alert(sum(0,2,3))
+	</script>
+</head>
+<body>
+</body>
+</html>

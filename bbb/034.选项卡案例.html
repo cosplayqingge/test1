@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>034.选项卡案例.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		#son{
+			overflow: hidden;
+			margin-bottom: 20px;
+		}
+		#son li{
+			float: left; 
+			margin-right: 20px;
+			cursor: pointer;
+		}
+		.active{
+			color: #ff6700;
+			border-bottom: 2px solid #ff6700;
+		}
+		#box li{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			text-align: center;
+			line-height: 200px;
+			font-size: 50px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<ul id="son">
+		<li class="active">电脑</li>
+		<li>电视</li>
+		<li>手机</li>
+		<li>清歌</li>
+	</ul>
+	<ul id="box">
+		<li style="display: block;">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+<script type="text/javascript">
+	var aSox = document.querySelectorAll('#son li');
+	var oBox = document.querySelectorAll('#box li');
+	// console.log(aSox)
+	for(var i = 0;i<aSox.length;i++){
+		aSox[i].index = i;
+		aSox[i].onclick = function(){
+			for(var j = 0;j<aSox.length;j++){
+				aSox[j].className = '';
+				oBox[j].style.display = 'none';
+
+			}
+			// console.log(i)
+			console.log(this.index);
+			this.className = 'active';
+			oBox[this.index].style.display = 'block';
+
+			// aBox[i].style.display = 'block';
+		}
+	}
+</script>
+</html>
