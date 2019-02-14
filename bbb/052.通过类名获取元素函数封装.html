@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>052.通过类名获取元素函数封装.html</title>
+</head>
+<body>
+	<ul id="oul">
+		<li class="box">1</li>
+		<li>2</li>
+		<li class="box">3</li>
+		<li>4</li>
+		<li class="box">5</li>
+	</ul>
+</body>
+<script>
+	function getElementsByClass(attr,cff){
+		var oLi = attr.children;
+		var result = [];
+		for(var i = 0;i<oLi.length;i++){
+			if(oLi[i].className == cff){
+				result.push(oLi[i])
+			}
+		}
+		return result
+	}
+	var oUl = document.getElementById('oul');
+	console.log(oUl);
+	var aBox = getElementsByClass(oUl,'box');
+	console.log(aBox)
+</script>
+</html>

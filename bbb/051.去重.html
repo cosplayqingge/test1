@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>051.去重.html</title>
+</head>
+<body>
+</body>
+<script>
+	var arr = [1,2,4,6,7,3,2,1,9];
+
+	function say(nex){
+		var result = [];
+		for(var i=0;i<nex.length;i++){
+			// var isput = false;
+			// for(var j=0;j<result.length;j++){
+			// 	if(nex[i] == result[j]){
+			// 		isput = true;
+			// 		break;
+			// 		}
+			// 	}
+			// if(!isput){
+			// 	result.push(nex[i])
+			// }	
+			if(result.indexOf(nex[i])==-1){
+				result.push(nex[i]);
+			} 
+				
+		}	
+		return result
+	}
+	// console.log(!false)
+	var arr2 = say(arr);
+	console.log(arr);
+	console.log(arr2);
+
+
+
+
+</script>
+</html>
