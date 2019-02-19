@@ -1,0 +1,974 @@
+/*
+通用样式
+ */
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.container{
+	position: relative;
+	width: 1190px;
+	margin: 0 auto;
+}
+a{
+	display: block;
+	box-sizing: border-box;
+	text-decoration: none;
+	color: #000;
+}
+div{
+	box-sizing: border-box;
+}
+#yl{
+	display: inline-block;
+	color: #666;
+	font-size: 12px;	
+	color: #f60;
+}
+.bs{
+	display: inline-block;
+	color: #666;
+	font-size: 12px;
+}
+.bs:hover{
+	color: #f60;
+	cursor: pointer;
+}
+.bbgs:hover{
+	background: #f60;
+}
+input, textarea, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+}
+.iconfont, em, i {
+    font-style: normal;
+}
+/*
+通用样式结束
+ */
+/*顶部样式*/
+.top1{
+	width: 100%;
+	background: #f60;
+}
+.topad{
+	box-sizing: border-box;
+	overflow: hidden;
+	height: 0px;
+}
+.top1 a img{
+	width: 100%;
+}
+#ad1btn:hover{
+	background-color: #aaa;
+}
+.ad1btn{
+	position: absolute;
+    top: 3px;
+    right: 56px;
+    width: 15px;
+    height: 15px;
+    overflow: hidden;
+    background: url('../images/jingling.png') -241px -145px;
+    z-index: 2;
+}
+.ad1btn1{
+	position: absolute;
+    top: 3px;
+    right: 56px;
+    width: 15px;
+    height: 15px;
+    overflow: hidden;
+    background: url('../images/jingling.png') -241px -161px;
+    z-index: 2;	
+}
+/*顶部导航开始*/
+.top2{
+	background: #f5f5f5;
+	border-bottom: 1px solid #eee;	
+}
+#ng{
+	height: 36px;
+}
+#ng div{
+	display: inline-block;
+}
+.arrows{
+	display: inline-block;
+	transform: rotate(0deg);
+	color: #ccc;
+	font-size: 12px;
+	transition: all .2s ease-in;
+}
+.ng-item:hover .arrows{
+	transform: rotate(-180deg);
+}
+.ng-item{
+	font-size: 12px;
+	color: #666;
+	border: 1px solid #f5f5f5;
+	border-bottom: none;
+	position: relative;
+	line-height: 35px;
+	padding: 0 10px;
+}
+.ng-item:hover{
+	background: #fff;
+	border: 1px solid #eee;
+	z-index:999;
+	border-bottom-color:#fff;
+}
+.ng-left-div{
+	position: relative;
+}
+.ng-left-div em{
+	display: inline-block;
+}
+.ng-left-div a{
+	display: inline-block;
+}
+.ng-left .ng-left-div .ng-sn-site-na{
+	position: absolute;
+	left: 0px;
+	top: 36px;
+	width: 988px;
+	background: #fff;
+	z-index: 2;
+	padding: 20px 0 20px 0;
+	border: 1px solid #eee;
+}
+
+.ng-sn-site-na dl{
+	float: left;
+	padding-left:20px;
+	width: 174px;
+	color: #000;
+	font-size: 14px;
+	border-right: 1px solid #eee;
+}
+.hot-re{
+    background: url('../images/re.png') 0 123px;
+    width: 14px;
+    height: 14px;
+}
+#last-dl{
+	border-right: none;
+}
+.ng-sn-site-na dt{
+	height: 25px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 17px;
+}
+.ng-sn-site-na p {
+    float: left;
+    width: 75px;
+    height: 25px;
+}
+.chazi-Lj{
+	position: absolute;
+	right: 5px;
+	top: 5px;
+    width: 20px;
+    height: 20px;	
+}
+.chazi-box {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    transform: rotate(0deg);
+    border-top-left-radius: 50%;
+    transition: all .2s;
+}
+
+.chazi-box:hover {
+    transform: rotate(-180deg);
+    color: #f60;
+}
+
+.chazi1 {
+    position: absolute;
+    left: 50%;
+    margin-left: -9px;
+    top: -1px;
+
+}
+
+.chazi2 {
+    box-sizing: border-box;
+    transform: rotate(180deg);
+    position: absolute;
+    left: 50%;
+    margin-left: -9px;
+    top: 4px;
+}
+.ng-sn-site-re{
+	width: 172px;
+
+}
+#ng .ng-left-div .ng-sn-site-Down .p-top1{
+	width: 60px;
+    height: 60px;
+    padding-left: 10px;	
+}
+#ng .ng-left-div .ng-sn-site-Down .p-top2{
+    width: 60px;
+    height: 60px;
+    padding-left: 10px;
+    line-height: 60px;
+    padding-left: 20px;
+}
+.ng-sn-site-dd{
+	width: 100%;
+}
+#ng .ng-left-div .ng-sn-site-Down{
+	display: none;
+	position: absolute;
+	top: 36px;
+	z-index: 2;
+	background: #fff;
+	border: 1px solid #eee;
+	padding: 5px 0 5px 0;
+}
+#ng .ng-left-div .ng-sn-site-Down p{
+	float: left;
+    width: 75px;
+    height: 25px;
+    padding-left: 10px; 
+}
+.zxzx{
+	background: url(../images/re.png) -140px 229px;
+    width: 23px;
+    height: 23px;
+}
+.snhy{
+    background: url('../images/jingling.png') -113px -1px;
+    width: 12px;
+    height: 12px;
+}
+.ng-right{
+	float: right;
+}
+.ng-bar-node a{
+	color: #666;
+	font-size: 12px;
+}
+.Dl{
+	margin-right: 10px;
+}
+.shop-box{
+	width: 280px;
+    height: 400px;
+    background: #666;
+    overflow: hidden;
+    padding-bottom: 0;
+    font: 12px/1.5 arial,tahoma,\5b8b\4f53; 
+}
+.shop-load{
+	margin: 90px;
+}
+.shop-comm i{
+    display: block;
+    margin-left: 66px;
+    margin-top: 100px;
+    width: 150px;
+    height: 96px;
+    background: url(../images/shop.png) 0px -291px;
+}
+.shop-comm h5{
+    color: #bbb9b9;
+    width: 280px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+.shop{
+	font-size: 14px;
+	color: #f60;
+	font-weight: bold;
+}
+.desc{
+	text-align: center;
+	margin-top: 20px;
+	font-size: 12px;
+	color: #9e9a9a;
+}
+.btn{
+	width: 80px;
+    height: 30px;
+    background: #f60;
+    line-height: 30px;
+    color: #fff;
+}
+.phone-sn{
+	width: 540px;
+	right: 0px;
+}
+.phone-sn ul{
+	width: 540px;
+}
+.phone-sn li{
+    float: left;
+    width: 180px;
+    margin: 17px 0 0;
+}
+.phone-sn li img{
+    display: block;
+    width: 147px;
+    height: 147px;
+    margin: 0 auto 10px;
+}
+#ng .ng-left-div .ng-sn-site-Down li p{
+	font-size: 12px;
+    width: 180px;
+    height: 14px;
+    line-height: 14px;
+    overflow: hidden;
+    text-align: center;
+    color: #666;
+}
+.line{
+    position: absolute;
+    top: 42px;
+    left: 179px;
+    width: 1px;
+    height: 97px;
+    background: #DEDEDE;
+}
+.line-tow{
+	left: 359px;
+}
+/*顶部导航结束*/
+/*头部导航开始*/
+.top3{
+	background: #fff;
+	height: 110px;
+}
+.suninglogo{
+	display: inline-block;
+	width: 190px;
+	height: 90px;
+}
+.ng-search{
+	width: 600px;
+	height: 100px;
+	position: absolute;
+	left: 370px;
+	top: 0;
+	padding-top: 30px;
+}
+.search-icon{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -2px;
+    width: 25px;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    font-size: 14px;
+    color: #ccc;	
+}
+.search-keyword-box{
+	float: left;
+    width: 420px;
+    padding: 0 0 0 28px;
+    border: 2px solid #FA0;
+    border-right: none;
+    position: relative;
+}
+.search-keyword{
+	width: 380px;
+    padding: 9px 10px 9px 0;
+    height: 18px;
+    line-height: 18px;
+    border: none;
+    background: #FFF;
+    color: #BBB;
+    font-size: 12px;
+    outline: none;
+}
+
+
+
+
+
+.sb-search{
+	width: 100px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #FFF;
+    border: 0;
+    cursor: pointer;
+    background: #FA0;
+    outline: none;
+}
+.g-ac-results {
+    position: absolute;
+    left: 0;
+    top: 41px;
+    width: 548px;
+    border: 1px solid #E4E4E4;
+    background: #FFF;
+    z-index: 7000;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+.snKeywordNew-item{
+	float: left;
+}
+.searchbs{
+	margin: 3px 0 3px -11px;
+    padding: 0 20px 0 10px;
+    border-left: 1px solid #ddd;
+}
+.searchb{
+	margin: 3px 0 3px -11px;
+    padding: 0 20px 0 10px;
+}
+
+
+
+
+
+
+
+
+.top4{
+	height: 38px;
+	line-height: 38px;
+	background: #fff;
+}
+.fltitle{
+	width: 190px;
+	float: left;
+	position: relative;
+}
+.FLtitle{
+	padding-left: 10px;
+	width: 190px;
+	height: 38px;
+	line-height: 38px;
+	background: #fA0;
+	color: #fff;
+	font-size: 13px;
+    font-weight: bold;
+
+}
+.FLtitle i{
+	display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: url('../images/jingling.png') 0 0;
+    vertical-align: -2px;
+    margin-right: 5px;
+}
+.ng-nav{
+	width: 795px;
+	display: inline-block;
+}
+.ng-nav-item{
+	box-sizing: border-box;
+	float: left;
+	height: 38px;
+	padding:0 12px 0 13px;
+	position: relative;
+	overflow: hidden;
+}
+.ng-nav-item:hover span{
+	transform: translateY(-8px)
+}
+.ng-nav-item a{
+	font-size: 15px;
+	font-weight: bold;
+	color: #000;
+}
+.ng-nav-item span{
+	display: block;
+	position: absolute;
+	left:50%;
+	margin-left: -12px;
+	bottom: -8px;
+	width: 25px;
+    height: 8px;
+    background: url('../images/jingling.png') -37px 0;
+    transition: all .5s;
+}
+.hot{
+	position: absolute;
+    display: inline-block;
+    height: 17px;
+    width: 14px;
+    right: 0px;
+    top: 0;
+    background: url('../images/jingling.png')!important;
+    background-position: -345px -213px!important;
+}
+
+
+
+
+
+
+
+
+.ng-nav-rimg{
+	width: 170px;
+	height: 38px;
+	float: right;
+}
+.dingwei{
+	font-size: 12px;
+	color: #666;
+	border: 1px solid #f5f5f5;
+	border-bottom: none;
+	position: relative;
+	line-height: 35px;
+	padding: 0 10px;	
+}
+.dw-before-em{
+	display: inline-block;
+    background: url('../images/jingling.png') 463px 147px;
+    width: 12px;
+    height: 16px;
+    vertical-align: -4px;
+}
+.sn-FL-box{
+	position: absolute;
+	width: 100%;
+	height: 482px;
+	background: pink;
+}
+.sn-FL-list{
+    position: absolute;
+    left: 0;
+    top: 1px;
+    height: 480px;
+    width: 100%;
+    z-index: 7677;
+}
+.sn-FL-item{
+	position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 32px;
+    padding: 0 8px 0 10px;
+    line-height: 32px;
+    background: #000;
+}
+.sn-FL-item a{
+	display: inline-block;
+    vertical-align: middle;
+    color: #FFF;
+    font-size: 13px;
+    text-decoration: none;
+}
+.FLfgx{
+	display: inline-block;
+    vertical-align: middle;
+    height: 12px;
+    width: 1px;
+    opacity: .4;
+    background: #d8d8d8;
+    margin: 0 5px;
+}
+/*头部导航结束*/
+
+/*顶部样式结束*/
+/*轮播部分*/
+.top5{
+    position: relative;
+    width: 100%;
+    height: 482px;
+    min-width: 990px;
+    overflow: hidden;
+    min-width: 1190px;
+}
+.top5-bg img{
+	position: absolute;
+    width: 545px;
+    height: 482px;
+    left: 50%;
+    top: 0;
+}
+.fw-bg-left{
+    margin-left: -973px;
+}
+.fw-bg-right{
+	margin-left: 425px;
+}
+.first-hc {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    margin-left: -399px;
+    width: 816px;
+    height: 122px;
+    overflow: hidden;
+}
+.first-cover {
+    position: absolute;
+    top: 0;
+    left: 2px;
+    width: 100%;
+    height: 122px;
+    background: #fff;
+    opacity: .5;
+/*     filter: alpha(opacity=50); */
+}
+.four-hc .title{
+	display: none;
+    position: relative;
+    z-index: 1;
+    width: 95px;
+    height: 22px;
+    line-height: 22px;
+    font-weight: bold;
+    font-size: 17px;
+    margin: 1px 0 0 12px;
+    overflow: hidden;
+    word-break: break-all;	
+}
+.four-hc{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 816px;
+    height: 122px;	
+}
+.four-hc li{
+    width: 202px;
+    float: left;
+    position: relative;
+    /* width: 152px; */
+    height: 122px;
+    background: #FFF;
+    margin-left: 2px;
+    opacity: .96;
+    cursor: default;
+}
+.four-hc .desc{
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 95px;
+    height: 19px;
+    line-height: 19px;
+    font-size: 14px;
+    margin: 1px 0 0 12px;
+    overflow: hidden;
+    word-break: break-all;
+    color: #666;
+    text-align: left;
+}
+.four-hc .pro{
+    display: inline;
+    position: absolute;
+    right: 10px;
+    bottom: 6px;
+    width: 80px;
+    height: 80px;
+}
+.animate-hc {
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    left: 2px;
+    width: 816px;
+    height: 122px;
+}
+.animate-hc li.item .label {
+    width: 53px;
+    height: 122px;
+    background: #FFF url('../images/jingling.png') -497px -165px no-repeat;
+}
+.animate-hc li.item .label p {
+    padding-top: 6px;
+    width: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 20px;
+    cursor: default;
+    color: #ef8324;
+}
+.animate-hc li.item .hclist {
+    display: none;
+    width: 655px;
+}
+.animate-hc li.item .hclist .zhc {
+    position: relative;
+    float: left;
+    margin: 18px 0 0 30px;
+    width: 203px;
+}
+.animate-hc li.item .hclist .zhc .title {
+    font-size: 22px;
+    line-height: 29px;
+    color: #EF4124;
+    font-weight: bold;
+    width: 130px;
+    height: 29px;
+    overflow: hidden;
+}
+.animate-hc li.item .hclist .zhc .desc {
+    font-size: 16px;
+        color: #EF4124;
+    height: 21px;
+    line-height: 21px;
+    width: 130px;
+    overflow: hidden;
+}
+.animate-hc li.item .hclist .zhc img {
+    position: absolute;
+    right: 0;
+    top: 3px;
+    width: 80px;
+    height: 80px;
+    background: 0;
+}
+.animate-hc li.item ul {
+    margin-left: 63px;
+}
+li.item ul {
+    float: left;
+    margin: 10px 0 0 23px;
+}
+.animate-hc li.item ul li {
+    position: relative;
+    float: left;
+    width: 78px;
+    margin: 0 40px 0 0;
+}
+.animate-hc li.item ul li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.animate-hc li.item ul li p.title {
+    width: 78px;
+    height: 16px;
+    line-height: 16px;
+    overflow: hidden;
+    color: #ef4124;
+    text-align: center;
+}
+.animate-hc li.item ul li img {
+    display: block;
+    width: 70px;
+    height: 70px;
+    margin: 5px 4px 0;
+    background: 0;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 1px #eee;
+}
+.animate-hc li.item ul li .desc-wrapper {
+    position: relative;
+    width: 78px;
+    top: -8px;
+    height: 18px;
+    color: #FFF;
+    line-height: 18px;
+    text-align: center;
+    font-size: 12px;
+}
+.animate-hc li.item ul li .desc-wrapper .desc {
+    width: 78px;
+    height: 18px;
+    word-break: break-all;
+    overflow: hidden;
+    text-align: center;
+}
+.animate-hc li.item ul li .desc-wrapper .angle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: -4px;
+}
+.animate-hc li.item ul li .desc-wrapper .angle-left {
+    left: 0;
+    border-width: 4px 4px 0 0;
+    border-style: solid;
+    border-color: transparent #999 transparent transparent;
+}
+.animate-hc li.item ul li .desc-wrapper .angle-right {
+    right: 0;
+    border-width: 0 4px 4px 0;
+    border-style: solid;
+    border-color: transparent transparent #999 transparent;
+}
+
+
+
+
+
+
+
+
+
+.first-right{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: 425px;
+    width: 170px;
+    height: 482px;
+    background: #FFF;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.user-infor{
+	position: relative;
+    width: 170px;
+    height: 155px;
+    padding: 11px 0 2px;
+    border-bottom: 1px solid #f2f2f2;
+}
+.user-img{
+    position: relative;
+    width: 52px;
+    height: 52px;
+    margin: 0 auto;
+        background:url('../images/jingling.png') -93px -23px;
+}
+.user-img .hover{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 52px;
+    height: 52px;
+    background:url('../images/jingling.png') -310px -135px;
+}
+.infor{
+	width: 150px;
+    height: 24px;
+    margin: 8px auto 0;
+    text-align: center;
+    font: 12px/24px "Microsoft Yahei",tahoma,arial,"Hiragino Sans GB";
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.user-infor .user-btn{
+    width: 100%;
+    margin: 6px auto 15px;
+    height: 22px;
+    *height: 24px;
+    overflow: hidden;
+    text-align: center;
+}
+.user-infor .user-btn a{
+    display: inline-block;
+    width: 70px;
+    height: 22px;
+    line-height: 22px;
+    vertical-align: middle;
+    margin: 0 3px;	
+}
+.user-infor .user-btn .register{
+	width: 68px;
+    height: 20px;
+    border: 1px solid #F90;
+    color: #ffa114;
+    line-height: 20px;
+}
+.user-infor .user-btn .superhy{
+    background:url('../images/jingling.png') -295px -251px;
+}
+.user-infor .enter{
+	height: 18px;
+}
+.user-infor .enter .yunzuan{
+    float: left;
+    width: 70px;
+    height: 18px;
+    margin: 0 11px 0 9px;
+    background: #ffe4db;
+    border-radius: 9px;
+    background:url('../images/jingling.png') -670px -256px;
+}
+.user-infor .enter .quan{
+    float: left;
+    width: 70px;
+    height: 18px;
+    margin: 0;
+    background: #ffe4db;
+    border-radius: 9px;
+	background:url('../images/jingling.png') -670px -288px;
+}
+.first-right .toutiao {
+    width: 150px;
+    height: 145px;
+    overflow: hidden;
+    margin: 11px 10px 11px;
+    font: 12px/20px "Microsoft Yahei",tahoma,arial,"Hiragino Sans GB";
+}
+.first-right .toutiao ul {
+    width: 150px;
+}
+.first-right .toutiao ul li {
+    width: 150px;
+    height: 48px;
+}
+.first-right .toutiao p {
+    width: 150px;
+    height: 40px;
+    overflow: hidden;
+}
+.first-right .toutiao i {
+    margin-right: 5px;
+    color: #F60;
+}
+.first-right .kuaijie {
+    width: 170px;
+    height: 145px;
+    overflow: hidden;
+    border-top: 1px solid #f2f2f2;
+}
+.first-right .kuaijie ul {
+    width: 171px;
+    height: 146px;
+}
+.first-right .kuaijie ul li {
+    float: left;
+    width: 56px;
+    height: 72px;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #f2f2f2;
+}
+.first-right .kuaijie ul li a {
+    display: block;
+    width: 100%;
+    height: 62px;
+    padding-top: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+.first-right .kuaijie ul li a i {
+    font-size: 24px;
+    color: #f90;
+}
+/*轮播部分结束*/
