@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003.jquery初次体验.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border:1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<button>点击</button>
+	<div id="vov"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div id="div"></div>
+	<div></div>
+</body>
+<script src="jquery/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').click(function(){
+			$('div').css({
+				background:'red'//;不可用;
+			})
+		})
+	});
+	// console.log($('div'));
+	// console.log($('.box'));
+	// console.log($('#div'));
+	// console.log($(NaN));
+	// console.log($(undefined));
+	// console.log($(false));
+	console.log()
+
+	console.log($(document.querySelector('.box')));
+
+	console.log($('div')[0]);
+	console.log($('div').get(2));
+	console.log($('div').get(4))
+
+</script>
+</html>

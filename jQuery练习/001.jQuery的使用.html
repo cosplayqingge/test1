@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001.jQuery的使用.html</title>
+</head>
+<body>
+	
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+<!-- <script src="jquery/jquery-1.12.4.js"></script> -->
+<script>
+	window.jQuery || document.write("<script src='jquery/jquery-1.12.4.js'><\/script>")
+</script>
+
+<script>
+	// $(function(){
+	// 	console.log('hollow')
+	// })
+	jQuery(document).ready(function(){
+		console.log('ccc')
+	})
+	$(function(){
+		console.log('sdfasdf')
+	})
+	window.onload = function(){
+		console.log('aa')
+	}
+	window.onload = function(){
+		console.log('bb')
+	}
+</script>
+</html>
