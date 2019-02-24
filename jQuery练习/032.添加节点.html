@@ -27,19 +27,22 @@
 			$('ul').append($li)
 		});
 		$('button').eq(1).on('click',function(){
-			
+			var $li = $('<li>我是插入的</li>');
+			$($li).appendTo('ul')
 		});
 		$('button').eq(2).on('click',function(){
-			
+			var $li = $('<li>我是插入的</li>');
+			$('ul').prepend($li)
 		});
 		$('button').eq(3).on('click',function(){
-			
+			var $li = $('<li>我是插入的</li>');
+			$($li).prependTo('ul')
 		});
 		$('button').eq(4).on('click',function(){
-			
+			$('ul').after("<p>lalal</p>")
 		});
 		$('button').eq(5).on('click',function(){
-			
+			$('ul').before("<p>lalal</p>")
 		});
 	})
 </script>
