@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>033.删除节点.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+		}
+		h1{
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<button>删除1</button>
+	<button>删除2</button>
+	<button>删除3</button>
+	<div>
+		我是aaa
+		<h1>我是标题</h1>
+	</div>
+</body>
+<script src="jquery/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('div').on('click',function(){
+			alert('aa')
+		});
+		// $("button").eq(0).on('click',function(){
+		// 	var a = $('div').remove();
+		// 	console.log(a)
+		// });
+		// $("button").eq(1).on('click',function(){
+		// 	var a = $('div').empty();
+		// 	console.log(a)
+		// });
+		$("button").eq(2).on('click',function(){
+			var a = $('div').detach();
+			console.log(a)
+		})
+	})
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>030.停止动画.html</title>
+<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			opacity: 1;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button id="box1">点击</button>
+	<button id="box2">停止</button>
+	<div></div>
+	<div></div>
+</body>
+<script src="jquery/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$("#box1").on('click',function(){
+			$('div').animate({width:200},1000)
+			$('div').animate({height:200},1000)
+			$('div').animate({opacity:0.5},1000)
+		})
+		$('#box2').on('click',function(){
+			$('div').stop(false,true);
+		})
+			
+	})
+</script>
+</html>
