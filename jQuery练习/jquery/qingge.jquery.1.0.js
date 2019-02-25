@@ -36,7 +36,11 @@
 			}
 		},
 		get:function(num){
+			if(){
 
+			}else{
+				
+			}
 		}
 		kz.isFunction = function(str){
 			return typeof str == 'function'
