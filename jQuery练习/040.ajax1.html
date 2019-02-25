@@ -2,16 +2,19 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>039.ajax8.html</title>
+	<title>040.ajax1.html</title>
 </head>
 <body>
-	<button>获取</button>
+	<button>获取数据</button>
 </body>
 <script src="jquery/jquery-1.12.4.js"></script>
 <script>
 	$(function(){
 		$('button').on('click',function(){
-			
+			$.ajax({
+				url:"040-data.json",
+				type:'GET',
+			})
 		})
 	})
 </script>

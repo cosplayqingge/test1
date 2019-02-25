@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>033.克隆节点.html</title>
+</head>
+<body>
+	<button>克隆1</button>
+	<button>克隆2</button>
+	<div>克隆</div>
+</body>
+<script src="jquery/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('div').on('click',function(){
+			alert('aas')
+		})
+		$('button').eq(0).on('click',function(){
+			var $dom =$('div').clone();
+			$('body').append($dom)
+		})
+		$('button').eq(1).on('click',function(){
+			var $dom =$('div').clone(true);
+			$('body').append($dom)
+		})
+	})
+</script>
+</html>

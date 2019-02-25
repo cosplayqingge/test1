@@ -33,18 +33,20 @@
 		$('div').on('click',function(){
 			alert('aa')
 		});
-		// $("button").eq(0).on('click',function(){
-		// 	var a = $('div').remove();
-		// 	console.log(a)
-		// });
-		// $("button").eq(1).on('click',function(){
-		// 	var a = $('div').empty();
-		// 	console.log(a)
-		// });
+		$("button").eq(0).on('click',function(){
+			var $a = $('div').remove();
+			console.log($a)
+			$('body').append($a);
+		});
+		$("button").eq(1).on('click',function(){
+			var $a = $('div').empty();
+			console.log($a)
+			$('body').append($a);
+		});
 		$("button").eq(2).on('click',function(){
-			var a = $('div').detach();
-			console.log(a)
-			var 
+			var $a = $('div').detach();
+			console.log($a)
+			$('body').append($a);
 		})
 	})
 </script>
