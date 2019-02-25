@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>045.知识点补充.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div>div1</div>
+	<div>div2</div>
+	<div style="display: none;"></div>
+</body>
+<script src="jquery/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		function fn(){
+			console.log(this)
+		}
+		fn();
+		var fn1 = $.proxy(fn,{name:'tom'});
+		console.log(fn1);
+		fn1();
+		console.log('----')
+		console.log($('div').is('div'))
+		console.log('----')
+
+		console.log($('div:hidden'))
+		console.log($('div:visible'))
+	})
+</script>
+</html>

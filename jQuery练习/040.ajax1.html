@@ -14,6 +14,34 @@
 			$.ajax({
 				url:"040-data.json",
 				type:'GET',
+				// type:'POST',//返回的是一个字符串
+				// dataType:'text',//和post一起打开
+				dataType:'json',
+				data:{name:"Amy",age:18},//有这个对象就不会访问上面url地址的值
+				success:function(data,statusMsg,jqXHR){
+					console.log("1:::")
+					console.log(data);
+					// console.log(typeof data);//字符串，用JSON.parse（data）通过转义获取name或者age
+					console.log(statusMsg)
+					console.log(jqXHR)
+				},
+				error:function(jqXHR,statusMsg){
+					console.log("2:::")
+					console.log(jqXHR)
+					console.log(statusMsg)
+				},//上面地址url错误就会报错404
+				complete:function(jqXHR,statusMsg){
+					console.log("3:::")
+					console.log(jqXHR)
+					console.log(statusMsg)
+				},//无论成功失败都会返回回调函success或者error
+				timeout:3000,//设置请求超时的时间
+				statusCode:{
+					404:function(){
+						console.log("404 not defind")
+					}//不同状态代码的回调函数	
+				},
+				headers:{test:'test'}
 			})
 		})
 	})
