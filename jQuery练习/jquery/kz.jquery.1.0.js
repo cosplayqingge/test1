@@ -54,29 +54,51 @@
 					this.length = 1;
 				}
 
-			}
-		},
-		// get:function(num){
-		// 	if(){
+			},
+		get:function(num){
+			if(kz.isNumber(num)){
+				if(num >= 0){
+					return this[num];
+				}else{
+					//为负数
+					return this[this.length + num]
 
-		// 	}else{
-				
-		// 	}
-		kz.isFunction = function(str){
-			return typeof str == 'function';
+				}
+			}else{
+				var arr = [];
+				for(var i = 0;i<this.length;i++){
+						arr.push(this[i])
+					}
+					return arr;
+				}
+			}
 		}
-		kz.isString = function(str){
-			return typeof str == 'string';
+	kz.fn.extend = kz.extend = function(options){
+		//console.log(this)
+		for(key in options){
+			this[key] = options[key]//kz.prototype.test1 = function....			}
 		}
-		kz.isHtml = function(str){
-			return /<[^<>]+>/.test(str);
-		}
-		kz.isArray = function(str){
-			return typeof str == 'object' && length in str;
-		}
-		// kz.isNumber = function(str){
-		// 	return typeof str == 'number'
-		// }
+	}
+	kz.extend({
+			isFunction : function(str){
+				return typeof str == 'function';
+			},
+			isString : function(str){
+				return typeof str == 'string';
+			},
+			isHtml : function(str){
+				return /<[^<>]+>/.test(str);
+			},
+			isArray : function(str){
+				return typeof str == 'object' && length in str;
+			},
+			isNumber : function(str){
+				return typeof str == 'number'
+			}
+		})		
+		
+
+
 	kz.fn.init.prototype = kz.fn;
 	window.kz = window.$ =  kz;
 })(window);
