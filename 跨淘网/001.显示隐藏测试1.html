@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001.显示隐藏测试1.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<button>显示</button>
+	<button>隐藏</button>
+	<div id="box"></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+</script>
+<script>
+	$(function(){
+		var $elem = $('#box')
+		$('button').eq(0).on('click',function(){
+			$($Ele).show(1000,function(){
+				console.log('aa')
+			});
+		})
+		$('button').eq(1).on('click',function(){
+			$($Ele).hide(1000,function(){
+				console.log('bb')
+			});
+		})
+		
+	})
+</script>
+</html>

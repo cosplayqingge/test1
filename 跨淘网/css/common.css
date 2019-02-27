@@ -1,5 +1,5 @@
 .container{
-	width: 1220px;
+	width: 1200px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -23,6 +23,13 @@ li{
 	list-style: none;
 }
 a{
+	font-size: 16px;
 	text-decoration: none;
-	color: #4d55d;
+	color: #4d555d;
+}
+.link:hover{
+	color: red;
+}
+.transition{
+	transition: all 1s;
 }

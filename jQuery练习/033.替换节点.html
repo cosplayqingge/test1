@@ -21,7 +21,7 @@
 		});
 		$('button').eq(1).on('click',function(){
 			var $h1 = $('<h1>我是替换掉的</h1>')
-			$('div').replaceWith($h1)
+			$('div').eq(2).replaceWith($h1)
 		})
 		$('button').eq(2).on('click',function(){
 			var $h1 = $('<h1>我是替lalal掉的</h1>')
