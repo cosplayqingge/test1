@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005.显示隐藏基本回调-淡入淡出.html</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/fontawesome-all.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 200px;
+			height: 200px;
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<button>显示</button>
+	<button>隐藏</button>
+	<div id="box" class="transition"></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+//共同抽取
+function init($elem){
+		if($elem.is(":hidden")){
+			$elem.data('status','hidden')
+		}else{
+			$elem.data('status','shown')
+		}
+}
+function show($elem,cb){
+	//cb为回调
+		if($elem.data('status') == 'shown') return;
+		if($elem.data('status') == 'show') return;
+		$elem.data('status','show').trigger('show')
+		cb();		
+	}
+function hide($elem,cb){
+			if($elem.data('status') == 'hidden') return;
+			if($elem.data('status') == 'hide') return;
+			$elem.data('status','hide').trigger('hide')
+			cb()
+		}
+
+
+
+
+
+
+var slient = {
+	//初始化判断显示或隐藏
+	init:init,
+	show:function($elem){
+		// //通过获取data上面的值来判断当前是否为显示，若为显示直接返回
+		// if($elem.data('status') == 'shown') return;
+		// //当状态为show时表示正在显示 ，直接返回
+		// if($elem.data('status') == 'show') return;
+		// $elem.data('status','show').trigger('show')
+		// //加上时间2秒中继续点击可以继续监听事件，所以要对show进行判断↑
+		// // $elem.show(2000,function(){$elem.trigger('shown').data('status','shown');});//防止中间变成异步
+		// $elem.show()
+		// $elem.trigger('shown').data('status','shown');
+		show($elem,function(){
+				$elem.show()//通过参数回调
+		 		$elem.trigger('shown').data('status','shown');
+			})
+		},
+	hide:function($elem){
+		//通过获取data上面的值来判断当前是否为隐藏，若为显示直接返回
+		// if($elem.data('status') == 'hidden') return;
+		// if($elem.data('status') == 'hide') return;
+		// $elem.data('status','hide').trigger('hide')
+		// $elem.hide()
+		// //在结束之后判断
+		// $elem.trigger('hidden').data('status','hidden')
+		hide($elem,function(){
+			 	$elem.hide()
+				$elem.trigger('hidden').data('status','hidden')
+			})
+		}
+
+	}
+var js = {
+	fade:{
+		init:function($elem){
+			//会受到影响所以要清除transition属性
+			$elem.removeClass('transition')
+			// if($elem.is(":hidden")){
+			// 	$elem.data('status','hidden')
+			// }else{
+			// 	$elem.data('status','shown')
+			// }
+			init($elem);
+
+		},
+		show:function($elem){
+			// if($elem.data('status') == 'shown') return;
+			// if($elem.data('status') == 'show') return;
+			// $elem.data('status','show').trigger('show');
+			// //stop应为是动画要清空默认的
+			// $elem.stop()
+			// .fadeIn(function(){
+			// 	$elem.trigger('shown').data('status','shown');
+			// })
+			show($elem,function(){
+				$elem.stop()
+				.fadeIn(function(){
+		 		$elem.trigger('shown').data('status','shown');
+			})
+		})		
+			},
+		hide:function($elem){
+			// if($elem.data('status') == 'hidden') return;
+			// if($elem.data('status') == 'hide') return;
+			// $elem.data('status','hide').trigger('hide')
+			// $elem.stop()
+			// .fadeOut(function(){
+			// 	$elem.trigger('hidden').data('status','hidden');
+			// })
+			hide($elem,function(){
+				$elem.stop()
+				.fadeOut(function(){
+					$elem.trigger('hidden').data('status','hidden');
+				})
+			})
+		}
+	}
+}
+
+
+var $elem = $('#box');
+
+	
+//可以一次性监听多个  只要监听事件就有ev的方法
+$elem.on('show shown hide hidden',function(ev){
+	console.log(ev.type)//可以通过ev.type判断监听到什么事件
+	if(ev.type == 'show'){
+		console.log('show...')
+	}else if(ev.type == 'shown'){
+		console.log('shown...')
+	}else if(ev.type == 'hide'){
+		console.log('hide...')
+	}else if(ev.type == 'hidden'){
+		console.log('hidden....')
+	}
+})
+
+//淡入淡出的的js
+js.fade.init($elem);
+$('button').eq(0).on('click',function(){
+	js.fade.show($elem)
+
+})
+$('button').eq(1).on('click',function(){
+	js.fade.hide($elem)
+})
+
+
+
+// slient.init($elem);
+// $('button').eq(0).on('click',function(){
+// 	slient.show($elem)
+
+// })
+// $('button').eq(1).on('click',function(){
+// 		slient.hide($elem)
+// })
+
+
+
+
+
+
+
+</script>
+</html>

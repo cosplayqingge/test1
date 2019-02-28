@@ -22,6 +22,8 @@
 		height: 44px;
 		line-height: 44px;
 		padding: 0 5px;
+		border-left: 1px solid #f3f5f7;
+		border-right: 1px solid #f3f5f7;
 	}
 	.nav-side .dropdown-layer{
 		top:44px;
@@ -40,6 +42,10 @@
 	.nav-side .menu-item:hover{
 		background:#f3f5f7; 
 	}
+	.dropdown-leo{
+		height: 44px;
+		line-height: 44px;
+	}
 	/*
 	.dropdown:hover .dropdown-toggle{
 		background: #fff;
@@ -55,8 +61,6 @@
 	*/
 	.menu-active .dropdown-toggle{
 		background: #fff;
-		border-left: 1px solid #f3f5f7;
-		border-right: 1px solid #f3f5f7;
 	}
 	.menu-active .dropdown-layer{
 		display: block;
