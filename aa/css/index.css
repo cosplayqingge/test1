@@ -1,0 +1,86 @@
+/*<!-- 顶部导航 开始-->*/
+.top{
+	height: 44px;
+	background: #f3f5f7;	
+}
+.top .fl-left{
+	line-height: 44px;
+	margin-right: 10px;
+}
+.top .top-left .a1{
+	color: #f10215;
+}
+.top .fr-right{
+	display: block;
+	height: 44px;
+	line-height: 44px;
+}
+.top .fr-right{
+	position: relative;
+	height: 44px;
+	line-height: 44px;
+	margin-right: 10px;
+}
+.top .fr-right .fr-aa{
+	margin-left: 5px;
+}
+.top .right-post{
+	display: none;
+	position: absolute;
+	top: 44px;
+	left: 0;
+	background: #fff;
+	border: 1px solid #f3f5f7;
+	border-top: none;
+}
+
+.top .right-post .dom-item{
+	height: 30px;
+	line-height: 30px;
+	padding: 0 5px;
+	white-space: nowrap;
+}
+.dom-item:hover{
+	background:  #f3f5f7;
+}
+/*.top .fr-right:hover .fr-right{
+	background: #fff;
+}
+.top .fr-right:hover .fr-aa{
+	transform: rotate(180deg);
+}
+.top .fr-right:hover .right-post{
+	display: block;
+}*/
+.dom-active .fr-right{
+	background: #fff;
+}
+
+.dom-active .right-post{
+	display: block;
+}
+
+
+
+
+
+
+
+/*<!-- 顶部导航结束 -->*/
+/*<!-- 头部区域开始 -->*/
+.header{
+	height: 100px;
+	background: yellow;
+}
+
+
+
+
+/*<!-- 头部区域结束 -->*/
+
+/*焦点开始*/
+.dian{
+	height: 500px;
+	background: pink;
+}
+/*焦点结束*/
