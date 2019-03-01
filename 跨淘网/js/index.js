@@ -5,15 +5,6 @@
 * @Last Modified time: 2019-02-26 19:41:36
 */
 ;(function($){
-	$('.dropdown')
-	.hover(function(){
-		//$(this).addClass('menu-active');
-		var $this = $(this);
-		var activeClass = $this.data('active')+'-active';
-		$this.addClass(activeClass)
-	},function(){
-		var $this = $(this);
-		var activeClass = $this.data('active')+'-active';		
-		$this.removeClass(activeClass);
-	})
+	$('.dropdown').dropdown();
+
 })(jQuery);

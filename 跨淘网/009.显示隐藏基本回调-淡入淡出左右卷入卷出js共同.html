@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>008.显示隐藏基本回调-淡入淡出.html</title>
+	<title>009.显示隐藏基本回调-淡入淡出.html</title>
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/fontawesome-all.css">
 	<link rel="stylesheet" href="css/common.css">
@@ -103,114 +103,55 @@ var js = {
 	//左右卷入卷出
 	slideLeftRinght:{
 		init:function($elem){
-			$elem.removeClass('transition')
-			
-			//1.保存原始值
-			var styles = {
-				width:$elem.css('width'),
-				height:$elem.css('height'),
-				paddingLeft:$elem.css('paddingLeft'),
-				paddingRight:$elem.css('paddingRight'),
-				borderLeftWidth:$elem.css('borderLeftWidth'),
-				borderRightWidth:$elem.css('borderRightWidth')
-			}
-			//用data保存
-			$elem.data('styles',styles);
-			// console.log(style)
-			//2.如果原本是隐藏，把水平方向上的值改为0
-			init($elem,function(){
-				$elem.css({
-					width:0,
-					paddingLeft:0,
-					paddingRight:0,
-					borderLeftWidth:0,
-					borderRightWidth:0
-				})
-			})
+			//第二个通过传参进去
+			js._customInit($elem,{
+				width:0,
+				paddingLeft:0,
+				paddingRight:0,
+				borderLeftWidth:0,
+				borderRightWidth:0
+			});
 		},
-		show:function(){
-			show($elem,function(){
-				$elem.show();//本句话的意思为让disnplay ==block
-				$elem.stop()
-				//要做动画,  第一个传的为动画目标值
-				.animate($elem.data('styles'),function(){
-					$elem.trigger('shown').data('status','shown');
-				})
-		})
+		show:function($elem){
+			js._customShow($elem)
 		},
-		hide:function(){
-			hide($elem,function(){
-				$elem.stop()
-				.animate({
-					width:0,
-					paddingLeft:0,
-					paddingRight:0,
-					borderLeftWidth:0,
-					borderRightWidth:0
-				},function(){
-					$elem.hide();//相当于display=none
-					$elem.trigger('hidden').data('status','hidden');
-				})
+		hide:function($elem){
+			js._customHide($elem,{
+				width:0,
+				paddingLeft:0,
+				paddingRight:0,
+				borderLeftWidth:0,
+				borderRightWidth:0
 			});
 		}
 	},
 	//淡入淡出的左右卷出
 	fadeslideLeftRinght:{
 		init:function($elem){
-			$elem.removeClass('transition')
-			
-			//1.保存原始值
-			var styles = {
-				width:$elem.css('width'),
-				height:$elem.css('height'),
-				paddingLeft:$elem.css('paddingLeft'),
-				paddingRight:$elem.css('paddingRight'),
-				borderLeftWidth:$elem.css('borderLeftWidth'),
-				borderRightWidth:$elem.css('borderRightWidth'),
-				opacity:$elem.css('opacity')
-			}
-			//用data保存
-			$elem.data('styles',styles);
-			// console.log(style)
-			//2.如果原本是隐藏，把水平方向上的值改为0
-			init($elem,function(){
-				$elem.css({
-					width:0,
-					paddingLeft:0,
-					paddingRight:0,
-					borderLeftWidth:0,
-					borderRightWidth:0,
-					opacity:0
-				})
-			})
+			//第二个通过传参进去
+			js._customInit($elem,{
+				width:0,
+				paddingLeft:0,
+				paddingRight:0,
+				borderLeftWidth:0,
+				borderRightWidth:0,
+				opacity:0
+			});
 		},
-		show:function(){
-			show($elem,function(){
-				$elem.show();//本句话的意思为让disnplay ==block
-				$elem.stop()
-				//要做动画,  第一个传的为动画目标值
-				.animate($elem.data('styles'),function(){
-					$elem.trigger('shown').data('status','shown');
-				})
-		})
+		show:function($elem){
+			js._customShow($elem)
 		},
-		hide:function(){
-			hide($elem,function(){
-				$elem.stop()
-				.animate({
-					width:0,
-					paddingLeft:0,
-					paddingRight:0,
-					borderLeftWidth:0,
-					borderRightWidth:0,
-					opacity:0
-				},function(){
-					$elem.hide();//相当于display=none
-					$elem.trigger('hidden').data('status','hidden');
-				})
+		hide:function($elem){
+			js._customHide($elem,{
+				width:0,
+				paddingLeft:0,
+				paddingRight:0,
+				borderLeftWidth:0,
+				borderRightWidth:0,
+				opacity:0
 			});
 		}
-	}
+	},
 }
 
 
@@ -234,8 +175,58 @@ js._hide = function($elem,mode){
 				[mode](function(){
 					$elem.trigger('hidden').data('status','hidden');
 				})
+			})
+}
+//淡入淡出左右的js共同
+js._customInit = function($elem,options){
+	$elem.removeClass('transition')	
+			//1.保存原始值
+			var styles = {};//设置一个空对象
+			//循环遍历
+			for(var key in options){
+				//这一步是获取值
+				styles[key] = $elem.css(key);
+			}
+			//用data保存
+			$elem.data('styles',styles);
+			//2.如果原本是隐藏，把水平方向上的值改为0
+			init($elem,function(){
+				$elem.css({
+					width:0,
+					paddingLeft:0,
+					paddingRight:0,
+					borderLeftWidth:0,
+					borderRightWidth:0,
+				})
 			});
 }
+js._customShow = function($elem){
+	show($elem,function(){
+			$elem.show();//本句话的意思为让disnplay ==block
+			$elem.stop()
+			//要做动画,  第一个传的为动画目标值
+			.animate($elem.data('styles'),function(){
+			$elem.trigger('shown').data('status','shown');
+		})
+	})
+}
+js._customHide = function($elem,options){
+	hide($elem,function(){
+				$elem.stop()
+				.animate(options,function(){
+					$elem.hide();//相当于display=none
+					$elem.trigger('hidden').data('status','hidden');
+				});
+			})
+}
+
+
+
+
+
+
+
+
 var $elem = $('#box');
 
 	
