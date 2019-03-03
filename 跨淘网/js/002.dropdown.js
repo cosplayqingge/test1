@@ -10,6 +10,9 @@ function DropDowm($elem){
 //原型对象，上做初始化
 DropDowm.prototype = {
 	constructor:DropDowm,
+	init:function(){
+		//1.初始化显示和隐藏
+	}
 }
 
 
