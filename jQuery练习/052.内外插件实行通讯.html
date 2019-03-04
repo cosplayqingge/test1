@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>052.内外插件实行通讯练习.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			width: 40px;
+			height: 20px;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<button>显示</button><button>隐藏</button>
+	<div></div>
+</body>
+<script src="jquery/jquery-1.12.4.js"></script>
+<script>
+	var sloit = {
+		show:function($elem){
+			$elem.trigger('show')
+			$elem.show()
+			$elem.trigger('shown')
+		},
+		hide:function($elem){
+			$elem.trigger('hide')
+			$elem.hide()
+			$elem.trigger('hiden')
+		}
+	}
+	var $elem = $('div');
+	$elem.on('show',function(){
+		console.log('show...')
+	})
+	$elem.on('show',function(){
+		console.log('shown...')
+	})
+	$elem.on('hide',function(){
+		console.log('hide...')
+	})
+	$elem.on('hiden',function(){
+		console.log('hiden...')
+	})
+	$('button').eq(0).on('click',function(){
+		sloit.show($elem)
+	})
+	$('button').eq(1).on('click',function(){
+		sloit.hide($elem)
+	})
+</script>
+</html>
