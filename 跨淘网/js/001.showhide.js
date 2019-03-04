@@ -230,7 +230,7 @@ var slient = {
 					showHideObj[options]($elem);
 				}
 				
-				console.log(showHideObj)
+				// console.log(showHideObj)
 			});
 		}
 	})

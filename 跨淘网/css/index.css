@@ -27,7 +27,6 @@
 	}
 	.nav-side .dropdown-layer{
 		top:44px;
-		left:0;
 		background: #fff;
 		border: 1px solid #f3f5f7;
 		border-top: none;
@@ -42,7 +41,10 @@
 	.nav-side .menu-item:hover{
 		background:#f3f5f7; 
 	}
-	.dropdown-leo{
+	.nav-right>li{
+		margin-left: 10px;
+	}
+	.nav-category{
 		height: 44px;
 		line-height: 44px;
 	}
@@ -62,9 +64,9 @@
 	.menu-active .dropdown-toggle{
 		background: #fff;
 	}
-	.menu-active .dropdown-layer{
+	/*.menu-active .dropdown-layer{
 		display: block;
-	}
+	}*/
 /*顶部导航结束*/
 
 /*头部开始*/

@@ -46,6 +46,12 @@ a{
 	display: none;
 	position: absolute;
 }
+.dropdown-left{
+	left: 0;
+}
+.dropdown-right{
+	right: 0;
+}
 [class *= '-active']  .dropdown-arrow{
 	transform: rotate(180deg);
 }

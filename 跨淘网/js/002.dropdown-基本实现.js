@@ -8,7 +8,6 @@ function DropDown($elem,options){
 	//是下面的layer显示隐藏通过find拿到这个元素
 	this.$layer = $elem.find('.dropdown-layer');
 	this.activeClass = $elem.data('active')+'-active';
-	this.timer = 0;//延时定时器
 	//2初始化
 	this.init();
 }
@@ -26,34 +25,13 @@ DropDown.prototype = {
 			this.$elem.trigger('dropdown-'+ev.type);
 		}.bind(this));
 		//3.绑定事件
-		if(this.options.eventName == 'click'){
-			this.$elem.on('click',function(ev){
-				//阻止事件到document上而触发隐藏
-				ev.stopPropagation();
-				this.show()
-			}.bind(this));
-			//点击页面其他部分隐藏
-			$(document).on('click',$.proxy(this.hide,this))
-		}else{
-			this.$elem.hover($.proxy(this.show,this),$.proxy(this.hide,this))
-		}
-		
+		this.$elem.hover($.proxy(this.show,this),$.proxy(this.hide,this))
 	},
 	show:function(){
-		//快速划过
-		if(this.options.delay){
-			this.timer = setTimeout(function(){
-				this.$layer.showHide('show');
-				this.$elem.addClass(this.activeClass);
-			}.bind(this),this.options.delay)
-		}else{
-			this.$layer.showHide('show');
-			this.$elem.addClass(this.activeClass);
-		}
-		
+		this.$layer.showHide('show');
+		this.$elem.addClass(this.activeClass);
 	},
 	hide:function(){
-		clearTimeout(this.timer);
 		this.$layer.showHide('hide');
 		this.$elem.removeClass(this.activeClass);
 	}
@@ -67,9 +45,7 @@ DropDown.prototype = {
 //静态的配置项   默认方法
 DropDown.DEFAULTS = {
 	js:true,
-	mode:'DropDowmUp',
-	delay:200,//快速划过
-	eventName:''//点击触发
+	mode:'DropDownUp'
 }
 
 
@@ -83,15 +59,8 @@ $.fn.extend({
 		return this.each(function(){
 			var $elem =$(this);
 			//和上面的默认方法进行一个合并
-			var dropdown = $elem.data('dropdown');
-			if(!dropdown){
-				options = $.extend({},DropDown.DEFAULTS,options);
-				dropdown = new DropDown($elem,options);
-				$elem.data('dropdown',dropdown);
-			}
-			if(typeof dropdown[options] == 'function'){
-				dropdown[options]();
-			}
+			options = $.extend({},DropDown.DEFAULTS,options);
+			new DropDown($elem,options)//返回到上面
 		});
 	}
 })

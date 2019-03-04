@@ -67,7 +67,7 @@ DropDown.prototype = {
 //静态的配置项   默认方法
 DropDown.DEFAULTS = {
 	js:true,
-	mode:'DropDowmUp',
+	mode:'DropDownUp',
 	delay:200,//快速划过
 	eventName:''//点击触发
 }
@@ -83,15 +83,8 @@ $.fn.extend({
 		return this.each(function(){
 			var $elem =$(this);
 			//和上面的默认方法进行一个合并
-			var dropdown = $elem.data('dropdown');
-			if(!dropdown){
-				options = $.extend({},DropDown.DEFAULTS,options);
-				dropdown = new DropDown($elem,options);
-				$elem.data('dropdown',dropdown);
-			}
-			if(typeof dropdown[options] == 'function'){
-				dropdown[options]();
-			}
+			options = $.extend({},DropDown.DEFAULTS,options);
+			new DropDown($elem,options)//返回到上面
 		});
 	}
 })
