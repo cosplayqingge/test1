@@ -133,6 +133,7 @@
 		line-height: 30px;
 		padding: 0 10px;
 		cursor: pointer;
+		box-sizing: border-box;
 	}
 	.search-item:hover{
 		background-color: #f3f5f7;
