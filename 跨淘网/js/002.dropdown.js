@@ -12,8 +12,6 @@ function DropDown($elem,options){
 	//2初始化
 	this.init();
 }
-
-
 //原型对象，上做初始化
 DropDown.prototype = {
 	constructor:DropDown,
@@ -36,8 +34,7 @@ DropDown.prototype = {
 			$(document).on('click',$.proxy(this.hide,this))
 		}else{
 			this.$elem.hover($.proxy(this.show,this),$.proxy(this.hide,this))
-		}
-		
+		}	
 	},
 	show:function(){
 		//快速划过
@@ -59,11 +56,6 @@ DropDown.prototype = {
 	}
 }
 
-
-
-
-
-
 //静态的配置项   默认方法
 DropDown.DEFAULTS = {
 	js:true,
@@ -71,9 +63,6 @@ DropDown.DEFAULTS = {
 	delay:200,//快速划过
 	eventName:''//点击触发
 }
-
-
-
 
 //注册插件
 $.fn.extend({
@@ -95,8 +84,4 @@ $.fn.extend({
 		});
 	}
 })
-
-
-
-
 })(jQuery)
