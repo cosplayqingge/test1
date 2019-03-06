@@ -118,6 +118,7 @@
 		margin-left: -5px;
 	}
 	.search-layer{
+		display: none;
 		width: 100%;
 		position: absolute;
 		top:40px;
