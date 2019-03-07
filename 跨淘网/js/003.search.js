@@ -8,6 +8,8 @@ function Search($elem,options){
 	this.$searchBtn = $elem.find('.search-btn');//拿到第二个input框
 	this.$searchInput = $elem.find('.search-input');//拿到第一个input框
 	this.$searchForm = $elem.find('.search-form');//拿到form
+	this.$searchLayer = $elem.find('.search-layer');
+	this.isLoaded = false;
 	//2初始化
 	this.init();
 	if(this.options.autocompelte){
@@ -31,23 +33,72 @@ Search.prototype = {
 		return  $.trim(this.$searchInput.val());//做一个剔除空格的方法
 	},
 	autocompelte:function(){
-		//1.监听input的事件
+		//1.初始化显示隐藏插件
+		this.$searchLayer.showHide(this.options);
+		//2.监听input的事件
 		this.$searchInput.on('input',$.proxy(this.getData,this));
-
+		//3.点击其他地方隐藏下拉层
+		$(document).on('click',$.proxy(this.hideLayer,this));
+		//4.input获取焦点显示下拉层
+		this.$searchInput.on('focus',$.proxy(this.searchLayer,this));
+		//5.阻止input上的click事件冒泡到document上触发隐藏
+		this.$searchInput.on('click',function(ev){
+			ev.stopPropagation();
+		})
 	},
 	//监听到input事件就调用下面的方法
 	getData:function(){
-		// console.log('will get data...')
+		console.log('will get data...');
+		var inputVal = this.getInputVal();//判断如果里面没内容就不往下走
+		if(inputVal == ''){
+			this.appendHtml('');//如果input框没内容就隐藏下拉层
+			return;
+		}
+
+
 		$.ajax({
-			url:this.options.url + this.getInputVal()
+			url:this.options.url + this.getInputVal(),
+			dataType:"jsonp",
+			jsonp:"callback"
 		})
-	}
+		.done(function(data){
+			// console.log(data)
+			//1.根据数据生成html
+			var html = '';
+			for(var i = 0;i<data.result.length;i++){
+				html += '<li class="search-item">'+data.result[i][0]+'</li>'
+			}
+			//2.加载html到layer下拉层
+			this.appendHtml(html);
+			//3.显示下拉层
+			this.showLayer();
+		}.bind(this))
+		.fail(function(err){
+			console.log(err)
+		})
+	},
+	//加载html到下拉层
+	showLayer:function(){
+		if(!this.isLoaded) return;
+		this.$searchLayer.showHide('show')
+	},
+	//显示下拉层
+	appendHtml:function(html){
+		this.$searchLayer.html(html);
+		this.isLoaded = !!html;
+	},
+	hideLayer:function(){
+		this.$searchLayer.showHide('hide')
+	},
 }
 //callback 回调是callback
 //静态的配置项   默认方法
 Search.DEFAULTS = {
 	autocompelte:true,
-	url:"https://suggest.taobao.com/sug?code=utf-8&q="
+	// url:"https://suggest.taobao.com/sug?&q="
+	url:"http://127.0.0.1:3000/?&q=",
+	js:true,
+	mode:"slideDownUp"
 }
 
 //注册插件
