@@ -36,6 +36,34 @@
 
  //搜索框
   var $search = $('.header .search');
+  $search.on('getData',function(ev,data){
+  		var $elem = $(this);
+  		console.log(':::',data)//拿到data数组
+  		var html = getSearchLayerHtml(data,5)
+		$search.search('appendHtml',html);
+		if(html == ''){
+			// this.hideLayer();
+			$search.search('hideLayer');
+			}else{
+			// this.showLayer();
+			$search.search('showLayer');
+		}
+  });
+   $search.on('getNoData',function(){
+   		$search.search('appendHtml','');
+   		$search.search('hideLayer');
+   });
+   function getSearchLayerHtml(data,Maxnum){
+   		//1.根据数据生成html
+		var html = '';
+		for(var i = 0;i<data.result.length;i++){
+			if(i >= Maxnum) break;
+			html += '<li class="search-item">'+data.result[i][0]+'</li>'
+		}
+		return html;
+   }
+
+
   $search.search();
 
 

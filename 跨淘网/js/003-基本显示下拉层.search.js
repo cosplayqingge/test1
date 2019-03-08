@@ -62,27 +62,25 @@ Search.prototype = {
 			jsonp:"callback"
 		})
 		.done(function(data){
-			// // console.log(data)
-			// //1.根据数据生成html
-			// var html = '';
-			// for(var i = 0;i<data.result.length;i++){
-			// 	html += '<li class="search-item">'+data.result[i][0]+'</li>'
-			// }
-			// //2.加载html到layer下拉层
-			// this.appendHtml(html);
-			// if(html == ''){
-			// 	this.hideLayer();
-			// }else{
-			// 	this.showLayer();
-			// }
-			this.$elem.trigger('getData',[data])
+			// console.log(data)
+			//1.根据数据生成html
+			var html = '';
+			for(var i = 0;i<data.result.length;i++){
+				html += '<li class="search-item">'+data.result[i][0]+'</li>'
+			}
+			//2.加载html到layer下拉层
+			this.appendHtml(html);
+			if(html == ''){
+				this.hideLayer();
+			}else{
+				this.showLayer();
+			}
 		}.bind(this))
 		.fail(function(err){
-			this.$elem.trigger('getNodata')
 			// console.log(err)
 			//失败要做什么
-			// this.appendHtml('');
-			// this.hideLayer();
+			this.appendHtml('');
+			this.hideLayer();
 		}.bind(this))
 	},
 	//加载html到下拉层
@@ -111,7 +109,7 @@ Search.DEFAULTS = {
 
 //注册插件
 $.fn.extend({
-	search:function(options,val){
+	search:function(options){
 		// console.log(this)
 		//通过链式调用拿到的元素
 		return this.each(function(){
@@ -124,7 +122,7 @@ $.fn.extend({
 				$elem.data('search',search);
 			}
 			if(typeof search[options] == 'function'){
-				search[options](val);
+				search[options]();
 			}
 		});
 	}
