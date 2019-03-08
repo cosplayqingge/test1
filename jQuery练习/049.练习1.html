@@ -20,34 +20,16 @@
 <script>
 	$(function(){
 		$('button').eq(0).on('click',function(){
-			// var $li = $('<li>1</li>');
-			// var $a = $('<li>2</li>');
-			// var $b = $('<li>3</li>');
-			// var $c = $('<li>4</li>');
-			// var $d = $('<li>5</li>');
-			// var $e = $('<li>6</li>');
-			// var $f = $('<li>7</li>');
-			// $('ul').append($li)
-			// $('ul').append($a)
-			// $('ul').append($b)
-			// $('ul').append($c)		//偷奸耍滑
-			// $('ul').append($d)
-			// $('ul').append($e)
-			// $('ul').append($f)
-			// $('ul').after('<li>0</li><li>1</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li>')
-			// $('ul').before('<li>0</li><li>1</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li>')
-		var $li = $('<li>0</li>');
-		$('ul').prepend($li);
-		var $lo = $('<li>2</li>')
-		$('li').eq(1).after($lo);
-		var $lp = $('<li>4</li>')
-		$('li').eq(3).after($lp)
-		var $kl =  $('<li>5</li>')
-		$('li').eq(5).replaceWith($kl);
-		// var $kj = $('<li>6</li>');
-		// $('li').eq(6).before($kj)
-		var $kn = $('<li>6</li>');
-		$('li').eq(6).replaceWith($kn);
+			var $li = $('<li>0</li>');
+			$('ul').prepend($li);
+			var $lo = $('<li>2</li>')
+			$('li').eq(1).after($lo);
+			var $lp = $('<li>4</li>')
+			$('li').eq(3).after($lp)
+			var $kl =  $('<li>5</li>')
+			$('li').eq(5).replaceWith($kl);
+			var $kn = $('<li>6</li>');
+			$('li').eq(6).replaceWith($kn);
 		})
 	})
 </script>

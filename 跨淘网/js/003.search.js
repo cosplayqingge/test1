@@ -10,6 +10,7 @@ function Search($elem,options){
 	this.$searchForm = $elem.find('.search-form');//拿到form
 	this.$searchLayer = $elem.find('.search-layer');
 	this.isLoaded = false;
+	this.timer = 0;
 	//2初始化
 	this.init();
 	if(this.options.autocompelte){
@@ -33,10 +34,21 @@ Search.prototype = {
 		return  $.trim(this.$searchInput.val());//做一个剔除空格的方法
 	},
 	autocompelte:function(){
+		var _this = this;
 		//1.初始化显示隐藏插件
 		this.$searchLayer.showHide(this.options);
 		//2.监听input的事件
-		this.$searchInput.on('input',$.proxy(this.getData,this));
+		this.$searchInput.on('input',function(){
+			//防止快速点击
+			if(_this.options.getDataDelay){
+				clearTimeout(this.timer)
+				this.timer = setTimeout(function(){
+					this.getData()
+				}.bind(this),this.options.getDataDelay)
+			}else{
+				this.getData()
+			}
+		}.bind(this));
 		//3.点击其他地方隐藏下拉层
 		$(document).on('click',$.proxy(this.hideLayer,this));
 		//4.input获取焦点显示下拉层
@@ -44,7 +56,18 @@ Search.prototype = {
 		//5.阻止input上的click事件冒泡到document上触发隐藏
 		this.$searchInput.on('click',function(ev){
 			ev.stopPropagation();
+		});
+		//6.用事件代理处理下拉层中的每一项
+		var _this = this;//防止改变this提前存
+		this.$searchLayer.on('click','.search-item',function(){
+			//1.获取下拉层中的每一项
+			var val = $(this).html();
+			//2.设置input
+			_this.setInputVal(val);
+			//3.提交
+			_this.submit();
 		})
+
 	},
 	//监听到input事件就调用下面的方法
 	getData:function(){
@@ -62,35 +85,16 @@ Search.prototype = {
 			jsonp:"callback"
 		})
 		.done(function(data){
-			// // console.log(data)
-			// //1.根据数据生成html
-			// var html = '';
-			// for(var i = 0;i<data.result.length;i++){
-			// 	html += '<li class="search-item">'+data.result[i][0]+'</li>'
-			// }
-			// //2.加载html到layer下拉层
-			// this.appendHtml(html);
-			// if(html == ''){
-			// 	this.hideLayer();
-			// }else{
-			// 	this.showLayer();
-			// }
 			this.$elem.trigger('getData',[data])
 		}.bind(this))
 		.fail(function(err){
 			this.$elem.trigger('getNodata')
-			// console.log(err)
-			//失败要做什么
-			// this.appendHtml('');
-			// this.hideLayer();
 		}.bind(this))
 	},
-	//加载html到下拉层
 	showLayer:function(){
 		if(!this.isLoaded) return;
 		this.$searchLayer.showHide('show')
 	},
-	//显示下拉层
 	appendHtml:function(html){
 		this.$searchLayer.html(html);
 		this.isLoaded = !!html;
@@ -98,25 +102,24 @@ Search.prototype = {
 	hideLayer:function(){
 		this.$searchLayer.showHide('hide')
 	},
+	setInputVal:function(val){
+		this.$searchInput.val(val.replace(/<[^<>]+>/g,''));
+	}
 }
-//callback 回调是callback
-//静态的配置项   默认方法
 Search.DEFAULTS = {
 	autocompelte:true,
 	// url:"https://suggest.taobao.com/sug?&q="
 	url:"http://127.0.0.1:3000/?&q=",
 	js:true,
-	mode:"slideDownUp"
+	mode:"slideDownUp",
+	getDataDelay:200
 }
 
 //注册插件
 $.fn.extend({
 	search:function(options,val){
-		// console.log(this)
-		//通过链式调用拿到的元素
 		return this.each(function(){
 			var $elem =$(this);
-			//和上面的默认方法进行一个合并
 			var search = $elem.data('search');
 			if(!search){
 				options = $.extend({},Search.DEFAULTS,options);

@@ -1,0 +1,19 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+@color: #ff0;
+@width: 200px;
+@height: 200px;
+@background: gray;
+// @border-radius: 50%;
+.box1{
+	width: @width;
+	height: @height;
+	background: @background;
+	color: @color
+	// border-radius :@border-radius;
+}
+.box2{
+	.box1
+}
