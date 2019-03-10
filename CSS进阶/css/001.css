@@ -14,3 +14,11 @@
   background: #808080;
   color: #ffff00;
 }
+.fa li {
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+.fa li:hover {
+  background: blue;
+}
