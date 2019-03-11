@@ -38,7 +38,7 @@
   var $search = $('.header .search');
   $search.on('getData',function(ev,data){
   		var $elem = $(this);
-  		console.log(':::',data)//拿到data数组
+  		// console.log(':::',data)//拿到data数组
   		var html = getSearchLayerHtml(data,5)
 		$search.search('appendHtml',html);
 		if(html == ''){

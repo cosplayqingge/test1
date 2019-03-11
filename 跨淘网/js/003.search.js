@@ -1,4 +1,18 @@
 ;(function(){
+//缓存
+var cache = {
+	data:{},
+	addData:function(key,val){
+		this.data[key] = val;
+		this.count++;
+	},
+	getData:function(key){
+		return this.data[key]
+	}
+}
+
+
+
 function Search($elem,options){
 	// console.log($elem)//拿到的是一个DOM对象
 	//通过面向对象的思想
@@ -11,6 +25,7 @@ function Search($elem,options){
 	this.$searchLayer = $elem.find('.search-layer');
 	this.isLoaded = false;
 	this.timer = 0;
+	this.jqXHR = null;//获取最新数据
 	//2初始化
 	this.init();
 	if(this.options.autocompelte){
@@ -78,17 +93,31 @@ Search.prototype = {
 			this.hideLayer();
 			return;
 		}
+		if(cache.getData(inputVal)){
+			this.$elem.trigger('getData',[cache.getData(inputVal)]);
+			return;
+		}
+		console.log('will get ajax...');
+		//保证获取最新数据
+		if(this.jqXHR){
+			this.jqXHR.abort();
+		}
 
-		$.ajax({
+		this.jqXHR = $.ajax({
 			url:this.options.url + this.getInputVal(),
 			dataType:"jsonp",
 			jsonp:"callback"
 		})
 		.done(function(data){
-			this.$elem.trigger('getData',[data])
+			// console.log(data)
+			this.$elem.trigger('getData',[data]);
+			cache.addData(inputVal,data)
 		}.bind(this))
 		.fail(function(err){
 			this.$elem.trigger('getNodata')
+		}.bind(this))
+		.always(function(){
+			this.jqXHR = null;
 		}.bind(this))
 	},
 	showLayer:function(){
