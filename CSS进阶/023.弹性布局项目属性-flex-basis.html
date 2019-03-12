@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023.弹性布局项目属性-flex-basis.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 1000px;
+			height: 600px;
+			border: 1px solid #000;
+			margin:50px auto;
+			display: flex;
+			
+		}
+		.son{
+			height: 50px;
+		}
+		.son1{
+			width: 100px;
+			background: red;
+			flex-grow: 1;
+			flex-basis: 300px;
+		}
+		.son2{
+			width: 200px;
+			background: yellow;
+			flex-grow: 1;
+		}
+		.son3{
+			width: 400px;
+			background: #ff6700;
+			flex-grow: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son son1">son1</div>
+		<div class="son son2">son2</div>
+		<div class="son son3">son3</div>
+	</div>
+</body>
+</html>
