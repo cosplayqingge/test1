@@ -32,15 +32,6 @@
 		border: 1px solid #f3f5f7;
 		border-top: none;
 	}
-	.nav-side .dropdown-loading{
-		width: 32px;
-		height: 32px;
-		background-image: url(../images/loading.gif);
-		background-repeat: no-repeat;
-		background-position: center center;
-		margin: 19px;
-
-	}
 	.nav-side .menu-item{
 		display: block;
 		height: 30px;
@@ -317,7 +308,7 @@
 /*焦点开始*/
 	.focus{
 		height: 500px;
-		background: pink;
+		/*background: pink;*/
 	}
 /*焦点结束*/
 
