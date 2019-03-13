@@ -1,0 +1,14 @@
+#kz-navbar a:hover{
+	color: #f65a8a;
+}
+.kz-navbar .navbar-brand{
+	font-size: 22px;
+	color: #333;
+}
+#kz-navbar .active a{
+	background: transparent;
+	color: #f65a8a;
+}
+#kz-navbar .navbar-nav a{
+	font-size: 20px;
+}
