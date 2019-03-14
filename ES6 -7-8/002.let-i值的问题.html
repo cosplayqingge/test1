@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002.let-i值的问题.html</title>
+</head>
+<body>
+	<button>点击1</button>
+	<button>点击2</button>
+	<button>点击3</button>
+	<button>点击4</button>
+</body>
+<script>
+	var oBtn = document.getElementsByTagName('button');
+	// for (var i = 0; i < oBtn.length; i++) {
+	// 	oBtn[i].onclick = function(){
+	// 		console.log(i)
+	// 	}
+	// }
+	// console.log(i)
+ // 	for (var i = 0; i < oBtn.length; i++) {
+ // 		oBtn[i].index = i;//先存起来
+	// 	oBtn[i].onclick = function(){
+	// 		console.log(this.index)
+	// 	}
+	// }
+	// console.log(i)
+	// for(var i = 0; i < oBtn.length; i++) {//闭包
+ // 		;(function(i){
+ // 			oBtn[i].onclick = function(){
+	// 		console.log(i)
+	// 	}
+ // 		})(i)	
+	// }
+	// console.log(i)	
+	for (let i = 0; i < oBtn.length; i++) {
+ 		oBtn[i].index = i;
+		oBtn[i].onclick = function(){
+			console.log(this.index)
+		}
+	}
+	// console.log(i)//块级作用域拿不到
+
+
+
+
+
+</script>
+</html>

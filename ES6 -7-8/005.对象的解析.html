@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005.对象的解析.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let obj = {
+		name:'tom',
+		age:18
+	}
+	// let {name,age} = obj;
+	// console.log(name,age);
+
+	// let{name:name,age:age} = obj;
+	// console.log(name,age);
+
+	// let{name:name,age:age,fired = {name:'leo'}} = obj;
+	// console.log(name,age,fired);
+
+
+	let{name:name,age:age,fired = {name:'leo'}} ={name:name,age:age,fired = {name:'pai'}} = obj;
+	console.log(name,age,fired);
+
+
+
+</script>
+</html>

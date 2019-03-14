@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001.let.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	var a =1;
+	var a= 2;
+	console.log(a);//会覆盖前面的
+
+	let b = 1;
+	// let b = 2;
+	console.log(b);//Uncaught SyntaxError: Identifier 'b' has already been declared，报错 不会覆盖前面的
+	*/
+	/*
+	console.log(a)
+	var a = 1; //var的声明可以提升
+	console.log(b);//Uncaught ReferenceError: Cannot access 'b' before initializatio  let声明不会提升
+	let b = 1;
+	*/
+	/*
+	function fn1(){
+		var a = 1;
+		function fn2(){
+			a = 2;
+			console.log('fn2 a= ',a)
+		}
+		console.log('fn1 a = ',a)
+		fn2();
+		console.log('fn2 a=',2)	
+	}
+	fn1();
+	function fn1(){
+		let a = 1;
+		function fn2(){
+			a = 2;
+			console.log('let a= ',a)
+		}
+		console.log('let a = ',a)
+		fn2();
+		console.log('let a=',2)	
+	}
+	fn1();//let为块级作用域
+	*/
+	
+	// if(true){
+	// 	var a = 1;
+	// }
+	// console.log(a);
+	
+	// if(true){
+	// 	let b = 1;
+	// }
+	// console.log(b);//拿不到b  let为块级作用域
+
+
+var a = {},
+	b = {key:'b'},
+	c = {key:'c'};
+
+	
+	a[b] = 123;
+	a[c] = 456;
+	console.log(a[b])
+
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-把数组转换为对象.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	var arr=[1,2,3,4,5,6]; 
+	 var att = arr.map(function(value,index){
+	 	return function(){
+	 		console.log(value)
+	 	}
+	 })
+	console.log(att);
+	att[0]();
+	att[1]();
+	att[2]();		
+	att[3]();
+	att[4]();
+	att[5]();
+</script>
+</html>
