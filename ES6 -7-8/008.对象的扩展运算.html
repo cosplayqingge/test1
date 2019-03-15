@@ -8,13 +8,19 @@
 	
 </body>
 <script>
-	let obj1 = {name:'Tom',age:18};
-	let obj2 = {...ojb1};
-	console.log(obj2)
+	let obj1 = {name:'Tom',age:18,fird:{name:'leo'}};
+	let obj2 = {...obj1};
+	obj2.name = 'qingge';
+	obj2.fird.name = 'lol';
+	console.log(obj1,obj2)
 
 
 
-
+	let n = 2;
+	n += 5;
+	console.log(n)
+	n *= 2;
+	console.log(n)
 
 
 
