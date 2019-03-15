@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016.结构解析和默认参数结合.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function show2(url,{method="GET",body="name=Tom"} = {}){
+		console.log(url,method,body);
+	}
+    // show2();//GET name=Tom
+    // show2('http://kuazhu.com');//GET name=Tom
+    show2('http://kuazhu.com',{method:"post",body:"name=leo"})
+
+
+
+</script>
+</html>

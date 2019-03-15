@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010.set对象的遍历方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let s = new Set([11,22,33,4,55,66])
+	console.log(s);
+	for(let key of s.keys()){
+		console.log("a::",key)
+	}
+	for(let val of s.values()){
+		console.log("b::",val)
+	}
+	for(let value of s){
+		console.log("c::",value)
+	}
+	for(let ent of s.entries()){
+		console.log("d::",ent)
+	}//Set只有值没有键,所以key和value一样
+	s.forEach(function(value,key){
+		console.log("e::",value,key)
+	})//Set只有值没有键,所以key和value一样
+
+	//Set的遍历顺序就是插入顺序
+
+
+
+
+
+
+
+
+
+</script>
+</html>
