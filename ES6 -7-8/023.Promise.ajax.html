@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023.Promise.ajax.html</title>
+</head>
+<body>
+	
+</body>
+<script src="jquery/jquery-1.12.4.js"></script>
+<script>
+	let getdata = (url)=>{
+		return new Promise((resolve,rejecr)=>{
+			$.get(url,(data)=>{
+				resolve(data)
+			})
+		})
+	}
+	let promise = getdata('https://api.github.com/users/kuazhu')
+	console.log(promise)
+	// promise
+	// .then(data=>{
+	// 	return getdata(data1)
+	// })
+</script>
+</html>
