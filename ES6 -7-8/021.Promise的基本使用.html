@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021.Promise的基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//Promise 新建后就会立即执行
+	let promise = new Promise((resolve,reject)=>{
+		console.log('asdasdasd');
+
+		resolve("成功");
+		//模拟成功执行
+
+
+		// reject("失败")
+		//模拟失败执行
+	});
+	promise
+	.then((data)=>{
+		console.log("fulfilled::",data)//成功时执行的
+	},(err)=>{
+		console.log("rejicted::",err);//失败时执行的
+	})
+
+
+
+
+</script>
+</html>
