@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023.promise对象的方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let p1 = new Promise((resolve,reject)=>{
+		resolve('ok')
+	})
+	let p2 = p1.then(data=>{
+		console.log(data)
+	})
+	console.log(p1);
+	console.log(p2);
+	console.log(p1===p2)
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

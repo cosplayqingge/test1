@@ -10,7 +10,7 @@
 <script>
 	//Promise 新建后就会立即执行
 	let promise = new Promise((resolve,reject)=>{
-		console.log('asdasdasd');
+		// console.log('asdasdasd');//new的时候回调函数就会执行
 
 		resolve("成功");
 		//模拟成功执行
@@ -19,6 +19,7 @@
 		// reject("失败")
 		//模拟失败执行
 	});
+	//通过promise实例对异步结果进行处理
 	promise
 	.then((data)=>{
 		console.log("fulfilled::",data)//成功时执行的

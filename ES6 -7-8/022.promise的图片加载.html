@@ -8,45 +8,74 @@
 	
 </body>
 <script>
-	// let promise = new promise((resolve,rejecr)=>{
-	// 	var img = new Imgs();
+	// let img = new Image();
+
+	// img.onload = function(){
+	// 	console.log('img/xg.jpg' + 'loaded....')
+	// }
+	// img.onerror = function(){
+	// 	console.log('img/xg.jpg'+'loaded failad')
+	// }
+
+	// img.src='img/xg.jpg'
+
+
+	// function loadImg(url,success,error){//success成功时回调,error失败时回调
+	// 	img.onload = function(){
+	// 		console.log('img/xg.jpg' + 'loaded....')
+	// 	}
+	// 	img.onerror = function(){
+	// 		console.log('img/xg.jpg'+'loaded failad')
+	// 	}
+	// 	img.src = url;
+	// }
+	// //成功和失败都要接受参数url
+	// loadImg('img/xg.jpg',function(url){
+	// 	console.log(url + 'loaded....')
+	// },function(url){
+	// 	console.log(url+'loaded failad')
+	// })
+	// loadImg('img/qg.jpg',function(url){
+	// 	console.log(url + 'loaded????')
+	// },function(url){
+	// 	console.log(url+'loaded failad')
+	// })
+
+
+	// let promise = new Promise((resolve,reject)=>{
 	// 	img.onload = function(){
 	// 		resolve('img/xg.jpg')
 	// 	}
 	// 	img.onerror = function(){
-	// 		rejecr('img/ig.jpg')
-	// 	};
-	// 	img.src = "img/xg.jpg"
+	// 		reject('img/xg.jpg')
+	// 	}
+	// 	img.src = 'img/xg.jpg'
 	// })
 	// promise
-	// .then((url)=>{
-	// 	console.log("fulfilled::",data)//成功时执行的
-	// },(url)=>{
-	// 	console.log("rejicted::",err);//失败时执行的
+	// .then(url=>{
+	// 	console.log(url + 'loaded....')
+	// },err=>{
+	// 	console.log(url+'loaded failad')
 	// })
 
-
-	let aa = (url)=>{
-		return  new Promise((resolve,rejecr)=>{
-			var img = new Imgs();
+	let getLoadImgPromise = (url)=>{
+		return new Promise((resolve,reject)=>{
+			var img = new Image();
 			img.onload = function(){
 				resolve(url)
 			}
 			img.onerror = function(){
-				rejecr(url)
-			};
-			img.src = url;
+				reject(url)
+			}
+			img.src = url
 		})
 	}
-	aa('img/xg.jpg')
+	getLoadImgPromise('img/xg.jpg')//会返回一个promise对象
 	.then(url=>{
-		console.log(url + "load!!!")
+		console.log(url + 'loaded....')
 	},url=>{
-		console.log(url + "loadad!!!")
+		console.log(url+'loaded failad')
 	})
-
-
-
 
 </script>
 </html>
