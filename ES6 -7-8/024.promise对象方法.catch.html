@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024.promise对象方法.catch.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let p1 = new Promise((resolve,reject)=>{
+		// resolve("ok");
+		reject("error!!")
+	})
+	p1
+	.then(data=>{
+		console.log("success:::",data)
+	})
+	//.catch就是错误时的另一种写法，可读性更强
+	.catch(err=>{
+		console.log("failad::",err)
+	})
+
+
+
+
+
+</script>
+</html>

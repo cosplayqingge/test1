@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>027.promise静态方法resolve.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let p1 = Promise.resolve();
+	console.log(p1)
+	let p2 = Promise.resolve(p1);
+	console.log(p2);
+
+
+	console.log(p1===p2)//参数是Promise实例,那么Promise.resolve将不做任何修改、原封不动地返回这个实例 
+
+	let obj = {
+		then:function(){
+			console.log("then of obj")
+		}
+	}
+	let p3 = Promise.resolve(obj);//参数是一个具有then方法的对象,resolve方法会将这个对象转为 Promise 对象然后就立即执行该对象的then方法
+
+	let p4 = Promise.resolve("hellow");
+	console.log("::",p4)//参数参数不是具有then方法的对象,或根本就不是对象,返回一个新的 Promise 对象,状态为resolved
+
+</script>
+</html>
