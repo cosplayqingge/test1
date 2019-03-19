@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>000.定义构造函数和继承练习.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	class Pson{
+		constructor(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		thisName(){
+			console.log("I am " + this.name)
+		}
+		thisAge(){
+			console.log("I am "  + this.age + " years old")
+		}
+		static thisPro(){
+			console.log("lalalala")
+		}
+	}
+	let p = new Pson();
+	console.log(p);
+	p.thisName();
+	p.thisAge();
+	Pson.thisPro();
+
+	class Student extends Pson{
+		constructor(name,age,ccc){
+			super(name,age);
+			this.ccc = ccc;
+		}
+		thisMajor(){
+			console.log("I am from " + this.ccc);
+		}
+		thisalo(){
+			console.log("one....")
+		}
+		static thispop(){
+			console.log("hahaha")
+		}
+	}
+	let s = new Student("Leo",88,'Computer');
+	console.log(s);
+	s.thisName();
+	s.thisAge();
+	s.thisMajor();
+	s.thisalo();
+	Student.thispop();
+	Student.thisPro();
+
+
+
+
+
+
+
+
+
+</script>
+</html>
