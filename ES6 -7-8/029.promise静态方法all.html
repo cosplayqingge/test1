@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029.promise静态方法all.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let getLoadImgPromise = (url)=>{
+		return new Promise((resolve,reject)=>{
+			var img = new Image();
+			img.onload = function(){
+				resolve("resolved:::"+url)
+			}
+			img.onerror = function(){
+				reject(url)
+			}
+			img.src = url
+		})
+	}
+	let apromise = ["img/xg.jpg","img/ig.jpg","img/qg.jpg","img/daji.jpg"]
+	.map(url=>{
+		return getLoadImgPromise(url)
+	})
+	// console.log(apromise)
+	let p =Promise.all(apromise)
+	// console.log(p)
+	.then(data=>{
+		console.log(data)
+	})
+	.catch(err=>{
+		console.log(err)
+	})
+
+
+
+
+</script>
+</html>

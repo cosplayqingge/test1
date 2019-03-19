@@ -14,13 +14,13 @@
 			this.age = age;
 		}
 		sayName(){
-			console.log("I am " + this.name)
+			console.log("I am "+this.name);
 		}
 		sayAge(){
-			console.log("I am "  + this.age + " years old")
+			console.log("I am "+this.age + " years old");
 		}
 		static sayHi(){
-			console.log("hi....")
+			console.log('Hi....');
 		}
 	}
 	let p = new Person("Tom",18);
@@ -28,15 +28,21 @@
 	p.sayName();
 	p.sayAge();
 	Person.sayHi();
-
-
-	class student extends Person{
+	class Student extends Person{
 		constructor(name,age,major){
 			super(name,age);
-			this.major = major
+			this.major = major;
+		}
+		sayMajor(){
+			console.log("I am from " + this.major);
 		}
 	}
-
+	let s = new Student("Leo",88,'Computer');
+	console.log(s);
+	s.sayName();
+	s.sayAge();
+	s.sayMajor();
+	Student.sayHi();
 
 
 
