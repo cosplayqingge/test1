@@ -27,14 +27,20 @@
 		1:"2",
 		length:2
 	}
-	console.log(arr)
-	console.log(Array.from(arr));
+	let att = Array.from(arr);
+	console.log("arr=>",arr);
+	console.log("att=>",att)
+	
+	function fn(){
+		console.log(arguments)
+		console.log(Array.from(arguments))
+	}
+	fn(11,22,33);
 
-	let p = [11,22,33,44,55]
-	console.log(p)
-	console.log(p.find(n=>n>12))
-	console.log(p.findindex(22))
 
+
+
+	
 
 </script>
 </html>

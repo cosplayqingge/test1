@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>044.数组Array.find.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let arr = [11,22,33,44,55];
+	console.log(arr.find(n=>n>20));
+	console.log(arr.find(n=>n>80));//没有的话返回undefined
+	
+	console.log(arr.findIndex(n=>n>20));//下标1
+	console.log(arr.findIndex(n=>n>33));//下标3
+
+
+	console.log(arr.includes(11));//true
+	console.log(arr.includes(88));//false
+	console.log(arr.includes('11'));//false
+</script>
+</html>
