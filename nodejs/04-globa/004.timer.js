@@ -1,0 +1,25 @@
+// console.log(1);
+
+// setTimeout(()=>{
+// 	console.log(2)
+// },0)
+// console.log(3)
+
+// console.log(1);
+
+// let timer = setTimeout(()=>{
+// 	console.log(2)
+// },0)
+
+// clearTimeout(timer)
+// console.log(3)
+
+
+console.log(1);
+let timer = setInterval(()=>{
+	console.log(2)
+},200)
+clearInterval(timer)
+console.log(3)
+
+
