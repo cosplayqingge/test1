@@ -15,11 +15,33 @@
 // console.log(3)
 
 
+// console.log(1);
+// let timer = setInterval(()=>{
+// 	console.log(2)
+// },200)
+// clearInterval(timer)
+// console.log(3)
+
 console.log(1);
-let timer = setInterval(()=>{
+let timer = setImmediate(()=>{
 	console.log(2)
-},200)
-clearInterval(timer)
-console.log(3)
+});
+clearImmediate(timer)
+console.log(3);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
