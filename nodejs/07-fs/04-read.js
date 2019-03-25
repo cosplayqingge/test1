@@ -8,8 +8,8 @@ fs.open('./01.txt','r',(err,fd)=>{
 		console.log("open error",err)
 	}else{
 		 //2.读文件
-		 let buf = Buffer.alloc(100)
-		fs.read(fd,buf,0,100,0,(err)=>{
+		let buf = Buffer.alloc(10)
+		fs.read(fd,buf,0,10,0,(err)=>{
 			if(err){
 				console.log("open:: error",err)
 			}else{

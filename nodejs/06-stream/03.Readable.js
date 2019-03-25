@@ -1,5 +1,5 @@
 //自定义可读流和pipe
-const {Readable} = require('stream');
+const {Readable} = require('stream');//结构赋值
 // console.log(Readable)
 // const rs = new Readable();
 // console.log(rs)

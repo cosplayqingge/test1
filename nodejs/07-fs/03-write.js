@@ -25,7 +25,9 @@ fs.open('./01.txt','a',(err,fd)=>{
 	}
 });
 */
-fs.writeFile('./01.txt','kuazhu',{flag:'w'},(err)=>{
+
+
+fs.writeFile('./01.txt','qingge',{flag:'w'},(err)=>{
 	if(err){
 		console.log("writeFile error",err)
 	}else{

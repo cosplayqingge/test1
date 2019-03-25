@@ -8,13 +8,13 @@ const ws = new Writable();
 class Mywrite extends Writable{
 	_write(chunk,encoding,callback){
 		console.log(chunk);
-		// console.log(encoding)
+		// console.log(encoding)//encoding指定字符串的编码
 		callback && callback()
 	}
 }
 const writer = new Mywrite();
 writer.on('finish',()=>{
-	console.log('fish....')
+	console.log('finish....')
 })
 
 writer.write('hello','utf-8',()=>{
@@ -24,7 +24,7 @@ writer.write('kuazhu');
 
 
 
-writer.end();//写完了
+writer.end();//写完了后会触发finish事件
 
 
 
