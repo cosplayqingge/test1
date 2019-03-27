@@ -36,11 +36,11 @@ const server = http.createServer((req,res)=>{
 	else if(filePath == '/css/index.css'){
 		fs.readFile('./css/index.css',(err,data)=>{
 			if(err){
-				res.setHeader('Content-Type',"text/html;charset=utf-8");
+				res.setHeader('Content-Type',"text/css;charset=utf-8");
 				res.statusCode = 500;
 				res.end('<h1>出错了</h1>');
 			}else{
-				res.setHeader('Content-Type',"text/html;charset=utf-8");
+				res.setHeader('Content-Type',"text/css;charset=utf-8");
 				res.end(data);
 			}
 		});
@@ -52,7 +52,7 @@ const server = http.createServer((req,res)=>{
 				res.statusCode = 500;
 				res.end('<h1>出错了</h1>');
 			}else{
-				res.setHeader('Content-Type',"text/html;charset=utf-8");
+				res.setHeader('Content-Type',"image/jpeg;charset=utf-8");
 				res.end(data);
 			}
 		});
@@ -64,7 +64,7 @@ const server = http.createServer((req,res)=>{
 				res.statusCode = 500;
 				res.end('<h1>出错了</h1>');
 			}else{
-				res.setHeader('Content-Type',"text/html;charset=utf-8");
+				res.setHeader('Content-Type',"application/x-javascript;charset=utf-8");
 				res.end(data);
 			}
 		});
