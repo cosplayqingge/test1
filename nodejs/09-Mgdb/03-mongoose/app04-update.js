@@ -23,6 +23,7 @@ db.once('open', ()=>{
 	//3.2 mongoose.model第二个参数指定Schema
 	const UserModel = mongoose.model('user', UserSchema);
 
+//更新文档
 
 	//4.用模型操作数据(CRUD)
 	/*
@@ -43,6 +44,7 @@ db.once('open', ()=>{
 		}
 	});
 	*/
+	
 	UserModel.updateMany({age:{$gt:90}},{age:100},(err,result)=>{
 		if(err){
 			console.log('updateOne err::',err)
@@ -50,6 +52,7 @@ db.once('open', ()=>{
 			console.log(result);
 		}
 	});
+	
 
 
 

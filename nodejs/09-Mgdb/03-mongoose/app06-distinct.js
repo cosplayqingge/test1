@@ -29,10 +29,11 @@ db.once('open', ()=>{
 	//3.2 mongoose.model第二个参数指定Schema
 	const UserModel = mongoose.model('user', UserSchema);
 
+//获取重复后的值
 
 	//4.用模型操作数据(CRUD)
 
-	UserModel.distinct('name',{age:{$gt:100}},(err,result)=>{
+	UserModel.distinct('name',{age:{$gt:90}},(err,result)=>{
 		if(err){
 			console.log('distinct err',err);
 		}else{

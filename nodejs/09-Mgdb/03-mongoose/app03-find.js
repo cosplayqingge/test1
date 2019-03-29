@@ -24,18 +24,21 @@ db.once('open', ()=>{
 	const UserModel = mongoose.model('user', UserSchema);
 
 
+//查询文档
+
 	//4.用模型操作数据(CRUD)
+	//{}空对象表示全部
 	/*
 	UserModel.find({},(err,docs)=>{
 		if(err){
-			console.log('find err::',err);
+			console.log('find err::',err)
 		}else{
-			console.log(docs);
+			console.log(docs)
 		}
 	})
 	*/
 	/*
-	UserModel.find({age:{$gt:50}},(err,docs)=>{
+	UserModel.find({age:{$gt:100}},(err,docs)=>{
 		if(err){
 			console.log('find err::',err);
 		}else{
@@ -43,7 +46,8 @@ db.once('open', ()=>{
 		}
 	})
 	*/
-	/*	
+	/*
+								//让显示什么用字符串 看下面
 	UserModel.find({age:{$gt:100}},"name age -_id",(err,docs)=>{
 		if(err){
 			console.log('find err::',err);
@@ -62,6 +66,7 @@ db.once('open', ()=>{
 	})
 	*/
 	/*
+						//skip在基本使用查看文档注意点里面的方法都可以使用
 	UserModel.find({age:{$gt:100}},null,{skip:1},(err,docs)=>{
 		if(err){
 			console.log('find err::',err);
@@ -89,7 +94,7 @@ db.once('open', ()=>{
 	})
 	*/
 	/*
-	UserModel.findById("5c9b61e6ba37e91c63971f8d","name -_id",(err,doc)=>{
+	UserModel.findById("5c9dd066e2937a320cdeca0d","name -_id",(err,doc)=>{
 		if(err){
 			console.log('findById err::',err);
 		}else{
@@ -97,6 +102,7 @@ db.once('open', ()=>{
 		}		
 	})
 	*/
+	
 	UserModel.findOne({age:{$gt:100}},(err,doc)=>{
 		if(err){
 			console.log('findOne err::',err);
@@ -104,6 +110,7 @@ db.once('open', ()=>{
 			console.log(doc);
 		}
 	})
+	
 
 
 

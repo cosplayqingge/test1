@@ -37,6 +37,9 @@ db.once('open', ()=>{
 	const UserModel = mongoose.model('user', UserSchema);
 
 
+//插入文档
+
+
 	//4.用模型操作数据(CRUD)
 
 	//4.1插入数据
@@ -91,6 +94,7 @@ db.once('open', ()=>{
 		console.log('updateMany err::',err);
 	})
 	*/
+	/*
 	UserModel.create({name:getName(),age:getRandom(10,150),major:getMajor()},(err,docs)=>{
 		if(err){
 			console.log('create err::',err);
@@ -98,6 +102,25 @@ db.once('open', ()=>{
 			console.log(docs)
 		}
 	});
+	*/
+	const arr = [];
+	for(let i = 0;i<10;i++){
+		arr.push({
+			name:getName(),
+			age:getRandom(10,150),
+			major:getMajor()
+		})
+	}
+	UserModel.insertMany(
+		arr,
+		(err,docs)=>{
+			if(err){
+				console.log('updateMany err::',err);
+			}else{
+				console.log(docs)
+			}
+		}
+	);
 
 
 });

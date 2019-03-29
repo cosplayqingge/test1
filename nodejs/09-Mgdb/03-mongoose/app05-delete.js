@@ -29,10 +29,12 @@ db.once('open', ()=>{
 	//3.2 mongoose.model第二个参数指定Schema
 	const UserModel = mongoose.model('user', UserSchema);
 
+//删除方法
+
 
 	//4.用模型操作数据(CRUD)
 	/*
-	UserModel.deleteOne({name:"Tom"},(err,result)=>{
+	UserModel.deleteOne({name:"Ricky"},(err,result)=>{
 		if(err){
 			console.log('deleteOne err',err);
 		}else{
@@ -40,6 +42,7 @@ db.once('open', ()=>{
 		}
 	});
 	*/
+	
 	UserModel.deleteMany({name:"Leo"},(err,result)=>{
 		if(err){
 			console.log('deleteOne err',err);

@@ -23,7 +23,7 @@ db.once('open', ()=>{
 
 	//2.用模型操作数据(CRUD)
 
-	UserModel.distinct('name',{age:{$gt:100}},(err,result)=>{
+	UserModel.distinct('name',{age:{$gt:20}},(err,result)=>{
 		if(err){
 			console.log('distinct err',err);
 		}else{
