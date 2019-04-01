@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale= 1.0">
+	<title>
+		{% block title %}{% endblock %}
+	</title>
+	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/common.css">
+	{% block head %}{% endblock %}
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top kz-navbar" id="kz-navbar">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand link" href="#">我的博客</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#" id="un">首页<span class="sr-only">(current)</span></a></li>
+					<li><a href="list.html">HTML</a></li>
+					<li><a href="list.html">CSS</a></li>
+					<li><a href="list.html">JavaScript</a></li>
+					<li><a href="list.html">bootstrap</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					{% block content %}{% endblock %}
+				</div>
+				<div class="col-md-4 hidden-xs hidden-sm">
+					<!--用户注册登录-->
+					<div class="user-panel" id='user-info' style="display: none;">
+						你好<span>Tom</span>
+						<a class="link" href="#">进入中心</a>
+						<a class="link" href="javascript:;" id='logout'>退出</a>
+					</div>
+					<div class="form-horizontal user-panel" id='register' style="display: none;">
+						<div class="form-group">
+							<label class="col-sm-4 control-label">用户名</label>
+							<div class="col-sm-6">
+								<input autocomplete="off" type="text" class="form-control" name='username' placeholder="请输入用户名">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">密码</label>
+							<div class="col-sm-6">
+								<input autocomplete="off" type="password" class="form-control" name="password" placeholder="请输入密码">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">重复密码</label>
+							<div class="col-sm-6">
+								<input autocomplete="off" type="password" class="form-control" name="repassword" placeholder="请再次输入密码">
+							</div>
+						</div>            
+						<div class="form-group">
+							<div class="col-sm-offset-4 col-sm-6">
+								<a href="javascript:;" class="btn btn-primary" id='sub-register'>注册</a>
+								<a href="javascript:;" class="link" id='go-login'>已有账号,去登录</a>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+								<p class="text-danger err"></p>
+							</div>
+						</div>            
+					</div> 
+					<div class="form-horizontal user-panel" id='login'>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">用户名</label>
+							<div class="col-sm-6">
+								<input autocomplete="off" type="text" class="form-control" name='username' placeholder="请输入用户名">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">密码</label>
+							<div class="col-sm-6">
+								<input autocomplete="off" type="password" class="form-control" name="password" placeholder="请输入密码">
+							</div>
+						</div>            
+						<div class="form-group">
+							<div class="col-sm-offset-4 col-sm-6">
+								<a href="javascript:;" class="btn btn-primary" id='sub-login'>提交</a>
+								<a href="javascript:;" class="link" id='go-register'>免费注册</a>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+								<p class="text-danger err"></p>
+							</div>
+						</div>            
+					</div> 
+					<!--用户注册结束--> 
+					<div class="ad">
+						<a href="#" class="thumbnail">
+							<img src="img/qg.jpg" alt="...">
+						</a>
+					</div>	
+					<div class="ad">	
+						<a href="#" class="thumbnail">
+							<img src="img/ig.jpg" alt="...">
+						</a>
+					</div>
+					<div class="panel panel-default custom-panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">自我简介</h3>
+						</div>
+						<div class="panel-body">
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+										<img class="media-object img-me img-circle" src="img/jh.jpg" alt="...">
+									</a>
+								</div>
+								<div class="media-body">
+									<h2 class="media-heading annane">qingge</h2>
+									有些事绝对不会无趣。有些失误无法犯两次。我不会怀着耻辱而死！
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default custom-panel hot-list">
+						<div class="panel-heading">
+							<h3 class="panel-title">点击排行</h3>
+						</div>
+						<ul class="list-group">
+							<li class="list-group-item"><a href="#" class="link text-ellipsis" target="_blank">北上看到的冰川是你，南下追寻的极光是你，西去流浪的经幡是你，东去皈依的佛经也是你，世不遇你，生无可喜。</a></li>
+							<li class="list-group-item"><a href="#" class="link text-ellipsis" target="_blank">北上看到的冰川是你，南下追寻的极光是你，西去流浪的经幡是你，东去皈依的佛经也是你，世不遇你，生无可喜。</a></li>
+							<li class="list-group-item"><a href="#" class="link text-ellipsis" target="_blank">北上看到的冰川是你，南下追寻的极光是你，西去流浪的经幡是你，东去皈依的佛经也是你，世不遇你，生无可喜。</a></li>
+							<li class="list-group-item"><a href="#" class="link text-ellipsis" target="_blank">北上看到的冰川是你，南下追寻的极光是你，西去流浪的经幡是你，东去皈依的佛经也是你，世不遇你，生无可喜。</a></li>
+							<li class="list-group-item"><a href="#" class="link text-ellipsis" target="_blank">北上看到的冰川是你，南下追寻的极光是你，西去流浪的经幡是你，东去皈依的佛经也是你，世不遇你，生无可喜。</a></li>
+							<li class="list-group-item"><a href="#" class="link text-ellipsis" target="_blank">北上看到的冰川是你，南下追寻的极光是你，西去流浪的经幡是你，东去皈依的佛经也是你，世不遇你，生无可喜。</a></li>
+							<li class="list-group-item"><a href="#" class="link text-ellipsis" target="_blank">北上看到的冰川是你，南下追寻的极光是你，西去流浪的经幡是你，东去皈依的佛经也是你，世不遇你，生无可喜。</a></li>
+						</ul>
+						<div class="panel panel-default custom-panel">
+							<div class="panel-heading">
+								<h3 class="panel-title">关注我</h3>
+							</div>
+							<div class="panel-body">
+								<img src="img/daji.jpg" class="img-responsive" id="miuo" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		© 2018 kuazhu.com 豫ICP备15027861号-2
+	</footer>
+</body>
+<script src="lib/jquery/jquery-1.12.4.min.js"></script>
+<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script src="js/common.js"></script>
+{% block footer %}{% endblock %}
+</html>
