@@ -2,6 +2,8 @@ const express = require('express')
 const swig = require('swig')
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const Cookies = require('cookies');
+const session = require('express-session');
 
 const app = express();
 const port = 3000
@@ -37,6 +39,43 @@ app.set('view engine', 'html')
 //post/put请求处理中间件
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
+
+/*
+//设置cookie中间件  在请求路由前面
+app.use((req,res,next)=>{
+	req.cookies = new Cookies(req,res)
+
+	req.userInfo = {}
+
+	//cookies上有的userInfo话就会进到req上面  没有的话userInfo就是一个空对象
+	let userInfo = req.cookies.get('userInfo');
+
+	if(userInfo){
+		req.userInfo = JSON.parse(userInfo)
+	}
+	console.log(req.userInfo)
+	next();//让程序继续往下走
+})
+*/
+
+//设置session中间件
+app.use(session({
+	 //设置cookie名称
+	name:'qingge',
+	 //用它来对session cookie签名，防止篡改
+    secret:'abcd',
+    //强制保存session即使它并没有变化
+    resave: true,
+     //强制将未初始化的session存储
+    saveUninitialized: true, 
+     //如果为true,则每次请求都更新cookie的过期时间
+    rolling:true,
+    //cookie过期时间 1天
+    cookie:{maxAge:1000*60*60*24},
+ 
+}))
+
 
 
 app.use('/',require('./routles/index.js'))
