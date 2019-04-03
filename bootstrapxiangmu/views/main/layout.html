@@ -6,8 +6,8 @@
 	<title>
 		{% block title %}{% endblock %}
 	</title>
-	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/common.css">
 	{% block head %}{% endblock %}
 </head>
 <body>
@@ -44,8 +44,17 @@
 					{% if userInfo._id %}
 					<div class="user-panel" id='user-info'>
 						你好<span>{{ userInfo.username }}</span>
-						<a class="link" href="#">进入中心</a>
+						{% if userInfo.isAdmin %}
+						<a class="link" href="/admin">进入管理中心</a>
+						{% else %}
+						<a class="link" href="home">进入个人中心</a>
+						{% endif %}
 						<a class="link" href="javascript:;" id='logout'>退出</a>
+						<div class="form-group">
+							<div class="col-sm-12">
+								<p class="text-danger err"></p>
+							</div>       
+						</div> 
 					</div>
 					{% else %}
 					<div class="form-horizontal user-panel" id='register' style="display: none;">
@@ -164,8 +173,9 @@
 		© 2018 kuazhu.com 豫ICP备15027861号-2
 	</footer>
 </body>
-<script src="lib/jquery/jquery-1.12.4.min.js"></script>
-<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-<script src="js/common.js"></script>
+<script src="/lib/jquery/jquery-1.12.4.min.js"></script>
+<script src="/lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script src="/js/logout.js"></script>
+<script src="/js/common.js"></script>
 {% block footer %}{% endblock %}
 </html>

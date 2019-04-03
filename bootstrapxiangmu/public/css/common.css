@@ -120,6 +120,7 @@ footer{
 #user-info{
 	padding-left: 20px;
 	box-sizing: border-box;
+	height: 130px
 }
 #user-info .link{
 	text-align: left;

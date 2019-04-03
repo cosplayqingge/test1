@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Cookies = require('cookies');
 const session = require('express-session');
+const MongoStore = require("connect-mongo")(session);
 
 const app = express();
 const port = 3000
@@ -72,14 +73,22 @@ app.use(session({
      //如果为true,则每次请求都更新cookie的过期时间
     rolling:true,
     //cookie过期时间 1天
-    cookie:{maxAge:1000*60*60*24},
- 
+    cookie:{maxAge:1000*60*60*24}, 
+    //设置session存储在数据库中
+    store:new MongoStore({ mongooseConnection: mongoose.connection }) 
 }))
+app.use((req,res,next)=>{
+	
+	req.userInfo = req.session.userInfo || {};
+	
+	next();
+})
 
 
 
 app.use('/',require('./routles/index.js'))
 app.use('/user',require('./routles/user.js'))
+app.use('/admin',require('./routles/admin.js'))
 
 
 

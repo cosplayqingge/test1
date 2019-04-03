@@ -22,7 +22,9 @@ router.post("/register",(req,res)=>{
 		}else{//不存在用户可以插入
 			UserModel.insertMany({
 				username,
-				password:hmac(password)
+				password:hmac(password),
+				//isAdmin:true
+			
 			})
 			.then(user=>{
 				//用户成功返回前台
@@ -50,8 +52,9 @@ router.post("/login",(req,res)=>{
 	UserModel.findOne({username,password:hmac(password)},'-password -__v')
 	.then(user=>{
 		if(user){//登录成功
-			result.data = user
-			req.cookies.set('userInfo',JSON.stringify(user));//这个地方要放字符串所以要把user转换
+			result.data = user			
+			//req.cookies.set('userInfo',JSON.stringify(user));//这个地方要放字符串所以要把user转换
+			req.session.userInfo = user
 			res.json(result)
 		}else{
 			result.status = 10
@@ -72,7 +75,8 @@ router.get('/logout',(req,res)=>{
 		status:0,//成功
 		message:''
 	}
-	req.cookies.set('userInfo',null);
+	// req.cookies.set('userInfo',null);
+	req.session.destroy();//销毁session
 	res.json(result)
 })
 
