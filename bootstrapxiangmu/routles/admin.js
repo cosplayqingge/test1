@@ -1,5 +1,6 @@
 const express = require('express')
 const UserModel = require('../models/user.js')
+const pagination = require('../util/pagination.js')
 const router = express.Router()
 
 
@@ -13,7 +14,7 @@ router.use((req,res,next)=>{
 })
 
 //显示后台首页
-router.get("",(req,res)=>{
+router.get("/",(req,res)=>{
 	res.render('admin/index',{
 		userInfo:req.userInfo
 	})
@@ -33,7 +34,7 @@ router.get("/users",(req,res)=>{
 	第 page 页 跳过 (page -1) * limit 条 skip((page -1) * limit)
 	
 	*/
-
+	/*
 	let { page } = req.query;
 	const limit = 2;
 	page = parseInt(page)
@@ -58,7 +59,7 @@ router.get("/users",(req,res)=>{
 		for(let i = 1;i<=pages;i++){
 			list.push(i)
 		}
-		//每页显示条数
+		//跳过条数
 		const skip = (page -1) * limit
 
 		UserModel.find({},'-password -__v')
@@ -73,7 +74,25 @@ router.get("/users",(req,res)=>{
 			})
 		})
 	})
-
+	*/
+	const options = {
+		page:req.query.page,
+		model: UserModel,
+		query:{},
+		projection:'-password -__v',
+		sort:{_id:1}
+	}
+	pagination(options)
+	.then(data=>{
+		res.render('admin/user_list',{
+				userInfo:req.userInfo,
+				users:data.docs,
+				page:data.page,
+				list:data.list,
+				pages:data.pages,
+				url:'/admin/users'
+		})
+	})
 
 
 
