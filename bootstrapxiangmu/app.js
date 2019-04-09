@@ -90,6 +90,7 @@ app.use('/',require('./routles/index.js'))
 app.use('/user',require('./routles/user.js'))
 app.use('/admin',require('./routles/admin.js'))
 app.use('/category',require('./routles/category.js'))
+app.use('/article',require('./routles/article.js'))
 
 
 

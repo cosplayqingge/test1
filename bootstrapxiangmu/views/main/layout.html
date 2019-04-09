@@ -25,10 +25,9 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#" id="un">首页<span class="sr-only">(current)</span></a></li>
-					<li><a href="list.html">HTML</a></li>
-					<li><a href="list.html">CSS</a></li>
-					<li><a href="list.html">JavaScript</a></li>
-					<li><a href="list.html">bootstrap</a></li>
+					{% for category in categories %}
+					<li><a href="/list/{{ category._id.toString() }}">{{ category.name }}</a></li>
+					{% endfor %}
 				</ul>
 			</div>
 		</div>
