@@ -1,5 +1,6 @@
 
 import React,{ Component,Fragment } from 'react'
+import Item from './Item.js'
 import './App.css'
 
 class App extends Component{
@@ -13,7 +14,7 @@ class App extends Component{
 	handleAdd(){
 		// console.log('add....')
 		this.setState({
-			list:[...this.state.list,this.state.val]
+			list:[...this.state.list,this.state.val],
 			val:''
 		})
 	}
@@ -25,9 +26,12 @@ class App extends Component{
 	}
 	handleDel(index){
 		//console.log(index)
-		//this.state.list.splic(index,1)
+		//this.state.list.splice(index,1)
 		const list = [...this.state.list]
-		list.splic(index,1)
+		list.splice(index,1)
+		this.setState({
+			list:list
+		})
 	}
 	render(){
 		//return <div><input /> <button>新增</button></div>
@@ -39,4 +43,36 @@ class App extends Component{
 					<button onClick={this.handleAdd.bind(this)}>新增</button>
 					<ul>
 						{
-							this.state.list.map((item,index)=>{
+							this.state.list.map((item,index)=>{
+							
+								// return (
+								// <li 
+								// key={index}
+								// onClick={this.handleDel.bind(this,index)}
+
+								// >
+								// {item}
+								// </li>
+								// )
+							
+								// return <Item key={index} content={item} list={this.state.list} index={index} />
+							return <Item key={index} content={item} handleDel={this.handleDel.bind(this,index)} />
+							})
+						}
+					</ul>
+				</div>
+			)
+	}
+
+
+
+
+
+
+
+
+
+}
+
+
+export default App
