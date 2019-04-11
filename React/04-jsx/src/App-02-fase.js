@@ -15,17 +15,41 @@ class App extends Component{
 
 	}
 	handleAdd(){
+		/*
+		this.setState({
+			list:[...this.state.list,this.state.val],
+			val:''
+		})
+		*/
+		/*
+		this.setState(()=>{
+			return{
+				list:[...this.state.list,this.state.val],
+				val:''
+			}
+		})*/
+		/*
+		this.setState((preState)=>{
+			return{
+				list:[...preState.list,preState.val],
+				val:''
+			}
+		})
+		*/
 		//直接返回的话就是再加一个括号
 		this.setState(preState=>({
 			list:[...preState.list,preState.val],
 			val:''
-		}),()=>{
-			console.log(this.ul.querySelectorAll('li'))
-		});
-		//console.log(this.ul.querySelectorAll('li'))
+		}));
+
 	}
 	handleChange(ev){
-		const val = this.input.value;
+		/*
+		this.setState({
+			val:ev.target.value
+		})
+		*/
+		const val = ev.target.value;
 		this.setState(()=>({
 			val:val
 		}));
@@ -33,6 +57,11 @@ class App extends Component{
 	handleDel(index){
 		const list = [...this.state.list]
 		list.splice(index,1)
+		/*
+		this.setState({
+			list:list
+		})
+		*/
 		this.setState(()=>({
 			list
 		}));
@@ -43,19 +72,11 @@ class App extends Component{
 		})
 	}
 	render(){
-		console.log('app . render...')
 		return(
 				<div className="App">
-					<input onChange={
-						this.handleChange} 
-						value={this.state.val}
-						ref={(input)=>{
-							//console.log(input)
-							this.input = input
-						}}
-						/>
+					<input onChange={this.handleChange} value={this.state.val}/>
 					<button onClick={this.handleAdd}>新增</button>
-					<ul ref={(ul)=>{this.ul=ul}}>
+					<ul>
 						{
 							this.getItems()
 						}
@@ -63,6 +84,14 @@ class App extends Component{
 				</div>
 			)
 	}
+
+
+
+
+
+
+
+
 
 }
 
