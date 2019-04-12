@@ -2,8 +2,14 @@ import React,{ Component } from 'react'
 import propTypes from 'prop-types'
 
 class Item extends Component{
+	constructor(props){
+		super(props)
+	}
+	componentWillUnmount(){
+		console.log('componentWillUnmount')
+	}
 	render(){
-		console.log('item render ....')
+		// console.log('item render ....')
 		//通过结构赋值
 		const {handleDel,content} = this.props
 		return (

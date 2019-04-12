@@ -1,13 +1,15 @@
 
 import React,{ Component,Fragment } from 'react'
+import { DatePicker,Button } from 'antd';
 import Item from './Item.js'
 import './App.css'
+import 'antd/dist/antd.css';
 
 class App extends Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			list:["吃饭","睡觉","敲代码"],
+			list:["吃饭"],
 			val:''
 		}
 		this.handleChange= this.handleChange.bind(this);
@@ -19,13 +21,10 @@ class App extends Component{
 		this.setState(preState=>({
 			list:[...preState.list,preState.val],
 			val:''
-		}),()=>{
-			console.log(this.ul.querySelectorAll('li'))
-		});
-		//console.log(this.ul.querySelectorAll('li'))
+		}));
 	}
 	handleChange(ev){
-		const val = this.input.value;
+		const val = ev.target.value
 		this.setState(()=>({
 			val:val
 		}));
@@ -43,23 +42,20 @@ class App extends Component{
 		})
 	}
 	render(){
-		console.log('app . render...')
 		return(
 				<div className="App">
 					<input onChange={
 						this.handleChange} 
 						value={this.state.val}
-						ref={(input)=>{
-							//console.log(input)
-							this.input = input
-						}}
 						/>
 					<button onClick={this.handleAdd}>新增</button>
-					<ul ref={(ul)=>{this.ul=ul}}>
+					<ul>
 						{
 							this.getItems()
 						}
 					</ul>
+					<Button type="primary">primary</Button>
+					<DatePicker />
 				</div>
 			)
 	}
