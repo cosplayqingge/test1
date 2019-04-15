@@ -41,19 +41,19 @@ const AppUI = (props)=>{
 				<Col span={12}>
 					<Input 
 						onChange={handleChange} 
-						value={val}
+						value={val}              				
 					/>
 				</Col>
 				<Col span={12}>
 					<Button type="primary" onClick={handleAdd}>新增</Button>
-				</Col>
+				</Col>                         
 			</Row>
 			<List
 				style={{marginTop:10}}
 			  	bordered
 			  	dataSource={list}
 			  	renderItem={(item,index) => (<List.Item onClick={()=>{handleDel(index)}}>{item}</List.Item>)}
-			/>				
+			/>		
 		</div>
 	)
 }

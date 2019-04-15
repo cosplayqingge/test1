@@ -15,7 +15,7 @@ export default (state=defaultState,action)=>{
 		不推荐使用
 		state.val = action.payload
 		return state
-		*/
+		*/						
 		//推荐做法
 		//1.copy上一次的state
 		const newState = JSON.parse(JSON.stringify(state))
@@ -46,11 +46,3 @@ export default (state=defaultState,action)=>{
 	//没有的话要返回return state
 	return state;
 }
-
-
-
-
-
-
-
-
