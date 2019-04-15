@@ -6,6 +6,7 @@
 */
 
 import React,{ Component } from 'react'
+import axios from 'axios'
 import {Form, Icon, Input, Button, Checkbox} from 'antd'
 
 
@@ -21,6 +22,17 @@ class NormalLoginForm extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        axios({
+        	method:'post',
+        	url:'http://127.0.0.1:3000/admin/login',
+        	data:values
+        })
+        .then(result=>{
+        	console.log(result)
+        })
+        .cath(err=>{
+        	console.log(err)
+        })
       }
     });
   }
@@ -32,14 +44,14 @@ class NormalLoginForm extends Component {
 	      <Form className="login-form">
 	        <Form.Item>
 	          {getFieldDecorator('userName', {
-	            rules: [{ required: true, message: '请输入用户名' }],
+	            rules: [{ pattern: /^[a-z0-9]{3,6}$/, message: '用户名三到六的数字或者字符' }],
 	          })(
 	            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="帐户" />
 	          )}
 	        </Form.Item>
 	        <Form.Item>
 	          {getFieldDecorator('password', {
-	            rules: [{ required: true, message: '请输入密码' }],
+	            rules: [{ pattern: /^\w{3,6}$/, message: '密码三到六位' }],
 	          })(
 	            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="密码" />
 	          )}

@@ -4,10 +4,10 @@
 * @Last Modified by:   TomChen
 * @Last Modified time: 2019-04-09 18:59:53
 */
-const path = require('path');
+const paths = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-
+ 
 module.exports = {
 	//指定打包环境
 	mode:'development',
