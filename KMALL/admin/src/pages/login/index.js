@@ -6,8 +6,9 @@
 */
 
 import React,{ Component } from 'react'
+import { connect } from 'react-redux'
 import axios from 'axios'
-import {Form, Icon, Input, Button, Checkbox} from 'antd'
+import {Form, Icon, Input, Button, message} from 'antd'
 
 
 import './index.css'
@@ -16,22 +17,35 @@ class NormalLoginForm extends Component {
 	constructor(props){
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this)
+    this.state={
+      isFething:false
+    }
 	}
   handleSubmit(e){
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+       // console.log('Received values of form: ', values);
+       this.setState(()=>({isFething:true}))
         axios({
         	method:'post',
         	url:'http://127.0.0.1:3000/admin/login',
         	data:values
         })
         .then(result=>{
-        	console.log(result)
+        	 if(result.data.code == 0){//登录成功跳转
+                //跳转到后台
+                window.location.href = '/'
+           }else if(result.data.code == 1){
+                message.error(result.data.message)
+           }
         })
-        .cath(err=>{
-        	console.log(err)
+        .catch(err=>{
+        	   console.log(err)
+             message.error('网络请求失败，请稍后再试')
+        })
+        .finally(()=>{
+             this.setState(()=>({isFething:false}))
         })
       }
     });
@@ -43,8 +57,8 @@ class NormalLoginForm extends Component {
    		<div className="Login">
 	      <Form className="login-form">
 	        <Form.Item>
-	          {getFieldDecorator('userName', {
-	            rules: [{ pattern: /^[a-z0-9]{3,6}$/, message: '用户名三到六的数字或者字符' }],
+	          {getFieldDecorator('username', {
+	            rules: [{ pattern: /^[a-z0-9_]{3,6}$/, message: '用户名三到六的数字或者字符' }],
 	          })(
 	            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="帐户" />
 	          )}
@@ -57,7 +71,12 @@ class NormalLoginForm extends Component {
 	          )}
 	        </Form.Item>
 	        <Form.Item>
-	          <Button type="primary" onClick={this.handleSubmit} className="login-form-button">
+	          <Button 
+            type="primary" 
+            onClick={this.handleSubmit} 
+            className="login-form-button"
+            loading={this.props.isFething}
+             >
 	            登录 GG
 	          </Button>
 	        </Form.Item>
@@ -69,5 +88,17 @@ class NormalLoginForm extends Component {
 
 const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(NormalLoginForm);
 
+const mapStateToProps = (state) =>{
+    return {
+      isFething:state.get('login').get('isFething')
+    }
+}
 
-export default WrappedNormalLoginForm;
+const mapDispatchToProps = (dispatch)=>{
+    return {
+      
+    }
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(WrappedNormalLoginForm);
