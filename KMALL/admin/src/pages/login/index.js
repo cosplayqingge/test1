@@ -23,16 +23,19 @@ class NormalLoginForm extends Component {
 	constructor(props){
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this)
+    /*
     this.state={
-      isFething:false
+      isFetching:false
     }
+    */
 	}
   handleSubmit(e){
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-       // console.log('Received values of form: ', values);
-       this.setState(()=>({isFething:true}))
+          this.props.handleLogin(values);
+      /*
+       this.setState(()=>({isFetching:true}))
         axios({
         	method:'post',
         	url:'http://127.0.0.1:3000/admin/login',
@@ -53,6 +56,7 @@ class NormalLoginForm extends Component {
         .finally(()=>{
              this.setState(()=>({isFething:false}))
         })
+        */
       }
     });
   }
@@ -81,7 +85,7 @@ class NormalLoginForm extends Component {
             type="primary" 
             onClick={this.handleSubmit} 
             className="login-form-button"
-            loading={this.props.isFething}
+            loading={this.props.isFetching}
              >
 	            登录 GG
 	          </Button>
@@ -113,15 +117,14 @@ const mapStateToProps = (state)=>{
 //4.返回对象的属性对应的值是一个方法
 const mapDispatchToProps = (dispatch)=>{
    return {
-    /*
-    handleLogin:(values)=>{
+   handleLogin:(values)=>{ 
       //1.派发登录的action
       //2.其实这个登录的action是一个能够发送ajax请求的函数
       //3.dispatch能够派发函数是因为引用了redux-thunk
       //4.使用redux-thunk派发一个函数action的时候,会把dispatch方法自身传递到该函数action中
-      const action = actionCreator.getLoginAction(values);
-      dispatch(action)
-      */
+        const action = actionCreator.getLoginAction(values);
+        dispatch(action)
+      }
     }
 }
 
