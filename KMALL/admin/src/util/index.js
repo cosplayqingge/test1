@@ -12,11 +12,20 @@ export const request = (options) =>{
 		}
 		axios(params)
 		.then(result=>{
-			console.log(result)
-			resolve(result)
+			resolve(result.data)
 		})
 		.catch(err=>{
 			reject(err)
 		})
 	})
+}
+
+export const setUserName = (username)=>{
+	window.localStorage.setItem('username',username)
+}
+export const getUserName = ()=>{
+	return window.localStorage.getItem('username')
+}
+export const removeUserName = ()=>{
+	window.localStorage.removeItem('username')
 }

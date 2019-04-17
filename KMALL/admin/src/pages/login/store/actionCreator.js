@@ -33,16 +33,17 @@ export const getLoginAction = (values)=>{
 			data:values
 		})
 		.then(result=>{			
-			 if(result.data.code == 0){//登录成功跳转
+			 if(result.code == 0){//登录成功跳转
+			 	//把用户名保存到本地
+			 	setUserName(result.data.username)
                 //跳转到后台
-                 window.location.href = "/"
-            }else if(result.data.code == 1){
-            	message.error(result.data.message)
+                 window.location.href = "/";
+            }else if(result.code == 1){
+            	message.error(result.message)
             }
 		})
 		.catch(err=>{
 			// console.log(err)
-			// console.log('11111')
 			message.error('网络请求失败，请稍后再试')
 		})
 		.finally(()=>{
