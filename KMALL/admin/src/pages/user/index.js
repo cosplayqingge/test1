@@ -11,12 +11,12 @@ import Layout from 'common/Layout'
 
 import './index.css'
 
-class Home extends Component{
+class User extends Component{
       render(){
           return (
-          		<div className="Home">
+          		<div className="User">
           			<Layout>
-          			home pages!!
+          			user pages!!
           			</Layout>
           		</div>
 
@@ -28,4 +28,4 @@ class Home extends Component{
 
 
 
-export default Home
+export default User

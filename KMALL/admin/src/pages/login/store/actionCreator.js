@@ -3,7 +3,7 @@ import * as types from './actionTypes.js'
 import axios from 'axios';
 import {message} from 'antd'
 
-import { request } from 'util'
+import { request,setUserName } from 'util'
 import { ADMIN_LOGIN } from 'api'
 
 const getLoginRequestAction = ()=>{
@@ -43,7 +43,7 @@ export const getLoginAction = (values)=>{
             }
 		})
 		.catch(err=>{
-			// console.log(err)
+			console.log(err)
 			message.error('网络请求失败，请稍后再试')
 		})
 		.finally(()=>{
