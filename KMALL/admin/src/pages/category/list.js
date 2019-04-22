@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Breadcrumb,Button,Table,InputNumber,Divider  } from 'antd'
+import { Breadcrumb,Button,Table,Input,InputNumber,Divider,Modal  } from 'antd'
 import { Link } from "react-router-dom"
 import { actionCreator } from './store'
 import Layout from 'common/layout'
@@ -17,7 +17,7 @@ class CategoryList extends Component {
         const oldPath = preProps.location.pathname;
         const newPath = this.props.location.pathname;
         if(oldPath != newPath){
-            const newPid = this.props.match.params.pid;
+            const newPid = this.props.match.params.pid || 0;
             this.setState(()=>({pid:newPid}),()=>{
                 this.props.handlePage(newPid,1)
             })
@@ -27,14 +27,16 @@ class CategoryList extends Component {
         this.props.handlePage(this.state.pid,1);
     }    
     render() {
-        const { list,current,pageSize,total,handlePage,isPageFetching } = this.props;
+        const { list,current,pageSize,total,handlePage,isPageFetching,updateNameModalVisible,
+        handleOrder,showUpdateNameModal,closeUpdateNameModal,updateName,handleUpdateName,handleUpdateNameChange } = this.props;
         const { pid } = this.state
-        const dataSource = list.map(user=>{
+        const dataSource = list.map(category=>{
             return {
-                key:user.get('_id'),
-                id:user.get('_id'),
-                name: user.get('name'),
-                order: user.get('order'),
+                key:category.get('_id'),
+                id:category.get('_id'),
+                name: category.get('name'),
+                order: category.get('order'),
+                pid: category.get('pid')
             }
         }).toJS()
         const columns = [{
@@ -49,16 +51,33 @@ class CategoryList extends Component {
           title: '排序',
           dataIndex: 'order',
           key: 'order',
-          render:(order)=><InputNumber defaultValue={order} />
+          render:(order,record)=><InputNumber 
+                  defaultValue={order}
+                  onBlur={(ev)=>{
+                      handleOrder(record.pid,record.id,ev.target.value);
+                   }}
+              />
         }, {
           title: '操作',
           dataIndex: 'action',
           key: 'action',
           render: (text, record) => (
             <span>
-              <a href="javascript:;">修改名称</a>
-              <Divider type="vertical" />
-              <Link to={"/category/"+record.id} >查看子分类</Link>
+              <a href="javascript:;"
+                onClick={()=>{
+                  showUpdateNameModal(record.id,record.name)
+                }}
+              >
+              修改名称
+              </a>
+              {
+                pid == 0
+                ?<span>
+                    <Divider type="vertical" />
+                    <Link to={"/category/"+record.id} >查看子分类</Link>
+                </span>
+                : null
+              }     
             </span>
           ),           
         }];                
@@ -91,7 +110,23 @@ class CategoryList extends Component {
                         spinning:isPageFetching,
                         tip:'正在加载数据'
                     }}
-                />                          
+                />
+                <Modal
+                   title="修改分类名称"
+                   visible={updateNameModalVisible}
+                   onOk={()=>{handleUpdateName(pid)}}
+                   onCancel={closeUpdateNameModal}
+                   cancelText='取消'
+                   okText='确认'
+                 >
+                  <Input 
+                    value={updateName}
+                    onChange={(ev)=>{
+                      handleUpdateNameChange(ev.target.val)
+                    }}
+
+                   />
+                </Modal>
             </Layout>
           </div>
         )
@@ -103,7 +138,10 @@ const mapStateToProps = (state)=>{
         current:state.get('category').get('current'),
         pageSize:state.get('category').get('pageSize'),
         total:state.get('category').get('total'),   
-        isPageFetching: state.get('category').get('isPageFetching'),    
+        isPageFetching: state.get('category').get('isPageFetching'),
+        updateNameModalVisible: state.get('category').get('updateNameModalVisible'),    
+        updateName: state.get('category').get('updateName'),
+        updateId: state.get('category').get('updateId'),
     }
 }
 
@@ -112,7 +150,28 @@ const mapDispatchToProps = (dispath)=>{
         handlePage:(pid,page)=>{
             const action = actionCreator.getPageAction(pid,page)
             dispath(action)
+        },
+        handleOrder:(pid,id,newOrder)=>{
+            const action = actionCreator.getOrderAction(pid,id,newOrder)
+            dispath(action)
+        },
+        showUpdateNameModal:(updateId,updateName)=>{
+            const action = actionCreator.getShowUpdateNameModalAction(updateId,updateName)
+            dispath(action)
+        },
+        closeUpdateNameModal:()=>{
+            const action = actionCreator.getCloseUpdateNameModalAction()
+            dispath(action)
+        },
+        handleUpdateNameChange:(value)=>{
+            const action = actionCreator.getUpdateNameChangeAction(value)
+            dispath(action)
+        },
+        handleUpdateName:(pid)=>{
+            const action = actionCreator.getUpdateNameAction(pid)
+            dispath(action)
         }
+
     }
 }
 
