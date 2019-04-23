@@ -122,7 +122,7 @@ class CategoryList extends Component {
                   <Input 
                     value={updateName}
                     onChange={(ev)=>{
-                      handleUpdateNameChange(ev.target.val)
+                      handleUpdateNameChange(ev.target.value)
                     }}
 
                    />
