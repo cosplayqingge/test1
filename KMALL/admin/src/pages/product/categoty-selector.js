@@ -39,6 +39,7 @@ class CategotySelector extends Component{
 	handleLeveOneChange(value){
 		this.setState(()=>({levelOneId:value,levelTwoId:''}),()=>{
 			this.levelTowCategories()
+			this.onValueChangge()
 		})
 	}
 	levelTowCategories(){
@@ -55,7 +56,19 @@ class CategotySelector extends Component{
 		})
 	}
 	handleLeveTwoChange(value){
-		this.setState(()=>({levelTwoId:value}))
+		this.setState(()=>({levelTwoId:value}),()=>{
+			this.onValueChangge()
+		})
+	}
+	onValueChangge(){
+		const { getCategotyId } = this.props
+		const { levelOneId,levelTwoId } = this.state
+		if(levelTwoId){
+			getCategotyId(levelOneId,levelTwoId)
+		}else{
+			getCategotyId(0,levelOneId)
+		}
+		
 	}	
     render(){
       	const { levelOneCategories,levelTwoCategories,levelOneId,levelTwoId } = this.state;
@@ -70,13 +83,18 @@ class CategotySelector extends Component{
           			>
           				{levelOneOptions}
           			</Select>
-          			<Select
-          			 	style={{width:200}}
-          			 	onChange={this.handleLeveTwoChange}
-          			 	value={levelTwoId}
-          			 >
-          				{levelTwoOptions}
-          			</Select>
+          			{
+          				levelTwoOptions.length
+          				?<Select
+          			 		style={{width:200}}
+          			 		onChange={this.handleLeveTwoChange}
+          			 		value={levelTwoId}
+          			 	>
+          					{levelTwoOptions}
+          				</Select>
+          				:null
+          			}
+          	
           		</div>
 
           	) 

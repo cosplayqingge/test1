@@ -6,6 +6,7 @@ import {
 } from 'antd';
 
 import CategotySelector from './categoty-selector.js'
+import UploadImage from 'common/Upload-image'
 
 import { actionCreator } from './store'
 
@@ -73,7 +74,9 @@ class ProductSave extends Component{
                           )}
                         </Form.Item>
                         <Form.Item label="商品分类">
-                            <CategotySelector />
+                            <CategotySelector getCategotyId={(pid,id)=>{
+                                console.log(pid,id)
+                            }}/>
                         </Form.Item> 
                         <Form.Item label="商品价格">
                           {getFieldDecorator('price', {
@@ -90,6 +93,7 @@ class ProductSave extends Component{
                           )}
                         </Form.Item>
                         <Form.Item label="商品图片">
+                            <UploadImage />
                         </Form.Item>  
                         <Form.Item label="商品描述">
                         </Form.Item>                                    
