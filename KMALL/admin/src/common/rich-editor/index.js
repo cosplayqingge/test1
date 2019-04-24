@@ -36,7 +36,7 @@ class RichEditor extends Component{
 		})
 	}
 	componentDidMount(){
-		new Simditor({
+		this.simditor = new Simditor({
 			textarea: this.textarea,
 			toolbar:this.toolbar,
 			upload:{
@@ -44,6 +44,9 @@ class RichEditor extends Component{
 					fileKey: 'upload'
 				}
 		});
+		this.simditor.on('valuechanged',()=>{
+			this.props.getRichEditorValue(this.simditor.getValue())	
+		})
 	}
 	render(){
 		return(

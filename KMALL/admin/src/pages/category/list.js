@@ -28,7 +28,7 @@ class CategoryList extends Component {
     }    
     render() {
         const { list,current,pageSize,total,handlePage,isPageFetching,updateNameModalVisible,
-        handleOrder,showUpdateNameModal,closeUpdateNameModal,updateName,handleUpdateName,handleUpdateNameChange } = this.props;
+        handleUpdateOrder,showUpdateNameModal,closeUpdateNameModal,updateName,handleUpdateName,handleUpdateNameChange } = this.props;
         const { pid } = this.state
         const dataSource = list.map(category=>{
             return {
@@ -54,7 +54,7 @@ class CategoryList extends Component {
           render:(order,record)=><InputNumber 
                   defaultValue={order}
                   onBlur={(ev)=>{
-                      handleOrder(record.pid,record.id,ev.target.value);
+                      handleUpdateOrder(record.pid,record.id,ev.target.value);
                    }}
               />
         }, {
@@ -151,8 +151,8 @@ const mapDispatchToProps = (dispath)=>{
             const action = actionCreator.getPageAction(pid,page)
             dispath(action)
         },
-        handleOrder:(pid,id,newOrder)=>{
-            const action = actionCreator.getOrderAction(pid,id,newOrder)
+        handleUpdateOrder:(pid,id,newOrder)=>{
+            const action = actionCreator.getUpdateOrderAction(pid,id,newOrder)
             dispath(action)
         },
         showUpdateNameModal:(updateId,updateName)=>{

@@ -25,12 +25,17 @@ class ProductSave extends Component{
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
           if (!err) {
-            console.log(values)
+            this.props.handleSave(values)
           }
         });
     }        
     render(){
         const { getFieldDecorator } = this.props.form;
+        const {
+            handleCategoryId,
+            handleImages,
+            handleDetail
+        } = this.props
         const formItemLayout = {
           labelCol: {
             xs: { span: 24 },
@@ -78,7 +83,7 @@ class ProductSave extends Component{
                         </Form.Item>
                         <Form.Item label="商品分类">
                             <CategotySelector getCategotyId={(pid,id)=>{
-                                console.log(pid,id)
+                               handleCategoryId(pid,id)
                             }}/>
                         </Form.Item> 
                         <Form.Item label="商品价格">
@@ -100,13 +105,16 @@ class ProductSave extends Component{
                               action={UPLOAD_PRODUCT_IMAGE}
                               max={3}
                               getFileList={(fileList)=>{
-                                  console.log(fileList)
+                                  handleImages(fileList)
                               }}
                              />
                         </Form.Item>  
                         <Form.Item label="商品描述">
                             <RichEditor 
                                 url={UPLOAD_PRODUCT_DETAIL_IMAGE}
+                                getRichEditorValue={(value)=>{
+                                  handleDetail(value)
+                                }}
                             />
                         </Form.Item>                                    
                         <Form.Item {...tailFormItemLayout}>
@@ -133,7 +141,22 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = (dispatch)=>{
     return {
-
+        handleCategoryId:(pid,id)=>{
+            const action = actionCreator.getSetCategoryIdAction(pid,id)
+            dispatch(action)
+        },
+        handleImages:(fileList)=>{
+            const action = actionCreator.getSetImagesAction(fileList)
+            dispatch(action)
+        },
+        handleDetail:(value)=>{
+            const action = actionCreator.getSetDetailAction(value)
+            dispatch(action)
+        },
+        handleSave:(values)=>{
+            const action = actionCreator.getSaveAction(values)
+            dispatch(action)              
+        },
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(WrappedProductSave)

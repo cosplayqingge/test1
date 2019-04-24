@@ -4,16 +4,15 @@ import { fromJS } from 'immutable'
 import * as types from './actionTypes.js'
 
 const defaultState = fromJS({
-	isAddFetching:false,
+	parentCategoryId:'',
+	categotyId:'',
+	images:'',
+	detail:'',
 	isPageFetching:false,
-	levelOneCategories:[],	
 	list:[],
 	current:1,
 	pageSize:0,
 	total:0,
-	updateNameModalVisible:false,
-	updateId:'',
-	updateName:'',
 })
 export default (state=defaultState,action)=>{
 	if(action.type == types.SET_PAGE){
@@ -30,27 +29,18 @@ export default (state=defaultState,action)=>{
 	if(action.type == types.PAGE_DONE){
 		return state.set('isPageFetching',false)
 	}
-	if(action.type == types.ADD_REQUEST){
-		return state.set('isAddFetching',true)
-	}
-	if(action.type == types.ADD_DONE){
-		return state.set('isAddFetching',false)
-	}
-	if(action.type == types.SET_LEVEL_ONE_CATEGORIES){
-		return state.set('levelOneCategories',fromJS(action.payload))
-	}
-	if(action.type == types.SHOW_UPDATE_NAME_MODAL){
+	
+	if(action.type == types.SET_CATEGORY_ID){
 		return state.merge({
-			updateNameModalVisible:true,
-			updateName:action.payload.updateName,
-			updateId:action.payload.updateId
+			parentCategoryId:action.payload.parentCategoryId,
+			categotyId:action.payload.categotyId
 		})
 	}
-	if(action.type == types.CLOSE_UPDATE_NAME_MODAL){
-		return state.set('updateNameModalVisible',false)
-	}	
-	if(action.type == types.UPDATE_NAME_CHANGE){
-		return state.set('updateName',action.payload)
-	}		
+	if(action.type == types.SET_IMAGES){
+		return state.set('images',action.payload)
+	}
+	if(action.type == types.SET_DETAIL){
+		return state.set('detail',action.payload)
+	}
 	return state;
 }

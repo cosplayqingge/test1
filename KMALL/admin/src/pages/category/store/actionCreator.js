@@ -97,7 +97,7 @@ export const getLevelOneCategoriesAction = ()=>{
 		})
 	}	
 }
-export const getOrderAction = (pid,id,newOrder)=>{
+export const getUpdateOrderAction = (pid,id,newOrder)=>{
 	return (dispatch,getState)=>{
 	//可以拿到页码数console.log(getState().get('category').get('current'))
 		const state = getState().get('category');
