@@ -7,6 +7,9 @@ import {
 
 import CategotySelector from './categoty-selector.js'
 import UploadImage from 'common/Upload-image'
+import RichEditor from 'common/rich-editor'
+
+import { UPLOAD_PRODUCT_IMAGE,UPLOAD_PRODUCT_DETAIL_IMAGE } from 'api'
 
 import { actionCreator } from './store'
 
@@ -93,9 +96,18 @@ class ProductSave extends Component{
                           )}
                         </Form.Item>
                         <Form.Item label="商品图片">
-                            <UploadImage />
+                            <UploadImage
+                              action={UPLOAD_PRODUCT_IMAGE}
+                              max={3}
+                              getFileList={(fileList)=>{
+                                  console.log(fileList)
+                              }}
+                             />
                         </Form.Item>  
                         <Form.Item label="商品描述">
+                            <RichEditor 
+                                url={UPLOAD_PRODUCT_DETAIL_IMAGE}
+                            />
                         </Form.Item>                                    
                         <Form.Item {...tailFormItemLayout}>
                           <Button 
