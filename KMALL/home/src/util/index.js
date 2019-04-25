@@ -1,11 +1,7 @@
-/*
-* @Author: TomChen
-* @Date:   2019-04-24 19:20:01
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-24 19:26:12
-*/
+
 var _util = {
 	request:function(options){
+		var _this = this;
 		$.ajax({
 			method:options.method || 'get',
 			url:options.url || '',
@@ -23,7 +19,7 @@ var _util = {
 				//没有权限
 				else if(result.code == 10){
 					//跳转到登录页面
-					window.location.herf = './user-login.html'
+					_this.goLogin();
 				}
 			},
 			error:function(err){
@@ -31,6 +27,34 @@ var _util = {
 			}
 
 		})
+	},
+	showErrorMsg:function(msg){
+		alert(msg)
+	},
+	showSuccessMsg:function(msg){
+		alert(msg)
+	},
+	goLogin:function(){
+		window.location.href = './user-login.html'
+	},
+	goHome:function(){
+		window.location.href = '/'
+	},	
+	validate:function(value,type){
+		
+		var value = $.trim(value);
+		//非空验证
+		if(type == 'require'){
+			return !!value;
+		}
+		//用户名格式验证
+		if(type == 'username'){
+			return /^[a-zA-Z0-9_]{3,6}$/.test(value);
+		}
+		//密码格式验证
+		if(type == 'password'){
+			return /^[a-zA-Z0-9_]{3,6}$/.test(value);
+		}
 	}
 }
 

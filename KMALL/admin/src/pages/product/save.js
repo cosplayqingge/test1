@@ -24,9 +24,7 @@ class ProductSave extends Component{
     handleSubmit(e){
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
-          if (!err) {
-            this.props.handleSave(values)
-          }
+            this.props.handleSave(err,values)
         });
     }        
     render(){
@@ -34,7 +32,13 @@ class ProductSave extends Component{
         const {
             handleCategoryId,
             handleImages,
-            handleDetail
+            handleDetail,
+
+            categoryIdValidateStatus,
+            categoryIdHelp,
+            imagesValidateStatus,
+            imagesHelp,
+
         } = this.props
         const formItemLayout = {
           labelCol: {
@@ -81,8 +85,14 @@ class ProductSave extends Component{
                             <Input placeholder="商品描述" />
                           )}
                         </Form.Item>
-                        <Form.Item label="商品分类">
+                        <Form.Item 
+                            label="商品分类"
+                            required={true}
+                            validateStatus={categoryIdValidateStatus}
+                            help={categoryIdHelp}
+                          >
                             <CategotySelector getCategotyId={(pid,id)=>{
+                              console.log('aaaaaaaaa')
                                handleCategoryId(pid,id)
                             }}/>
                         </Form.Item> 
@@ -100,7 +110,12 @@ class ProductSave extends Component{
                             <InputNumber />
                           )}
                         </Form.Item>
-                        <Form.Item label="商品图片">
+                        <Form.Item 
+                            label="商品图片"
+                            required={true}
+                            validateStatus={imagesValidateStatus}
+                            help={imagesHelp}
+                            >
                             <UploadImage
                               action={UPLOAD_PRODUCT_IMAGE}
                               max={3}
@@ -135,7 +150,10 @@ const WrappedProductSave = Form.create()(ProductSave);
 
 const mapStateToProps = (state)=>{
     return {  
-       
+        categoryIdValidateStatus:state.get('product').get('categoryIdValidateStatus'),
+        categoryIdHelp:state.get('product').get('categoryIdHelp'),
+        imagesValidateStatus:state.get('product').get('imagesValidateStatus'),
+        imagesHelp:state.get('product').get('imagesHelp'),
     }
 }
 
@@ -153,8 +171,8 @@ const mapDispatchToProps = (dispatch)=>{
             const action = actionCreator.getSetDetailAction(value)
             dispatch(action)
         },
-        handleSave:(values)=>{
-            const action = actionCreator.getSaveAction(values)
+        handleSave:(err,values)=>{
+            const action = actionCreator.getSaveAction(err,values)
             dispatch(action)              
         },
     }

@@ -10,7 +10,7 @@ export const getSetCategoryIdAction = (pid,id)=>{
 		type:types.SET_CATEGORY_ID,
 		payload:{
 			parentCategoryId:pid,
-			categotyId:id,
+			categoryId:id,
 		}
 	}
 }
@@ -31,13 +31,39 @@ export const getSetDetailAction = (payload)=>{
 	}
 }
 
+const setCategoryError=()=>{
+	return {
+		type:types.SET_CATEGORY_ERROR
+	}	
+}
 
-export const getSaveAction = (values)=>{
+const setImagesError=()=>{
+	return {
+		type:types.SET_IMAGES_ERROR
+	}	
+}
+export const getSaveAction = (err,values)=>{
 	return (dispatch,getState)=>{
 		const state = getState().get('product');
 		const category = state.get('categoryId');
 		const images = state.get('images');
 		const detail = state.get('detail');
+		console.log(category)
+		let hasError = false;
+		if(err){
+			hasError = true;
+		}
+		if(!category){
+			dispatch(setCategoryError())
+			hasError = true;
+		}
+		if(!images){
+			dispatch(setImagesError())
+			hasError = true;
+		}
+		if(hasError){
+			return;
+		}
 		request({
 			method:'post',
 			url:SAVE_PRODUCT,

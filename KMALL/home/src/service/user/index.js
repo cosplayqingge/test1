@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2019-04-24 19:11:15
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-24 19:27:40
-*/
+
 var _util = require('util')
 
 var _user = {
@@ -13,6 +8,16 @@ var _user = {
 			success:success,
 			error:error			
 		})		
+	},
+	login:function(data,success,error){
+		_util.request({
+			method:'post',
+			url:'/user/login',
+			data:data,
+			success:success,
+			error:error
+		})
+
 	}
 }
 
