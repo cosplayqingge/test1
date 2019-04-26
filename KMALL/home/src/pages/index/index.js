@@ -5,5 +5,6 @@
 * @Last Modified time: 2019-04-24 19:57:47
 */
 require('pages/common/nav')
+require('pages/common/search')
 require('pages/common/footer')
 require('./index.css')

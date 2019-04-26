@@ -1,4 +1,4 @@
-
+var Hogan = require('hogan.js')
 var _util = {
 	request:function(options){
 		var _this = this;
@@ -39,6 +39,21 @@ var _util = {
 	},
 	goHome:function(){
 		window.location.href = '/'
+	},
+	//获取参数的键值
+	getParamFromUrl:function(key){
+		//?type=register
+		//?name=tom&&type=register
+		//?name=tom&&type=register&&id=123
+		var query = window.location.search.substr(1);
+		var reg = new RegExp('(^|&)'+key+'=([^&]*)(&|$)');
+		var result = query.match(reg)
+		return result ? decodeURIComponent(result[2]) : null;
+	},
+	render:function(tpl,data){
+		var template = Hogan.compile(tpl);
+		var output = template.render(data);
+		return output;
 	},	
 	validate:function(value,type){
 		
@@ -55,6 +70,14 @@ var _util = {
 		if(type == 'password'){
 			return /^[a-zA-Z0-9_]{3,6}$/.test(value);
 		}
+		//手机号格式验证
+		if(type == 'phone'){
+			return /^1[3568]\d{9}$/.test(value);
+		}
+		//邮箱格式验证
+		if(type == 'email'){
+			return /^\w+@\w+\.\w{2,6}$/.test(value);
+		}			
 	}
 }
 
