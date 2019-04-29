@@ -1,9 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-04-23 19:24:03
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-26 20:06:19
-*/
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 
@@ -34,7 +28,7 @@ var page = {
 		{image:require('images/carousel/carousel-02.jpg'),categoryId:'222'},
 		{image:require('images/carousel/carousel-03.jpg'),categoryId:'333'},
 	],
-	/*
+	
 	floor:[
 		{
 			title:'F1 家用电器',
@@ -65,8 +59,8 @@ var page = {
 				{image:require('images/floor/floor03-04.jpg'),text:'个护健康',categoryId:'5b84b36c50f099037f316c64'},
 				{image:require('images/floor/floor03-05.jpg'),text:'卫浴馆',categoryId:'5b84b36c50f099037f316c64'},
 			]
-		},					
-	],*/
+		},				
+	],
 	init:function(){
 		this.loadKeywords();
 		this.loadSwiper();
@@ -99,7 +93,7 @@ var page = {
 			  prevEl: '.swiper-button-prev',
 			},
 		})
-	},
+	},	
 	loadFloor:function(){
 		var html = _util.render(floorTpl,{
 			floor:this.floor

@@ -2,7 +2,7 @@
 * @Author: TomChen
 * @Date:   2019-04-08 18:41:12
 * @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-14 15:44:15
+* @Last Modified time: 2019-04-23 19:42:16
 */
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin')
@@ -33,7 +33,7 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist')
 	},
 	//配置别名
-	 resolve:{
+    resolve:{
         alias:{
             pages:path.resolve(__dirname,'./src/pages'),
             util:path.resolve(__dirname,'./src/util'),
@@ -47,12 +47,12 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: [
-				{
-					loader: MiniCssExtractPlugin.loader,
-					options: {
-					}
-				},
-				"css-loader"
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+						}
+					},
+					"css-loader"
 				]
 			},
 	    //处理图片 

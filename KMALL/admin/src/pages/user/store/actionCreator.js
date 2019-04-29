@@ -1,3 +1,9 @@
+/*
+* @Author: TomChen
+* @Date:   2019-04-11 20:15:26
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-04-17 20:45:48
+*/
 import * as types from './actionTypes.js'
 import { request } from 'util'
 import { GET_USERS } from 'api'
@@ -19,6 +25,7 @@ const setPageAction = (payload)=>{
 		payload
 	}
 }
+
 export const getPageAction = (page)=>{
 	return (dispatch)=>{
 		dispatch(getPageRequestAction())
@@ -41,3 +48,5 @@ export const getPageAction = (page)=>{
 		})
 	}
 }
+
+

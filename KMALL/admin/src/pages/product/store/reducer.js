@@ -1,3 +1,9 @@
+/*
+* @Author: TomChen
+* @Date:   2019-04-11 18:56:06
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-04-23 18:47:00
+*/
 import { fromJS } from 'immutable'
 
 import * as types from './actionTypes.js'
@@ -44,7 +50,6 @@ export default (state=defaultState,action)=>{
 	}
 	
 	if(action.type == types.SET_CATEGORY_ID){
-		console.log(action.payload.categoryId)
 		return state.merge({
 			parentCategoryId:action.payload.parentCategoryId,
 			categoryId:action.payload.categoryId,

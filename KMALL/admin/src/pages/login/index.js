@@ -1,4 +1,9 @@
-//第三页
+/*
+* @Author: TomChen
+* @Date:   2019-04-09 19:29:30
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-04-18 19:14:40
+*/
 
 import React,{ Component } from 'react'
 //1.react-redux 里面的connect方法负责把store里面的数据和方法映射到UI组件
@@ -12,51 +17,22 @@ import { connect } from 'react-redux'
 //3.而'./store/index.js'中的actionCreator是引入'./actionCreator.js'中的所有action的别名
 import { actionCreator } from './store'
 
-
-import axios from 'axios'
-import {Form, Icon, Input, Button, message} from 'antd'
-
+import {
+  Form, Icon, Input, Button, message,
+} from 'antd';
 
 import './index.css'
 
 class NormalLoginForm extends Component {
-	constructor(props){
-		super(props);
-		this.handleSubmit = this.handleSubmit.bind(this)
-    /*
-    this.state={
-      isFetching:false
-    }
-    */
-	}
+  constructor(props){
+  	super(props);
+  	this.handleSubmit = this.handleSubmit.bind(this)
+  }
   handleSubmit(e){
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-          this.props.handleLogin(values);
-      /*
-       this.setState(()=>({isFetching:true}))
-        axios({
-        	method:'post',
-        	url:'http://127.0.0.1:3000/admin/login',
-        	data:values
-        })
-        .then(result=>{
-        	 if(result.data.code == 0){//登录成功跳转
-                //跳转到后台
-                window.location.href = '/'
-           }else if(result.data.code == 1){
-                message.error(result.data.message)
-           }
-        })
-        .catch(err=>{
-        	   console.log(err)
-             message.error('网络请求失败，请稍后再试')
-        })
-        .finally(()=>{
-             this.setState(()=>({isFething:false}))
-        })
-        */
+        this.props.handleLogin(values);
       }
     });
   }
@@ -64,34 +40,34 @@ class NormalLoginForm extends Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-   		<div className="Login">
-	      <Form className="login-form">
-	        <Form.Item>
-	          {getFieldDecorator('username', {
-	            rules: [{ pattern: /^[a-z0-9_]{3,6}$/, message: '用户名三到六的数字或者字符' }],
-	          })(
-	            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="帐户" />
-	          )}
-	        </Form.Item>
-	        <Form.Item>
-	          {getFieldDecorator('password', {
-	            rules: [{ pattern: /^\w{3,6}$/, message: '密码三到六位' }],
-	          })(
-	            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="密码" />
-	          )}
-	        </Form.Item>
-	        <Form.Item>
-	          <Button 
-            type="primary" 
-            onClick={this.handleSubmit} 
-            className="login-form-button"
-            loading={this.props.isFetching}
-             >
-	            登录 GG
-	          </Button>
-	        </Form.Item>
-	      </Form>
-     	</div>
+    	<div className="Login">
+			<Form className="login-form">
+			<Form.Item>
+			  {getFieldDecorator('username', {
+			    rules: [{ required: true, message: '请输入用户名!' },{ pattern: /^[a-z0-9_]{3,6}$/, message: '用户名为3到6位的字母,数字或者下划线!' }],
+			  })(
+			    <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="用户名" />
+			  )}
+			</Form.Item>
+			<Form.Item>
+			  {getFieldDecorator('password', {
+			    rules: [{ required: true, message: '请输入密码!' },,{ pattern: /^\w{3,6}$/, message: '密码为3到6位的字符!' }],
+			  })(
+			    <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="密码" />
+			  )}
+			</Form.Item>
+			<Form.Item>
+			  <Button 
+			  	type="primary" 
+			  	onClick={this.handleSubmit} 
+			  	className="login-form-button"
+			  	loading={this.props.isFetching}
+			  >
+			    登录
+			  </Button>
+			</Form.Item>
+			</Form>
+		</div>
     );
   }
 }
@@ -105,29 +81,27 @@ const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(NormalLogin
 //5.因此state里面有每一个组件自己的数据
 //6.该方法返回一个对象,这个对象的属性会映射到connect方法返回的方法指定的UI组件上的this.props上
 const mapStateToProps = (state)=>{
-  return {
-    isFetching:state.get('login').get('isFetching')
-  }
+	return {
+		isFetching:state.get('login').get('isFetching')
+	}
 }
-
 
 //1.这个方法是connect的第二个参数
 //2.connect方法会把store上的dispatch方法作为参数传递到这个方法
 //3.该方法返回一个对象,这个对象的属性会映射到connect方法返回的方法指定的UI组件上的this.props上
 //4.返回对象的属性对应的值是一个方法
 const mapDispatchToProps = (dispatch)=>{
-   return {
-   handleLogin:(values)=>{ 
+	return {
+    handleLogin:(values)=>{
       //1.派发登录的action
       //2.其实这个登录的action是一个能够发送ajax请求的函数
       //3.dispatch能够派发函数是因为引用了redux-thunk
       //4.使用redux-thunk派发一个函数action的时候,会把dispatch方法自身传递到该函数action中
-        const action = actionCreator.getLoginAction(values);
-        dispatch(action)
-      }
+      const action = actionCreator.getLoginAction(values);
+      dispatch(action)
     }
+	}
 }
-
 //1.connect方法第一个参数指定映射数据的方法
 //2.connect方法第一个参数指定映射方法的方法
 //3.connect方法返回一个方法,这个方法用来指定UI组件,这个方法会返回一个容器组件

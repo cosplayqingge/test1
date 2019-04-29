@@ -1,10 +1,11 @@
-
-//第二页
-
-
+/*
+* @Author: TomChen
+* @Date:   2019-04-09 19:29:30
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-04-22 18:55:54
+*/
 
 import React,{ Component,Fragment } from 'react'
-
 import { BrowserRouter as Router, Route,Redirect,Switch } from "react-router-dom";
 
 //引入Login组件
@@ -20,11 +21,12 @@ import { getUserName } from 'util'
 
 import './App.css'
 
-class App extends Component{	
+
+class App extends Component{
+
 	render(){
-		//自定义路由
 		const ProtectRoute = ({component:Component,...rest})=>(
-			<Route
+			<Route 
 				{...rest}
 				render={(props)=>{
 					return getUserName()
@@ -38,20 +40,21 @@ class App extends Component{
 			? <Redirect to="/" />
 			: <Component {...rest} />
 		}
-		
+
+
 		return( 
-			<Router>
-				<div className="App">	
-					<Switch>				
-						<ProtectRoute  exact path="/" component={Home} />
-						 <ProtectRoute path="/user" component={User} />
-						 <ProtectRoute path="/category" component={Category} />
-						 <ProtectRoute path="/product" component={Product} />
+			<Router forceRefresh={true}>
+				<div className="App">
+					<Switch>
+						<ProtectRoute exact path="/" component={Home} />
+						<ProtectRoute path="/user" component={User} />
+						<ProtectRoute path="/category" component={Category} />
+						<ProtectRoute path="/product" component={Product} />
 						{
 							//当匹配到路由"/login"后,渲染Login组件
 						}
-						 <LoginRoute  path="/login" component={Login} />
-						 <Route component={Err} />
+						<LoginRoute path="/login" component={Login} />						
+						<Route component={Err} />
 					</Switch>
 				</div>
 			</Router>
