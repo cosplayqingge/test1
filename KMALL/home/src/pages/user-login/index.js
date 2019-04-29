@@ -48,7 +48,7 @@ var page = {
 		if(validateResult.status){//验证通过
 			formErr.hide()
 			_user.login(formData,function(){
-				_util.goHome()
+				window.location.href = _util.getParamFromUrl('redirect') || "/"
 			},function(msg){
 				formErr.show(msg)
 			})

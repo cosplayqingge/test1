@@ -38,6 +38,13 @@ var _user = {
 			error:error			
 		})		
 	},
+	getUserInfo:function(success,error){
+		_util.request({
+			url:'/user/userInfo',
+			success:success,
+			error:error			
+		})		
+	},
 	checkUsername:function(username,success,error){
 		_util.request({
 			url:'/user/checkUsername',
@@ -47,7 +54,17 @@ var _user = {
 			success:success,
 			error:error			
 		})		
-	}
+	},
+	updatePassword:function(data,success,error){
+		_util.request({
+			method:'put',
+			url:'/user/updatePassword',
+			data:data,
+			success:success,
+			error:error
+		})
+
+	},
 }
 
 module.exports = _user;

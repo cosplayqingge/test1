@@ -34,6 +34,7 @@ module.exports = {
 		'user-login':'./src/pages/user-login/index.js',	
 		'user-register':'./src/pages/user-register/index.js',
 		'user-center':'./src/pages/user-center/index.js',
+		'user-update-password':'./src/pages/user-update-password/index.js',
 		'result':'./src/pages/result/index.js',	
 	},
 	//单入口写法二
@@ -109,7 +110,8 @@ module.exports = {
 	    new htmlWebpackPlugin(getHtmlConfig('user-login','用户登录')),
 	    new htmlWebpackPlugin(getHtmlConfig('user-register','用户注册')),
 	    new htmlWebpackPlugin(getHtmlConfig('result','结果提示页面')),
-	     new htmlWebpackPlugin(getHtmlConfig('user-center','用户中心')),	    
+	    new htmlWebpackPlugin(getHtmlConfig('user-update-password','修改密码')),
+	    new htmlWebpackPlugin(getHtmlConfig('user-center','用户中心')),	    
 	    new CleanWebpackPlugin(),
 	    new MiniCssExtractPlugin({
 	    	filename:'css/[name].css'
