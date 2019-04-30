@@ -39,6 +39,7 @@ var page = {
 					return;
 				}
 				$this.addClass('active')
+				//siblings找兄弟元素
 				.siblings('.sort-item').removeClass('active');
 
 				_this.listParam.orderBy = 'default';
@@ -47,8 +48,7 @@ var page = {
 			else if($this.hasClass('price')){
 				$this.addClass('active')
 				.siblings('.sort-item').removeClass('active');
-				if($this.hasClass('asc')){
-					
+				if($this.hasClass('asc')){	
 					$this.addClass('desc')
 					.removeClass('asc');
 					_this.listParam.orderBy = 'price_desc';
@@ -67,31 +67,25 @@ var page = {
 		var _this = this;
 		this.listParam.keyword ? (delete this.listParam.categoryId) : (delete this.listParam.keyword)
 		_product.getProductList(this.listParam,function(result){
+			if(result.list.length > 0){
 				result.list.forEach(function(product){
 					product.image = product.images.split(',')[0]
 				})
-					var html = _util.render(tpl,{
-						list:result.list
-				})
-					$('.product-list-box').html(html)
-			// if(result.list.length > 0){
-			// 	result.list.forEach(function(product){
-			// 		product.image = product.images.split(',')[0]
-			// 	})
 
-			// 	var html = _util.render(tpl,{
-			// 		list:result.list
-			// 	})
-			// 	$('.product-list-box').html(html)
-			// 	//调用分页组件
-			// 	_this.$pagination .pagination('render',{
-			// 		current:result.current,
-			// 		total:result.total,
-			// 		pageSize:result.pageSize
-			// 	})
-			// }else{
-			// 	$('.product-list-box').html('<p class="empty-msg">你找的商品去火星啦！！！</p>')
-			// }
+				var html = _util.render(tpl,{
+					list:result.list
+				})
+				$('.product-list-box').html(html)
+			
+				//调用分页组件
+				_this.$pagination .pagination('render',{
+					current:result.current,
+					total:result.total,
+					pageSize:result.pageSize
+				})
+			}else{
+				$('.product-list-box').html('<p class="empty-msg">你找的商品去火星啦！！！</p>')
+			}
 
 		},function(msg){
 			_util.showErrorMsg(msg)

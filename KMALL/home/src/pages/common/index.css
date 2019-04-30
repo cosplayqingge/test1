@@ -126,3 +126,10 @@ body{
 	color: #888;
 	font-size: 14px;
 }	
+.empty-msg{
+	height: 300px;
+	text-align: center;
+	font-size: 50px;
+	font-weight: 600;
+	margin-top: 100px;
+}
