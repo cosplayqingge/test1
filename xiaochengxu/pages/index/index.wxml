@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+      <image class="userinfo-avatar" src="../../img/pkq.jpg"></image>
+      <text class="userinfo-nickname">qingge</text>
+  </view>
+  <view class="usermotto" bindtap='tapMotto'>
+    <text class="user-motto" style='color:red'>点击开始</text>
+  </view>
+</view>

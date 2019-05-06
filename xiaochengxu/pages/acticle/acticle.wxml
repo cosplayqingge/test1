@@ -1,0 +1,13 @@
+<view class='container'>
+  <swiper indicator-dots='true' indicator-color='#f67' indicator-active-color='#f21' autoplay='true'>
+    <swiper-item>
+      <image src='../../img/t1.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+    <image src='../../img/t2.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='../../img/xg.jpg'></image>
+    </swiper-item>
+  </swiper>
+</view>
