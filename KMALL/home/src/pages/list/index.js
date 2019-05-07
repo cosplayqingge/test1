@@ -15,6 +15,7 @@ var page = {
 		page:_util.getParamFromUrl('page') || 1,
 	},
 	init:function(){
+		this.$elem = $('.product-list-box');
 		this.initPagination();
 		this.loadProductList();
 		this.bindEvent();
@@ -75,7 +76,7 @@ var page = {
 				var html = _util.render(tpl,{
 					list:result.list
 				})
-				$('.product-list-box').html(html)
+				_this.$elem.html(html)
 			
 				//调用分页组件
 				_this.$pagination .pagination('render',{
@@ -84,7 +85,7 @@ var page = {
 					pageSize:result.pageSize
 				})
 			}else{
-				$('.product-list-box').html('<p class="empty-msg">你找的商品去火星啦！！！</p>')
+				_this.$elem.html('<p class="empty-msg">你找的商品去火星啦！！！</p>')
 			}
 
 		},function(msg){
