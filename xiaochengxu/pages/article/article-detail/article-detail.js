@@ -1,3 +1,4 @@
+var { articles } = require('../../../data/db.js')
 Page({
 
   /**
@@ -12,9 +13,44 @@ Page({
    */
   onLoad: function (options) {
     var articleId = options.articleId;
-    console.log(articleId)
-  },
+    var article = articles[articleId]
+    // console.log(article)
+    /*处理收藏状态*/
+    var articles_collection = wx.getStorageSync('articles_collection');
+    var isCollected = false;
+    if (!articles_collection){
+      console.log('111')
+      /**
+       * "0":false
+       * "1":true
+       */
+      var data = {
 
+      }
+      data[articleId] = false;
+      wx.setStorageSync('articles_collection', data)
+    }else{
+      console.log('22')
+      isCollected = articles_collection[articleId]
+    }
+    this.setData({ ...article,isCollected:isCollected})
+  },
+  tapCollect:function(){
+     /*
+    wx.setStorageSync('key1',123)
+    wx.setStorageSync('key2', 'hello');
+    wx.setStorageSync('key3', {
+      name:'tom'
+    })
+    wx.setStorageSync('key1', 555)
+    console.log(wx.getStorageSync('key1'))
+    console.log(wx.getStorageSync('key2'))
+    console.log(wx.getStorageSync('key3'))
+
+    wx.removeStorageSync('key1')
+    wx.clearStorageSync();
+    */
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

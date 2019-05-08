@@ -122,7 +122,7 @@ Page({
   tapArticleItem: function (ev){
     var articleId = ev.currentTarget.dataset.articleId
     wx.navigateTo({
-        url: './acticle-detail/acticle-detail?articleId=' +articleId,
+      url: './article-detail/article-detail?articleId=' +articleId,
     })
   }
 

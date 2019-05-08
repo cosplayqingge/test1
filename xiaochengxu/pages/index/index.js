@@ -8,7 +8,7 @@ Page({
       url: '../acticle/acticle',
     })*/
     wx.redirectTo({
-      url: '/pages/acticle/acticle',
+      url: '/pages/article/article',
     })
   },
   /*
