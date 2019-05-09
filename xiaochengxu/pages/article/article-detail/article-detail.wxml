@@ -1,7 +1,7 @@
 <view class='container article-detail'>
   <view class='focus'>
     <image class='focus-bg' src='{{ img }}'></image>
-    <image class='focus-music' src='/img/222.jpg'></image>
+    <image bindtap='tapMusic' class='focus-music' src='{{isPlaying ? "/img/222.jpg" : "/img/333.jpg"}}'></image>
   </view>
   <view class='head'>
     <image class='avatar' src='{{avatar}}'></image>
@@ -13,7 +13,7 @@
   <view class='operation'>
     <image wx:if ="{{isCollected}}"  bindtap='tapCollect'   class='operation-collection' src='/img/666.jpg'></image>
     <image wx:else="{{isCollected}}" bindtap='tapCollect' class='operation-collection' src='/img/555.jpg'></image>
-    <image class='operation-share' src='/img/111.jpg'></image>
+    <image bindtap='tapShare' class='operation-share' src='/img/111.jpg'></image>
     <view class='operation-line'></view>    
   </view>
   <text class='content'>{{content}}</text>

@@ -4,12 +4,19 @@ const app = getApp()
 
 Page({
   tapMotto:function(){
+    //通过tabBar设置后
+    wx.switchTab({
+      url: '/pages/article/article',
+    })
+
     /*wx.navigateTo({
       url: '../acticle/acticle',
     })*/
+    /*
     wx.redirectTo({
       url: '/pages/article/article',
     })
+    */
   },
   /*
   tapText:function(){

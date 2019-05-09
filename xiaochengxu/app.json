@@ -1,20 +1,35 @@
 {
   "pages": [
-    
-    "pages/article/article","pages/article/article-detail/article-detail",
-    "pages/index/index"
-    
-    
-    
-   
-    
-    
-   
-    
+    "pages/movie/movie",
+    "pages/movie/movie-more/movie-more",
+    "pages/article/article",
+    "pages/index/index",
+    "pages/article/article-detail/article-detail"
     
   ],
   "window": {
     "navigationBarBackgroundColor": "#000",
     "enablePullDownRefresh": true
-  }
+  },
+  "tabBar": {
+    "color": "#111",
+    "selectedColor": "blue",
+    "borderStyle": "white",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/article/article",
+        "text": "文章",
+        "iconPath": "/img/201.jpg",
+        "selectedIconPath": "/img/222.jpg"
+      },
+      {
+        "pagePath": "pages/movie/movie",
+        "text": "电影",
+        "iconPath": "/img/101.jpg",
+        "selectedIconPath": "/img/111.jpg"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }
