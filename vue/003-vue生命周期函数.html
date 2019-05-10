@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-vue实例-生命周期.html</title>
+</head>
+<body>
+	<div id="app">
+		<p ref="p">{{ message }}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	let vm = new Vue({
+		el: '#app',
+		data: {
+			message: 'Hello Vue!'
+		},
+		beforeCreate(){//创建前
+			console.log('beforeCreate')
+			//console.log(this);//为vue 的当前实例
+			console.log('this.message',this.message)
+			console.log('this.$el',this.$el)
+			console.log('this.$refs.p',this.$refs.p)
+		},
+		created(){//创建
+			console.log('created')
+			console.log('this.message1',this.message)
+			console.log('this.$el1',this.$el)
+			console.log('this.$refs.p1',this.$refs.p)
+		},
+		beforeMount(){//挂载前
+			console.log('beforeMount')
+			console.log('this.message2',this.message)
+			console.log('this.$el2',this.$el)
+			console.log('this.$refs.p2',this.$refs.p)
+		},
+		mounted(){//挂载
+			console.log('mounted')
+			console.log('this.message3',this.message)
+			console.log('this.$el3',this.$el)
+			console.log('this.$refs.p3',this.$refs.p)
+		},
+		beforeUpdate(){//更新前
+			console.log('beforeUpdate')
+		},
+		updated(){//更新
+			console.log('updated')
+		},
+		beforeDestroy(){//销毁前
+			console.log('beforeDestroy')
+		},
+		destroyed(){//销毁
+			console.log('destroyed')
+		}
+	})
+</script>
+</html>
