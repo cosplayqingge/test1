@@ -21,6 +21,10 @@
 		<p>我是段落</p>
 		<p style="background-color: red;color: yellow">style="background-color: red;color: yellow"</p>
 		<p :style="{backgroundColor:'red',color:'yellow'}">style="background-color: red;color: yellow"</p>
+		<p :style="{backgroundColor:bg,color:color}">style="background-color: yellow;color: red"</p>
+		<p :style="styleObj">:style="styleObj"</p>
+		<p :style="[styleObj2,styleObj]">:style="styleObj2"</p>
+		<p :style="styleArr"> styleArr:</p>
 	</div>
 </body>
 <script src="js/vue.js"></script>
@@ -28,7 +32,24 @@
 	let vm = new Vue({
 		el:'#app',
 		data:{
-			
+			bg:'yellow',
+			color:'red',
+			styleObj:{
+				backgroundColor:'blue',
+				color:'pink'
+			},
+			styleObj2:{
+				fontSize:'36px'
+			},
+			styleArr:[
+				{
+					backgroundColor:'blue',
+					color:'pink'
+				},
+				{
+					fontSize:'36px'	
+				}
+			]
 		}
 	});
 </script>
