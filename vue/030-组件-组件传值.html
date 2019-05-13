@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>030-组件-组件传值.html</title>
+	
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li>吃饭</li>
+			<!--
+			<todo-item task="众生"></todo-item>
+			<todo-item task="情歌"></todo-item>
+			-->
+			<todo-item 
+				v-for="(item,index) in items"
+				:task="item.task"
+				:id="item.id"
+				:key="item.id"
+				>
+					
+				</todo-item>
+			<!--index 为数组的下标  拿到的不是原本的值 所以要用bind-->
+		</ul>
+	</div>
+	
+	
+</body> 
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('todo-item',{
+		/*
+		data(){
+			return {
+				task:'睡觉'
+			}
+		},
+		*/
+		// props:['task'],
+		props:{
+			task:String,
+			id:Number
+		},
+		template: '<li>{{id}}.{{task}}</li>'
+	});
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			items:[
+				{
+					id:1,
+					task:'凡俗'
+				},
+				{
+					id:2,
+					task:'覆水'
+				}
+			]
+		},
+	});
+</script>
+</html>
