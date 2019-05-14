@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>038-保存动态组件的状态.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			width: 80px;
+			height: 40px;
+			margin-right: 10px;
+			text-align: center;
+		}
+		.tab-articles-wrap{
+			display: flex;
+			flex-direction: row;
+		}
+		.tab-articles-wrap li{
+			list-style: none;
+			line-height: 100px;
+			text-align: center;
+		}
+		.active{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button 
+			@click="currentTab=tab"
+			v-for = "tab in tabs"
+			>
+			{{tab}}
+		</button>
+		<keep-alive>
+			<component :is="currentTabComponent"></component>
+		</keep-alive>
+	</div>
+	<template id="tab-home">
+		<div>
+			home pages
+		</div>
+	</template>
+	<template id="tab-articles">
+		<div class="tab-articles-wrap">
+			<ul class="sider">
+				<li 
+					v-for="article in articles"
+					@click="selectedArticle = article"
+					:class="{active:selectedArticle == article}"
+				>
+					{{article.id}}
+					{{article.title}}
+				</li>
+			</ul>
+			<div class="content">
+				<div v-if="selectedArticle">
+					{{selectedArticle.content}}
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('tab-home',{
+		template:'#tab-home'
+	})
+	Vue.component('tab-articles',{
+		template:'#tab-articles',
+		data(){
+			return {
+				articles:[
+					{
+						id:1,
+						title:"vue的基本介绍",
+						content:'vue 是一个视图层的框架'
+					},
+					{
+						id:2,
+						title:"react的基本介绍",
+						content:'react 是一个视图层的框架'
+					},
+
+				],
+				selectedArticle:null
+			}
+		}
+	})
+	let app = new Vue({
+		el: '#app',
+		data: {
+			currentTab:'home',
+			tabs:['home','articles']
+		},
+		computed:{
+			currentTabComponent(){
+				return 'tab-' + this.currentTab
+			}
+		}
+	})
+</script>
+</html>
