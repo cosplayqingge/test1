@@ -7,11 +7,24 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>msshoop</title>
   </head>
-  <body>
+<body>
     <noscript>
       <strong>We're sorry but project-org doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
-  </body>
+</body>
+<script>
+(function(win, doc) {
+    var oRoot = doc.getElementsByTagName('html')[0];
+
+    function calcFs() {
+        var clientWidth = doc.documentElement.clientWidth || doc.body.clientWidth;
+        var fontSize = clientWidth / 10;
+        oRoot.style.fontSize = fontSize + 'px';
+    }
+    win.addEventListener('resize', calcFs, false);
+    doc.addEventListener('DOMContentLoaded', calcFs, false);
+})(window, document);
+</script>
 </html>

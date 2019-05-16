@@ -2,35 +2,29 @@
 	<div class="TabBar">
 		<ul class="tab-bar-wrap">
 			<li class="tab-bar-item">
-				<router-link clas
-				tab-bar-link to="/home"
-				:class="{active:$route.path.includes('/home')}">
+				<router-link class="tab-bar-link active" to="/home" :class="{active:$route.path.includes('/home')}">
 					<i class="fa fa-home"></i>
 					<span>首页</span>
 				</router-link>
 			</li>
 			<li class="tab-bar-item">
-				<router-link clas
-				tab-bar-link to="/cart"
-				:class="{active:$route.path.includes('/cart')}">
-					<i class="fa fa-star"></i>
+				<router-link class="tab-bar-link" to="/cart" :class="{active:$route.path.includes('/cart')}">
+					<i class="fa fa-shopping-cart"></i>
 					<span>购物车</span>
 				</router-link>
 			</li>
 			<li class="tab-bar-item">
-				<router-link clas
-				tab-bar-link to="/me"
-				:class="{active:$route.path.includes('/me')}">
+				<router-link class="tab-bar-link" to="/me" :class="{active:$route.path.includes('/me')}">
 					<i class="fa fa-user"></i>
 					<span>个人中心</span>
 				</router-link>
-			</li>
+			</li>						
 		</ul>
 	</div>
 </template>
 <script>
-	export default{
-		name:"TabBar"
+	export default {
+		name:"TabBar",
 	}
 </script>
 <style scoped lang="less">
@@ -58,5 +52,4 @@
 			}
 		}
 	}
-</style>
 </style>

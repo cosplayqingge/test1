@@ -2,7 +2,7 @@
 <template>
 	<div class="App" id='app'>
 		<router-view></router-view>
-		<TabBar></TabBar>
+		<TabBar />
 	</div>
 </template>
 <!--2.逻辑-->
@@ -11,12 +11,14 @@
 	import TabBar from './components/TabBar/TabBar'
 	export default {
 		name:'App',
-			components:{
-				TabBar
-			}
+		components:{
+			TabBar
 		}
+	}
 </script>
 <!--3.样式-->
-<style>
-	
+<style lang="less">
+	#app{
+		.rem(padding-bottom,60)
+	}
 </style>
